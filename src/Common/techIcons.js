@@ -3,6 +3,14 @@ const techLogos = {
       label: 'React',
       logo: '/Assets/icons/react.svg',
    },
+   html: {
+      label: 'HTML',
+      logo: '/Assets/icons/html.svg',
+   },
+   css: {
+      label: 'CSS',
+      logo: '/Assets/icons/css.svg',
+   },
    bootstrap: {
       label: 'Bootstrap',
       logo: '/Assets/icons/bootstrap.svg',

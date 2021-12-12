@@ -1,29 +1,51 @@
 import React from 'react';
-import { HomeSectionContainer, Handwave } from './HomeSectionElements';
+import {
+   HomeSectionContainer,
+   HomeSectionTypography,
+   HomeSectionThumbnail,
+   Handwave,
+} from './HomeSectionElements';
 import handwavesign from './waving-hand-sign.svg';
+import { ReactComponent as AppDevelopment } from './appDevelopment.svg';
 
 const index = () => {
    return (
       <HomeSectionContainer>
-         <div className="typography">
-            <h1>
-               Hi There!{' '}
-               <Handwave
-                  role="img"
-                  aria-labelledby="handwave"
-                  src={handwavesign}
-                  alt="handwave"
-               ></Handwave>
-            </h1>
-            <h1>
-               Hi, I'm <span>Amandeep Singh</span>
-            </h1>
-            <p>
-               {' '}
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-               nihil voluptates ea dolore vel repellat? Quia tenetur non quam
-               exercitationem. Lorem ipsum dolor sit a
-            </p>
+         <div className="homeSection-wrapper">
+            <HomeSectionTypography>
+               <h1>
+                  Hi There!{' '}
+                  <Handwave
+                     role="img"
+                     aria-labelledby="handwave"
+                     src={handwavesign}
+                     alt="handwave"
+                  ></Handwave>
+               </h1>
+               <h4>
+                  I'm <span> &lt; Amandeep Singh /&gt;</span> and I'm a
+                  FullStack developer!
+               </h4>
+
+               <p>
+                  {' '}
+                  I’m a software engineer specializing in developing and
+                  designing exceptional and beautiful web applications. I also
+                  write articles about web on{' '}
+                  <span>
+                     <a
+                        href="http://codersleague.herokuapp.com/signup"
+                        rel="noreferrer"
+                     >
+                        Coders League.
+                     </a>
+                  </span>
+               </p>
+            </HomeSectionTypography>
+
+            <HomeSectionThumbnail>
+               <AppDevelopment />
+            </HomeSectionThumbnail>
          </div>
       </HomeSectionContainer>
    );

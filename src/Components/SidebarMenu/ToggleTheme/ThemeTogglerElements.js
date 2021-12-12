@@ -33,7 +33,7 @@ export const TogglerLabel = styled.label`
    &::after {
       position: absolute;
       left: -0.6rem;
-      top: -0.22rem;
+      top: -0.26rem;
       display: block;
       width: 2.3rem;
       height: 2.3rem;

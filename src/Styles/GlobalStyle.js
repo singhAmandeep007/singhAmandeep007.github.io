@@ -72,8 +72,7 @@ export const GlobalStyle = createGlobalStyle`
       color: var(--color-font);
 
       font-family: var(--font-primary);
-      font-weight: 400;
-      line-height: 1.6;
+
 
       transition: all .3s ease-in-out;
    }

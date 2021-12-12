@@ -42,83 +42,7 @@ const particlesConfig = {
       },
       shape: {
          type: ['image'],
-         image: [
-            {
-               src: techLogos.bootstrap.logo,
-               height: 10,
-               width: 10,
-            },
-            {
-               src: techLogos.github.logo,
-               height: 10,
-               width: 10,
-            },
-            {
-               src: techLogos.d3.logo,
-               height: 10,
-               width: 10,
-            },
-            {
-               src: techLogos.mongodb.logo,
-               height: 10,
-               width: 10,
-            },
-            {
-               src: techLogos.materialui.logo,
-               height: 10,
-               width: 10,
-            },
-            {
-               src: techLogos.typescript.logo,
-               height: 10,
-               width: 10,
-            },
-            {
-               src: techLogos.javascript.logo,
-               height: 10,
-               width: 10,
-            },
-            {
-               src: techLogos.redux.logo,
-               height: 10,
-               width: 10,
-            },
-            {
-               src: techLogos.react.logo,
-               height: 10,
-               width: 10,
-            },
-            {
-               src: techLogos.vue.logo,
-               height: 10,
-               width: 10,
-            },
-            {
-               src: techLogos.styledComponents.logo,
-               height: 10,
-               width: 10,
-            },
-            {
-               src: techLogos.socketio.logo,
-               height: 10,
-               width: 10,
-            },
-            {
-               src: techLogos.sass.logo,
-               height: 10,
-               width: 10,
-            },
-            {
-               src: techLogos.semanticui.logo,
-               height: 10,
-               width: 10,
-            },
-            {
-               src: techLogos.nodejs.logo,
-               height: 10,
-               width: 10,
-            },
-         ],
+         image: [],
          polygon: { nb_sides: 5 },
       },
       size: {
@@ -128,5 +52,14 @@ const particlesConfig = {
 
    retina_detect: true,
 };
+
+// push logos
+for (let item in techLogos) {
+   particlesConfig.particles.shape.image.push({
+      src: techLogos[item]['logo'],
+      height: 10,
+      width: 10,
+   });
+}
 
 export default particlesConfig;
