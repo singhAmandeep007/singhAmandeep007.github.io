@@ -19,6 +19,10 @@ export const SidebarContainer = styled.nav`
    transition: transform 0.3s ease-in-out;
 
    border-right: 5px solid var(--color-primary);
+
+   @media (max-width: ${({ theme }) => theme.bpMedium}) {
+      width: 50%;
+   }
 `;
 
 export const SidebarLinkContainer = styled.div`
@@ -44,18 +48,27 @@ export const SidebarLink = styled(NavLink)`
    &.active {
       color: var(--color-primary);
    }
+
+   @media (max-width: ${({ theme }) => theme.bpMedium}) {
+      font-size: 1.8rem;
+   }
 `;
 
 export const SidebarAvatar = styled.div`
    text-align: center;
-   padding: 1rem 0 0 0;
    img {
-      width: 15rem;
-      height: 15rem;
+      margin: 0 1rem;
+      width: 20rem;
+      height: 20rem;
       border-radius: 50%;
       border: 5px solid var(--color-primary);
       object-fit: cover;
       object-position: 0%;
+
+      @media (max-width: ${({ theme }) => theme.bpXXXSmall}) {
+         width: 10rem;
+         height: 10rem;
+      }
    }
 `;
 
@@ -64,6 +77,7 @@ export const SidebarSocial = styled.div`
    justify-content: center;
 
    font-size: 2.5rem;
+   padding: 1rem;
 
    a {
       margin-left: -0.5rem;
