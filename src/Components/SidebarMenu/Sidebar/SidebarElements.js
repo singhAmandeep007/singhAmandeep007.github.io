@@ -17,7 +17,7 @@ export const SidebarContainer = styled.nav`
    top: 0;
    left: 0;
    transition: transform 0.3s ease-in-out;
-
+   overflow-x: hidden;
    border-right: 5px solid var(--color-primary);
 
    @media (max-width: ${({ theme }) => theme.bpMedium}) {
@@ -34,18 +34,34 @@ export const SidebarLinkContainer = styled.div`
 `;
 
 export const SidebarLink = styled(NavLink)`
-   font-size: 1.4rem;
+   font-size: 1.5rem;
    padding: 0.5rem 0;
    font-weight: bold;
    color: var(--color-font);
    text-decoration: none;
    cursor: pointer;
-   transition: color 0.2s linear;
+
+   overflow: hidden;
+
+   background: linear-gradient(
+      to right,
+      var(--color-primary),
+      var(--color-primary) 50%,
+      var(--color-font) 50%
+   );
+   background-clip: text;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-size: 200% 100%;
+   background-position: 100%;
+   transition: background-position 400ms ease-out;
 
    &:hover {
-      color: var(--color-primary);
+      /* color: var(--color-primary); */
+      background-position: 0 100%;
    }
    &.active {
+      background-position: 0 100%;
       color: var(--color-primary);
    }
 
@@ -55,20 +71,43 @@ export const SidebarLink = styled(NavLink)`
 `;
 
 export const SidebarAvatar = styled.div`
-   text-align: center;
+   padding: 0 0.5rem;
+   position: relative;
+   filter: drop-shadow(0px 0px 30px var(--color-primary));
    img {
-      margin: 0 1rem;
-      width: 20rem;
-      height: 20rem;
-      border-radius: 50%;
-      border: 5px solid var(--color-primary);
-      object-fit: cover;
-      object-position: 0%;
-
-      @media (max-width: ${({ theme }) => theme.bpXXXSmall}) {
-         width: 10rem;
-         height: 10rem;
+      width: 100%;
+      height: auto;
+      transform: scale(1.1);
+      /* object-fit: cover;
+      object-position: 0%; */
+      border-radius: 10%;
+      @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+         -webkit-clip-path: circle(40% at 50% 50%);
+         clip-path: circle(40% at 50% 50%);
+         border-radius: none;
       }
+   }
+   figcaption {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      //  keep it down initially
+      transform: translate(-50%, 50%);
+      color: #fff;
+      font-size: 1rem;
+      text-align: center;
+      opacity: 0;
+      transition: all 0.2s;
+      backface-visibility: hidden;
+   }
+
+   &:hover img {
+      filter: blur(3px) brightness(70%);
+      transform: scale(1);
+   }
+   &:hover figcaption {
+      opacity: 1;
+      transform: translate(-50%, -50%);
    }
 `;
 
@@ -93,7 +132,7 @@ export const SidebarSocial = styled.div`
 
       &:hover {
          svg {
-            transform: translateY(-50%);
+            transform: translateY(-20%);
             color: var(--color-primary);
          }
       }

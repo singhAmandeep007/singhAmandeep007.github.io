@@ -35,29 +35,28 @@ function App() {
          setTheme('light-theme');
          setIsChecked(true);
       }
-
-      document.querySelector('.tsparticles-canvas-el').style.backgroundColor =
-         'var(--color-tsParticles)';
    };
 
    return (
-      <div className="App">
-         <ThemeProvider theme={stlyedTheme}>
-            <Router>
-               <Suspense fallback={<Loading />}>
-                  <SidebarMenu
-                     isSidebarOpen={isSidebarOpen}
-                     setIsSidebarOpen={setIsSidebarOpen}
-                     isChecked={isChecked}
-                     themeToggler={themeToggler}
-                     ref={sidebarNode}
-                  />
-                  <Routes />
-               </Suspense>
-            </Router>
-         </ThemeProvider>
+      <main>
+         <div className={`App ${isSidebarOpen ? 'blur' : ''}`}>
+            <ThemeProvider theme={stlyedTheme}>
+               <Router>
+                  <Suspense fallback={<Loading />}>
+                     <SidebarMenu
+                        isSidebarOpen={isSidebarOpen}
+                        setIsSidebarOpen={setIsSidebarOpen}
+                        isChecked={isChecked}
+                        themeToggler={themeToggler}
+                        ref={sidebarNode}
+                     />
+                     <Routes />
+                  </Suspense>
+               </Router>
+            </ThemeProvider>
+         </div>
          <ParticlesContainer />
-      </div>
+      </main>
    );
 }
 

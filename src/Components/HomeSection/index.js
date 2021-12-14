@@ -7,6 +7,7 @@ import {
 } from './HomeSectionElements';
 import handwavesign from './waving-hand-sign.svg';
 import { ReactComponent as AppDevelopment } from './appDevelopment.svg';
+import { BiLinkExternal } from 'react-icons/bi';
 
 const index = () => {
    return (
@@ -22,22 +23,31 @@ const index = () => {
                      alt="handwave"
                   ></Handwave>
                </h1>
-               <h4>
-                  I'm <span> &lt; Amandeep Singh /&gt;</span> and I'm a
-                  FullStack developer!
-               </h4>
+               <h2>
+                  I'm <span> &lt; Amandeep Singh /&gt;.</span>
+               </h2>
 
                <p>
                   {' '}
-                  I’m a software engineer specializing in developing and
-                  designing exceptional and beautiful web applications. I also
-                  write articles about web on{' '}
+                  I’m a fullstack developer specializing in developing and
+                  designing exceptional and beautiful web applications. My
+                  experience as a self taught developer allows me to come up
+                  with smart solutions to technical challenges. I also write
+                  articles about web on{' '}
                   <span>
                      <a
                         href="http://codersleague.herokuapp.com/signup"
                         rel="noreferrer"
                      >
-                        Coders League.
+                        Coders League.{' '}
+                        <BiLinkExternal
+                           size="1rem"
+                           title="link"
+                           style={{
+                              marginBottom: '0.5rem',
+                              marginLeft: '-0.5rem',
+                           }}
+                        />
                      </a>
                   </span>
                </p>

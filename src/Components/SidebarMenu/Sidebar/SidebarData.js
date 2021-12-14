@@ -26,9 +26,4 @@ export const SidebarData = [
       title: 'Articles',
       path: '/articles',
    },
-   {
-      id: uuidv4(),
-      title: 'Contact',
-      path: '/contact',
-   },
 ];

@@ -55,29 +55,35 @@ export const HomeSectionTypography = styled.div`
    padding: 1rem;
 
    h1 {
-      font-size: 4rem;
+      font-size: 2rem;
       margin-bottom: 2rem;
    }
-   h4 {
-      font-size: 3rem;
+   h2 {
+      font-size: 3.5rem;
       font-weight: normal;
       margin-bottom: 2.5rem;
       line-height: 1.4;
 
       span {
          color: var(--color-primary);
-         border-bottom: 2px solid var(--color-primary);
+         text-decoration: underline;
+         text-decoration-color: var(--color-primary);
       }
    }
 
    p {
       font-size: 1.6rem;
-      line-height: 1.4;
+      line-height: 1.6;
       span {
-         border-bottom: 2px solid var(--color-primary);
          a {
-            text-decoration: none;
+            text-decoration: underline;
+            text-decoration-color: var(--color-primary);
          }
+      }
+   }
+   @media (max-width: ${({ theme }) => theme.bpMedium}) {
+      h2 {
+         font-size: 3rem;
       }
    }
 `;
@@ -85,6 +91,7 @@ export const HomeSectionTypography = styled.div`
 export const HomeSectionThumbnail = styled.div`
    padding: 1rem;
    color: var(--color-primary);
+
    svg {
       max-width: 90%;
       max-height: 90%;

@@ -17,39 +17,40 @@ const Sidebar = ({ open, setOpen, ...props }) => {
    const tabIndex = isHidden ? 0 : -1;
 
    return (
-      <SidebarContainer $open={open} aria-hidden={!isHidden} {...props}>
+      <SidebarContainer $open={open} aria-hidden={isHidden} {...props}>
          <SidebarAvatar>
-            <img src={profilePic} alt="profilePic" />
-            <SidebarSocial>
-               <a
-                  href="mailto:amandeep.singh.fsd@gmail.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="mail"
-                  title="Send Mail"
-               >
-                  <RiMailLine />
-               </a>
-               <a
-                  href="https://github.com/amandeepmicro"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Github"
-                  title="Github Profile"
-               >
-                  <RiGithubFill />
-               </a>
-               <a
-                  href="https://www.linkedin.com/in/amandeep-singh-0803/"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="LinkedIn"
-                  title="LinkedIn Profile"
-               >
-                  <RiLinkedinFill />
-               </a>
-            </SidebarSocial>
+            <img src={profilePic} alt="profilePic" width="100%" height="100%" />
+            <figcaption>Amandeep Singh</figcaption>
          </SidebarAvatar>
+         <SidebarSocial>
+            <a
+               href="mailto:amandeep.singh.fsd@gmail.com"
+               target="_blank"
+               rel="noreferrer"
+               aria-label="mail"
+               title="Send Mail"
+            >
+               <RiMailLine />
+            </a>
+            <a
+               href="https://github.com/amandeepmicro"
+               target="_blank"
+               rel="noreferrer"
+               aria-label="Github"
+               title="Github Profile"
+            >
+               <RiGithubFill />
+            </a>
+            <a
+               href="https://www.linkedin.com/in/amandeep-singh-0803/"
+               target="_blank"
+               rel="noreferrer"
+               aria-label="LinkedIn"
+               title="LinkedIn Profile"
+            >
+               <RiLinkedinFill />
+            </a>
+         </SidebarSocial>
          <SidebarLinkContainer>
             {SidebarData.map(({ id, title, path }) => {
                return (

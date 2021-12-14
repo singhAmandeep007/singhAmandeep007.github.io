@@ -3,9 +3,18 @@ import breakPoints from './Breakpoints';
 
 export const GlobalStyle = createGlobalStyle`
 
+ /* reset */
+ 	*,
+   *::before,
+   *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+   }
+
    :root{
       --font-primary:'Josefin Sans', sans-serif;
-
+		--tsParticles-opacity:1;
    }
 
    .light-theme{
@@ -55,26 +64,24 @@ export const GlobalStyle = createGlobalStyle`
       --color-scrollbar-thump: #6b6b6b;
       --color-scrollbar-track: #383838;
    }
+	/* blur effect an particles and child elements */
+	.blur + #tsparticles{
+		--tsParticles-opacity:0.2;
+	}
+	.blur > *:not(aside){
+		filter: blur(3px);
+	}
+	
+	.tsparticles-canvas-el{
+		background-color: var(--color-tsParticles);
+		opacity: var(--tsParticles-opacity);
+	}
 
-   
-
-   /* reset */
-   *,
-   *::before,
-   *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: inherit;
-   }
-  /* reset */
    body{
       background-color: var(--color-background-1);
       color: var(--color-font);
 
       font-family: var(--font-primary);
-
-
-      transition: all .3s ease-in-out;
    }
 
    /* font size responsiveness */
@@ -116,7 +123,6 @@ export const GlobalStyle = createGlobalStyle`
       color: inherit;
       font-size: inherit;
    }
-   
    /* h1,h2,h3,h4,h5,h6,span,p{
       color: var(--color-font);
    } */
@@ -138,5 +144,5 @@ export const GlobalStyle = createGlobalStyle`
       border-radius: 10px;
       background-color:  var(--color-scrollbar-track);
    }
-   /* scrollbar */
+
 `;

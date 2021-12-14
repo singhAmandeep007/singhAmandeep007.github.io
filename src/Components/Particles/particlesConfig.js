@@ -1,32 +1,25 @@
-import techLogos from './../../Common/techIcons';
-
 const particlesConfig = {
    background: {
       position: '50% 50%',
       repeat: 'no-repeat',
       size: 'cover',
-      color: {
-         value: '#000',
-      },
+      // color: {
+      //    value: '#000',
+      // },
    },
    fullScreen: {
       enable: true,
       zIndex: -1,
    },
-   fps_limit: 60,
+   fps_limit: 30,
 
    particles: {
-      number: { density: { enable: true, value_area: 500 }, value: 25 },
+      number: { density: { enable: true, value_area: 750 }, value: 20 },
       line_linked: {
-         color: '#fff', //random
-         distance: 150,
-         enable: true,
-         opacity: 0.5,
-         width: 1,
+         enable: false,
       },
       move: {
-         attract: { enable: false, rotateX: 600, rotateY: 1200 },
-         bounce: false,
+         attract: { enable: false, rotateX: 500, rotateY: 1000 },
          direction: 'none',
          enable: true,
          out_mode: 'out',
@@ -36,30 +29,21 @@ const particlesConfig = {
       },
 
       opacity: {
-         anim: { enable: true, opacity_min: 0.1, speed: 1, sync: false },
+         anim: { enable: true, opacity_min: 0.05, speed: 0.5, sync: false },
          random: false,
-         value: 0.5,
+         value: 0.4,
       },
       shape: {
          type: ['image'],
          image: [],
-         polygon: { nb_sides: 5 },
+         // polygon: { nb_sides: 5 },
       },
       size: {
          value: 15,
       },
    },
 
-   retina_detect: true,
+   retina_detect: false,
 };
-
-// push logos
-for (let item in techLogos) {
-   particlesConfig.particles.shape.image.push({
-      src: techLogos[item]['logo'],
-      height: 10,
-      width: 10,
-   });
-}
 
 export default particlesConfig;
