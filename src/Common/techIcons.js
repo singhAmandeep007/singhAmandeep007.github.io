@@ -7,6 +7,10 @@ const techLogos = {
       label: 'HTML',
       logo: '/Assets/icons/html.svg',
    },
+   pwa: {
+      label: 'PWA',
+      logo: '/Assets/icons/pwa.svg',
+   },
    css: {
       label: 'CSS',
       logo: '/Assets/icons/css.svg',
