@@ -24,7 +24,7 @@ const index = () => {
                   ></Handwave>
                </h1>
                <h2>
-                  I'm <span> &lt; Amandeep Singh /&gt;.</span>
+                  I'm <span>&lt;Amandeep Singh /&gt;</span>
                </h2>
 
                <p>
@@ -41,7 +41,7 @@ const index = () => {
                      >
                         Coders League.{' '}
                         <BiLinkExternal
-                           size="1rem"
+                           size="10px"
                            title="link"
                            style={{
                               marginBottom: '0.5rem',

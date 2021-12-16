@@ -8,6 +8,12 @@ export const SidebarContainer = styled.nav`
    justify-content: center;
    align-items: center;
    background: var(--color-background-1);
+   background: linear-gradient(
+         155deg,
+         var(--color-primary-background) 20%,
+         var(--color-background) 80%
+      )
+      100% no-repeat;
 
    transform: ${({ $open }) => ($open ? 'translateX(0)' : 'translateX(-100%)')};
    height: 100vh;
@@ -73,7 +79,7 @@ export const SidebarLink = styled(NavLink)`
 export const SidebarAvatar = styled.div`
    padding: 0 0.5rem;
    position: relative;
-   filter: drop-shadow(0px 0px 30px var(--color-primary));
+   filter: drop-shadow(5px 7px 1px var(--color-background-dark));
    img {
       width: 100%;
       height: auto;

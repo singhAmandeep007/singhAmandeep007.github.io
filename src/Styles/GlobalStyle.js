@@ -13,8 +13,9 @@ export const GlobalStyle = createGlobalStyle`
    }
 
    :root{
-      --font-primary:'Josefin Sans', sans-serif;
+      --font-primary:'Montserrat', sans-serif;
 		--tsParticles-opacity:1;
+		--color-background-dark:rgba(50, 50, 50, 0.5)
    }
 
    .light-theme{
@@ -23,12 +24,15 @@ export const GlobalStyle = createGlobalStyle`
 		--color-secondary: RGB(247, 224, 24);
       --color-secondary-light: rgb(251, 238, 132);
 
-      --color-background-1: rgb(226, 226, 226);;
+		--color-primary-background: rgba(0, 189, 151,0.55);
+		--color-background:rgba(226, 226, 226,0.8);
+      --color-background-1: rgb(226, 226, 226);
       --color-background-light-1: rgb(255, 255, 255);
 
 		--color-font: rgb(0,0,0);
 
 		--color-tsParticles:#fff;
+
 		/*  */
       
 
@@ -47,12 +51,16 @@ export const GlobalStyle = createGlobalStyle`
       --color-secondary: rgb(0, 189, 151);
       --color-secondary-light: rgb(144, 239, 219);
 
+
+		--color-primary-background: rgba(247, 224, 24,0.55);
+		--color-background:rgba(50, 50, 50, 0.8);
       --color-background-1: rgb(50, 50, 50);
       --color-background--light-1: rgb(100, 100, 100);
 
 		--color-font: rgb(255, 255, 255);
 
 		--color-tsParticles:#000;
+
 		/*  */
 
       --color-font-light: #a4acc4;
