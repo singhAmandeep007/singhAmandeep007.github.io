@@ -15,14 +15,18 @@ export const GlobalStyle = createGlobalStyle`
    :root{
       --font-primary:'Montserrat', sans-serif;
 		--tsParticles-opacity:1;
-		--color-background-dark:rgba(50, 50, 50, 0.5)
+		--color-background-dark:rgba(50, 50, 50, 0.5);
+		--color-font-dark: #000;
    }
 
    .light-theme{
 		--color-primary: rgb(0, 189, 151);
       --color-primary-light: rgb(144, 239, 219);
-		--color-secondary: RGB(247, 224, 24);
+		--color-primary-light-2: rgb(156, 255, 235);
+
+		--color-secondary: rgb(247, 224, 24);
       --color-secondary-light: rgb(251, 238, 132);
+		--color-secondary-light-2: rgb(252, 242, 159);
 
 		--color-primary-background: rgba(0, 189, 151,0.55);
 		--color-background:rgba(226, 226, 226,0.8);
@@ -46,10 +50,13 @@ export const GlobalStyle = createGlobalStyle`
       --color-scrollbar-track: #383838;
    }
    .dark-theme{
-		--color-primary: RGB(247, 224, 24);
+		--color-primary: rgb(247, 224, 24);
       --color-primary-light: rgb(251, 238, 132);
+      --color-primary-light-2: rgb(252, 242, 159);
+
       --color-secondary: rgb(0, 189, 151);
       --color-secondary-light: rgb(144, 239, 219);
+		--color-secondary-light-2: rgb(156, 255, 235);
 
 
 		--color-primary-background: rgba(247, 224, 24,0.55);

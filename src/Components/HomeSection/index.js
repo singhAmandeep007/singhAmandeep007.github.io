@@ -1,12 +1,13 @@
 import React from 'react';
+import Resume from './Resume';
+
 import {
    HomeSectionContainer,
    HomeSectionTypography,
-   HomeSectionThumbnail,
+   HomeSectionResume,
    Handwave,
 } from './HomeSectionElements';
 import handwavesign from './waving-hand-sign.svg';
-import { ReactComponent as AppDevelopment } from './appDevelopment.svg';
 import { BiLinkExternal } from 'react-icons/bi';
 
 const index = () => {
@@ -52,9 +53,9 @@ const index = () => {
                   </span>
                </p>
             </HomeSectionTypography>
-            <HomeSectionThumbnail>
-               <AppDevelopment />
-            </HomeSectionThumbnail>
+            <HomeSectionResume>
+               <Resume />
+            </HomeSectionResume>
          </div>
       </HomeSectionContainer>
    );

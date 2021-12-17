@@ -88,13 +88,13 @@ export const HomeSectionTypography = styled.div`
    }
 `;
 
-export const HomeSectionThumbnail = styled.div`
+export const HomeSectionResume = styled.div`
    padding: 1rem;
-   color: var(--color-primary);
 
-   svg {
-      max-width: 90%;
-      max-height: 90%;
+   font-size: 0.7rem;
+
+   @media (max-width: ${({ theme }) => theme.bpMedium}) {
+      font-size: 1rem;
    }
 `;
 
