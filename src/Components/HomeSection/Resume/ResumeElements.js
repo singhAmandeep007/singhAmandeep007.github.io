@@ -1,4 +1,31 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const shake = keyframes`
+      0% {
+         transform: translate(0, 0);
+      }
+      1.7% {
+         transform: translate(10px, 0);
+      }
+      3.5% {
+         transform: translate(0, 0);
+      }
+      5.3% {
+         transform: translate(10px, 0);
+      }
+      7.1% {
+         transform: translate(0, 0);
+      }
+      8.9% {
+         transform: translate(10px, 0);
+      }
+      10.7% {
+         transform: translate(0, 0);
+      }
+      100% {
+         transform: translate(0, 0);
+      }
+`;
 
 export const ResumeContainer = styled.div`
    width: 30em;
@@ -9,6 +36,10 @@ export const ResumeContainer = styled.div`
    position: relative;
    transform-style: preserve-3d;
    pointer-events: none;
+
+   animation: ${shake} 1.12s ease;
+   animation-iteration-count: ${({ $isViewed }) =>
+      $isViewed ? '0' : 'infinite'};
 
    &::before {
       content: '';
@@ -89,6 +120,7 @@ export const ResumeContainer = styled.div`
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      -webkit-tap-highlight-color: transparent;
 
       span {
          position: absolute;
@@ -102,6 +134,7 @@ export const ResumeContainer = styled.div`
       }
 
       &:before {
+         pointer-events: none;
          content: '';
          position: absolute;
          top: -51%;
@@ -149,7 +182,7 @@ export const ResumeLetter = styled.div`
       justify-content: space-between;
       align-items: center;
    }
-   h3 {
+   h2 {
       margin-bottom: 1.5em;
    }
    hr {

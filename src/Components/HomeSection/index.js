@@ -1,5 +1,6 @@
 import React from 'react';
 import Resume from './Resume';
+import data from './HomeSectionData';
 
 import {
    HomeSectionContainer,
@@ -25,22 +26,15 @@ const index = () => {
                   ></Handwave>
                </h1>
                <h2>
-                  I'm <span>&lt;Amandeep Singh /&gt;</span>
+                  I'm <span>&lt;{data.devName} /&gt;</span>
                </h2>
 
                <p>
                   {' '}
-                  I’m a fullstack developer specializing in developing and
-                  designing exceptional and beautiful web applications. My
-                  experience as a self taught developer allows me to come up
-                  with smart solutions to technical challenges. I also write
-                  articles about web on{' '}
+                  {data.short_description}{' '}
                   <span>
-                     <a
-                        href="http://codersleague.herokuapp.com/signup"
-                        rel="noreferrer"
-                     >
-                        Coders League.{' '}
+                     <a href={data.links[0].href} rel="noreferrer">
+                        {data.links[0].title}.{' '}
                         <BiLinkExternal
                            size="10px"
                            title="link"
@@ -54,7 +48,11 @@ const index = () => {
                </p>
             </HomeSectionTypography>
             <HomeSectionResume>
-               <Resume />
+               <Resume
+                  devName={data.devName}
+                  devTitle={data.devTitle}
+                  devResumeDownloadLink={data.devResumeDownloadLink}
+               />
             </HomeSectionResume>
          </div>
       </HomeSectionContainer>

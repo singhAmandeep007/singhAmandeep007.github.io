@@ -2,20 +2,26 @@ import React, { useState } from 'react';
 import { ResumeContainer, ResumeLetter } from './ResumeElements';
 import { AiOutlineCloudDownload } from 'react-icons/ai';
 
-const Resume = () => {
+const Resume = ({ devName, devTitle, devResumeDownloadLink }) => {
    const [isOpen, setIsOpen] = useState(false);
-   const url =
-      'https://drive.google.com/uc?export=download&id=1Jaat1Itw2p0zDzaK8bfQGC3FrnC0pTx2';
-   const downloadFile = () => {
-      window.location.href = url;
-   };
+   const [isViewed, setIsViewed] = useState(false);
 
+   const downloadFile = () => {
+      window.location.href = devResumeDownloadLink;
+   };
+   const handleResumeClick = () => {
+      setIsOpen(!isOpen);
+      if (!isViewed) {
+         setIsViewed(true);
+      }
+   };
    return (
       <ResumeContainer
          title={`${isOpen ? 'click to close' : 'click to open'}`}
          $isOpen={isOpen}
+         $isViewed={isViewed}
       >
-         <div className="sticker" onClick={() => setIsOpen(!isOpen)}>
+         <div className="sticker" onClick={handleResumeClick}>
             <span>Resume</span>
          </div>
          <div className="cover"></div>
@@ -25,22 +31,12 @@ const Resume = () => {
                   className="resume-letter-header"
                   title="click to download resume"
                >
-                  <h1>Amandeep Singh</h1>{' '}
+                  <h1>{devName}</h1>{' '}
                   <AiOutlineCloudDownload onClick={downloadFile} size="20" />
                </div>
                <div>
                   <hr />
-                  <h3>Full Stack Developer</h3>{' '}
-                  {Array.from({ length: 10 }, () => {
-                     let width = Math.round(Math.random() * (100 - 1) + 1);
-                     return (
-                        <hr
-                           style={{
-                              width: `${width}%`,
-                           }}
-                        />
-                     );
-                  })}
+                  <h2>{devTitle}</h2> {<ResumePage />}
                </div>
             </ResumeLetter>
          </div>
@@ -48,4 +44,19 @@ const Resume = () => {
    );
 };
 
-export default Resume;
+export default React.memo(Resume);
+
+const ResumePage = React.memo(() => {
+   const page = Array.from({ length: 10 }, (_, k) => {
+      let width = Math.round(Math.random() * (100 - 1) + 1);
+      return (
+         <hr
+            key={k}
+            style={{
+               width: `${width}%`,
+            }}
+         />
+      );
+   });
+   return <>{page}</>;
+});
