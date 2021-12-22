@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AboutPage = () => {
-   return <div>aw</div>;
+   return <div>Under Construction</div>;
 };
 
 export default AboutPage;

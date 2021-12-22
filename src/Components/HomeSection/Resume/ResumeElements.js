@@ -106,8 +106,8 @@ export const ResumeContainer = styled.div`
          to top right,
          var(--color-secondary-light) 60%,
          var(--color-secondary) 75%,
-         white 75%,
-         white 100%
+         transparent 75%,
+         transparent 100%
       );
       position: relative;
       border-radius: 100%;

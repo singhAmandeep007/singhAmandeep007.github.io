@@ -1,7 +1,7 @@
 import React from 'react';
-import { ReactComponent as AppDevelopment } from './appDevelopment.svg';
+import { ReactComponent as AppDevelopment } from './../../Common/appDevelopment.svg';
 
-const PortfolioPage = () => {
+const AppDev = () => {
    return (
       <div
          style={{
@@ -22,4 +22,4 @@ const PortfolioPage = () => {
    );
 };
 
-export default PortfolioPage;
+export default AppDev;

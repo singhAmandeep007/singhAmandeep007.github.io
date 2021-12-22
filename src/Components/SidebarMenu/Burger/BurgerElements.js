@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const BurgerContainer = styled.button`
-   position: absolute;
-   top: 5%;
+   position: fixed;
+   top: 2rem;
    left: 2rem;
    display: flex;
    flex-direction: column;

@@ -36,14 +36,15 @@ const data = {
       },
       {
          id: uuidv4(),
-         title: 'About',
-         path: '/about',
+         title: 'Projects',
+         path: '/projects',
       },
       {
          id: uuidv4(),
-         title: 'Portfolio',
-         path: '/portfolio',
+         title: 'About',
+         path: '/about',
       },
+
       {
          id: uuidv4(),
          title: 'Articles',

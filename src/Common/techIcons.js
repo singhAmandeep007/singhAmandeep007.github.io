@@ -83,6 +83,14 @@ const techLogos = {
       label: 'Styled-Components',
       logo: '/Assets/icons/styled-components.svg',
    },
+   postman: {
+      label: 'Postman',
+      logo: '/Assets/icons/postman.svg',
+   },
+   amcharts: {
+      label: 'AM-Charts',
+      logo: '/Assets/icons/amcharts.svg',
+   },
 };
 
 export default techLogos;

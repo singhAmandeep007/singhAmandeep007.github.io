@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const SidebarContainer = styled.nav`
-   z-index: 9;
+   z-index: 99;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -19,7 +19,7 @@ export const SidebarContainer = styled.nav`
    height: 100vh;
    text-align: center;
    padding: 0 3rem;
-   position: absolute;
+   position: fixed;
    top: 0;
    left: 0;
    transition: transform 0.3s ease-in-out;

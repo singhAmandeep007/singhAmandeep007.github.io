@@ -97,6 +97,10 @@ export const GlobalStyle = createGlobalStyle`
       color: var(--color-font);
 
       font-family: var(--font-primary);
+
+		strong{
+			color: var(--color-primary);
+		}
    }
 
    /* font size responsiveness */
@@ -137,6 +141,7 @@ export const GlobalStyle = createGlobalStyle`
       font-family: inherit;
       color: inherit;
       font-size: inherit;
+
    }
    /* h1,h2,h3,h4,h5,h6,span,p{
       color: var(--color-font);
@@ -152,11 +157,11 @@ export const GlobalStyle = createGlobalStyle`
       background-color: var(--color-scrollbar-bg);
    }
    body::-webkit-scrollbar-thumb{
-      border-radius: 10px;
+      border-radius: 9px;
       background-color:  var(--color-scrollbar-thump);
    }
    body::-webkit-scrollbar-track{
-      border-radius: 10px;
+      border-radius: 9px;
       background-color:  var(--color-scrollbar-track);
    }
 

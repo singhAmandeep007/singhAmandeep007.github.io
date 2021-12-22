@@ -1,17 +1,17 @@
 import React from 'react';
 import Resume from './Resume';
 import data from './HomeSectionData';
-
+import ReactMarkdown from 'react-markdown';
 import {
    HomeSectionContainer,
    HomeSectionTypography,
    HomeSectionResume,
    Handwave,
 } from './HomeSectionElements';
+import { ExternalLinkWithIcon } from './../CommonElements';
 import handwavesign from './waving-hand-sign.svg';
-import { BiLinkExternal } from 'react-icons/bi';
 
-const index = () => {
+const HomeSection = () => {
    return (
       <HomeSectionContainer>
          <div className="homeSection-wrapper">
@@ -29,23 +29,16 @@ const index = () => {
                   I'm <span>&lt;{data.devName} /&gt;</span>
                </h2>
 
-               <p>
-                  {' '}
-                  {data.short_description}{' '}
-                  <span>
-                     <a href={data.links[0].href} rel="noreferrer">
-                        {data.links[0].title}.{' '}
-                        <BiLinkExternal
-                           size="10px"
-                           title="link"
-                           style={{
-                              marginBottom: '0.5rem',
-                              marginLeft: '-0.5rem',
-                           }}
-                        />
-                     </a>
-                  </span>
-               </p>
+               <div>
+                  <ReactMarkdown
+                     children={data.short_description}
+                     components={{
+                        a: ({ node, ...props }) => (
+                           <ExternalLinkWithIcon {...props} fontSize="1.4rem" />
+                        ),
+                     }}
+                  />
+               </div>
             </HomeSectionTypography>
             <HomeSectionResume>
                <Resume
@@ -59,4 +52,4 @@ const index = () => {
    );
 };
 
-export default index;
+export default HomeSection;

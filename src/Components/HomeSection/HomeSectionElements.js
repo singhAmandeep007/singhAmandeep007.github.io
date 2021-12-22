@@ -28,7 +28,7 @@ const waveAnimation = keyframes`
    }
 `;
 
-export const HomeSectionContainer = styled.header`
+export const HomeSectionContainer = styled.section`
    width: 100%;
    height: 100vh;
 
@@ -36,7 +36,7 @@ export const HomeSectionContainer = styled.header`
 
    .homeSection-wrapper {
       width: 80%;
-      padding-top: 5rem;
+      padding-top: 10rem;
       height: 100%;
 
       display: flex;
@@ -67,19 +67,13 @@ export const HomeSectionTypography = styled.div`
       span {
          color: var(--color-primary);
          text-decoration: underline;
-         text-decoration-color: var(--color-primary);
       }
    }
 
    p {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       line-height: 1.6;
-      span {
-         a {
-            text-decoration: underline;
-            text-decoration-color: var(--color-primary);
-         }
-      }
+      margin-bottom: 1rem;
    }
    @media (max-width: ${({ theme }) => theme.bpMedium}) {
       h2 {
