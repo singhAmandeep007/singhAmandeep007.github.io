@@ -37,6 +37,7 @@ export const SidebarLinkContainer = styled.div`
    text-align: center;
    border-top: 2px solid var(--color-primary);
    border-bottom: 2px solid var(--color-primary);
+   width: 100%;
 `;
 
 export const SidebarLink = styled(NavLink)`
@@ -60,11 +61,13 @@ export const SidebarLink = styled(NavLink)`
    -webkit-text-fill-color: transparent;
    background-size: 200% 100%;
    background-position: 100%;
-   transition: background-position 400ms ease-out;
+   transition: background-position 1000ms ease-in;
 
-   &:hover {
+   &:hover,
+   &:focus {
       /* color: var(--color-primary); */
       background-position: 0 100%;
+      transform: scale(1.2);
    }
    &.active {
       background-position: 0 100%;
