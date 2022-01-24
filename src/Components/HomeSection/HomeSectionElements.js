@@ -45,7 +45,7 @@ export const HomeSectionContainer = styled.section`
 
       margin: auto;
 
-      @media (max-width: ${({ theme }) => theme.bpMedium}) {
+      @media (max-width: ${({ theme }) => theme.bpLarge}) {
          flex-direction: column;
       }
    }
@@ -63,6 +63,7 @@ export const HomeSectionTypography = styled.div`
       font-weight: normal;
       margin-bottom: 2.5rem;
       line-height: 1.4;
+      white-space: nowrap;
 
       span {
          color: var(--color-primary);

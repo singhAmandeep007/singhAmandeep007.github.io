@@ -82,6 +82,7 @@ export const SidebarLink = styled(NavLink)`
 export const SidebarAvatar = styled.div`
    padding: 0 0.5rem;
    position: relative;
+   max-width: 20rem;
    filter: drop-shadow(5px 7px 1px var(--color-background-dark));
    img {
       width: 100%;

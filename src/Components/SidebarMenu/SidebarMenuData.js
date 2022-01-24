@@ -39,17 +39,18 @@ const data = {
          title: 'Projects',
          path: '/projects',
       },
-      {
-         id: uuidv4(),
-         title: 'About',
-         path: '/about',
-      },
+      // Commented as they are under construction
+      // {
+      //    id: uuidv4(),
+      //    title: 'About',
+      //    path: '/about',
+      // },
 
-      {
-         id: uuidv4(),
-         title: 'Articles',
-         path: '/articles',
-      },
+      // {
+      //    id: uuidv4(),
+      //    title: 'Articles',
+      //    path: '/articles',
+      // },
    ],
 };
 export default data;
