@@ -1,28 +1,33 @@
-import React from 'react';
-import { BsSun, BsMoon } from 'react-icons/bs';
+import React, { useState, useEffect } from 'react';
 import {
-   ThemeTogglerContainer,
-   TogglerLabel,
-   TogglerInput,
+  ThemeTogglerContainer,
+  ThemeIconWrapper,
 } from './ThemeTogglerElements';
+import { themes } from '../../../Common/styles.config';
 
-const ToggleTheme = ({ isChecked, themeToggler }) => {
-   return (
-      <ThemeTogglerContainer>
-         <BsMoon />
+const ToggleTheme = () => {
+  const [theme, setTheme] = useState(themes[0].themeName);
 
-         <TogglerInput
-            // value=""
-            checked={isChecked}
-            type="checkbox"
-            id="toogleTheme"
-            onChange={themeToggler}
-         />
-         <TogglerLabel htmlFor="toogleTheme"> </TogglerLabel>
+  useEffect(() => {
+    document.documentElement.className = theme;
+    // localestorage
+  }, [theme]);
 
-         <BsSun />
-      </ThemeTogglerContainer>
-   );
+  return (
+    <ThemeTogglerContainer>
+      {themes.map(({ themeName, themeIcon }) => {
+        return (
+          <ThemeIconWrapper
+            className={theme === themeName ? 'is-selected' : ''}
+            onClick={() => setTheme(themeName)}
+            key={themeName}
+          >
+            {themeIcon}
+          </ThemeIconWrapper>
+        );
+      })}
+    </ThemeTogglerContainer>
+  );
 };
 
 export default ToggleTheme;

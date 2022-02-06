@@ -7,11 +7,11 @@ import reportWebVitals from './reportWebVitals';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 ReactDOM.render(
-   <React.StrictMode>
-      <GlobalStyle />
-      <App />
-   </React.StrictMode>,
-   document.getElementById('root')
+  <React.StrictMode>
+    <GlobalStyle />
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

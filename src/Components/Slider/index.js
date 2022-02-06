@@ -10,58 +10,55 @@ const ButtonContentLeft = <MdArrowBack />;
 const ButtonContentRight = <MdArrowForward />;
 
 const Slider = ({ slides = [] }) => {
-   const [current, setCurrent] = useState(0);
-   const [fullscreen, setFullscreen] = useState(false);
-   const [captions, setCaptions] = useState([]);
-   const [locked, setLocked] = useLockedBody();
+  const [current, setCurrent] = useState(0);
+  const [fullscreen, setFullscreen] = useState(false);
+  const [captions, setCaptions] = useState([]);
+  const [locked, setLocked] = useLockedBody();
 
-   useEffect(() => setCaptions(slides.map((slide) => slide.text)), [slides]);
+  useEffect(() => setCaptions(slides.map((slide) => slide.text)), [slides]);
 
-   const toggleFullscreen = () => {
-      setLocked(!locked);
-      setFullscreen(!fullscreen);
-   };
+  const toggleFullscreen = () => {
+    setLocked(!locked);
+    setFullscreen(!fullscreen);
+  };
 
-   return (
-      <SlideContainer $fullscreen={fullscreen}>
-         <span
-            className="slide-control is-fullscreen"
-            onClick={toggleFullscreen}
-         >
-            <MdFullscreen />
-         </span>
+  return (
+    <SlideContainer $fullscreen={fullscreen}>
+      <span className="slide-control is-fullscreen" onClick={toggleFullscreen}>
+        <MdFullscreen />
+      </span>
 
-         <AwesomeSlider
-            bullets={false}
-            organicArrows={false}
-            buttonContentLeft={ButtonContentLeft}
-            buttonContentRight={ButtonContentRight}
-            onTransitionStart={(slide) => setCurrent(slide.nextIndex)}
-         >
-            {slides.map(({ image, text }) => {
-               return (
-                  <div key={text}>
-                     <img src={image} alt={text} />
-                  </div>
-               );
-            })}
-         </AwesomeSlider>
-         {!fullscreen && <Caption selected={current} captions={captions} />}
-      </SlideContainer>
-   );
+      <AwesomeSlider
+        bullets={false}
+        organicArrows={false}
+        buttonContentLeft={ButtonContentLeft}
+        buttonContentRight={ButtonContentRight}
+        onTransitionStart={(slide) => setCurrent(slide.nextIndex)}
+      >
+        {slides.map(({ image, text }) => {
+          return (
+            <div key={text}>
+              <img src={image} alt={text} />
+            </div>
+          );
+        })}
+      </AwesomeSlider>
+      {!fullscreen && <Caption selected={current} captions={captions} />}
+    </SlideContainer>
+  );
 };
 
 export default React.memo(Slider);
 
 const Caption = React.memo(({ selected = 0, captions = [] }) => {
-   const formattedIndex = selected + 1;
+  const formattedIndex = selected + 1;
 
-   return (
-      <SlideCaption>
-         <div className="slide-caption-text">{captions[selected]}</div>
-         <div className="slide-caption-count">
-            {formattedIndex} / {captions.length}
-         </div>
-      </SlideCaption>
-   );
+  return (
+    <SlideCaption>
+      <div className="slide-caption-text">{captions[selected]}</div>
+      <div className="slide-caption-count">
+        {formattedIndex} / {captions.length}
+      </div>
+    </SlideCaption>
+  );
 });

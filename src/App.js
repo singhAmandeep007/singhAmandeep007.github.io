@@ -1,63 +1,45 @@
-import React, { Suspense, useState, useEffect, useRef } from 'react';
+import React, { Suspense, useState, useRef } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import Routes from './Routes';
 import SidebarMenu from './Components/SidebarMenu';
 import ParticlesContainer from './Components/Particles';
 import { useOnClickOutside } from './Hooks/onClickOutside';
-import breakPoints from './Styles/Breakpoints';
+import { breakpoints } from './Common/styles.config';
 
 const stlyedTheme = {
-   ...breakPoints,
+  ...breakpoints,
 };
 const Loading = () => {
-   return <div>Loading...</div>;
+  return <div>Loading...</div>;
 };
 
 function App() {
-   const [theme, setTheme] = useState('dark-theme');
-   const [isChecked, setIsChecked] = useState(false);
-   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-   const sidebarNode = useRef();
+  const sidebarNode = useRef();
 
-   useOnClickOutside(sidebarNode, () => setIsSidebarOpen(false));
+  useOnClickOutside(sidebarNode, () => setIsSidebarOpen(false));
 
-   useEffect(() => {
-      document.documentElement.className = theme;
-   }, [theme]);
-
-   const themeToggler = () => {
-      if (theme === 'light-theme') {
-         setTheme('dark-theme');
-         setIsChecked(false);
-      } else {
-         setTheme('light-theme');
-         setIsChecked(true);
-      }
-   };
-
-   return (
-      <main>
-         <div className={`App ${isSidebarOpen ? 'blur' : ''}`}>
-            <ThemeProvider theme={stlyedTheme}>
-               <Router>
-                  <Suspense fallback={<Loading />}>
-                     <SidebarMenu
-                        isSidebarOpen={isSidebarOpen}
-                        setIsSidebarOpen={setIsSidebarOpen}
-                        isChecked={isChecked}
-                        themeToggler={themeToggler}
-                        ref={sidebarNode}
-                     />
-                     <Routes />
-                  </Suspense>
-               </Router>
-            </ThemeProvider>
-         </div>
-         <ParticlesContainer />
-      </main>
-   );
+  return (
+    <main>
+      <div className={`App ${isSidebarOpen ? 'blur' : ''}`}>
+        <ThemeProvider theme={stlyedTheme}>
+          <Router>
+            <Suspense fallback={<Loading />}>
+              <SidebarMenu
+                isSidebarOpen={isSidebarOpen}
+                setIsSidebarOpen={setIsSidebarOpen}
+                ref={sidebarNode}
+              />
+              <Routes />
+            </Suspense>
+          </Router>
+        </ThemeProvider>
+      </div>
+      <ParticlesContainer isSidebarOpen={isSidebarOpen} />
+    </main>
+  );
 }
 
 export default App;

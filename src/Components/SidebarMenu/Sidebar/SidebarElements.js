@@ -2,148 +2,147 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const SidebarContainer = styled.nav`
-   z-index: 99;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   background: var(--color-background-1);
-   background: linear-gradient(
-         155deg,
-         var(--color-primary-background) 20%,
-         var(--color-background) 80%
-      )
-      100% no-repeat;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+      155deg,
+      var(--color-primary-background) 20%,
+      var(--color-background) 80%
+    )
+    100% no-repeat;
 
-   transform: ${({ $open }) => ($open ? 'translateX(0)' : 'translateX(-100%)')};
-   height: 100vh;
-   text-align: center;
-   padding: 0 3rem;
-   position: fixed;
-   top: 0;
-   left: 0;
-   transition: transform 0.3s ease-in-out;
-   overflow-x: hidden;
-   border-right: 5px solid var(--color-primary);
+  transform: ${({ $open }) => ($open ? 'translateX(0)' : 'translateX(-100%)')};
+  height: 100vh;
+  text-align: center;
+  padding: 0 3rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease-in-out;
+  overflow-x: hidden;
+  border-right: 5px solid var(--color-primary);
 
-   @media (max-width: ${({ theme }) => theme.bpMedium}) {
-      width: 50%;
-   }
+  @media (max-width: ${({ theme }) => theme.bpMedium}) {
+    width: 50%;
+  }
 `;
 
 export const SidebarLinkContainer = styled.div`
-   display: flex;
-   flex-direction: column;
-   text-align: center;
-   border-top: 2px solid var(--color-primary);
-   border-bottom: 2px solid var(--color-primary);
-   width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-top: 2px solid var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  width: 100%;
 `;
 
 export const SidebarLink = styled(NavLink)`
-   font-size: 1.5rem;
-   padding: 0.5rem 0;
-   font-weight: bold;
-   color: var(--color-font);
-   text-decoration: none;
-   cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+  font-weight: bold;
+  color: var(--color-font);
+  text-decoration: none;
+  cursor: pointer;
 
-   overflow: hidden;
+  overflow: hidden;
 
-   background: linear-gradient(
-      to right,
-      var(--color-primary),
-      var(--color-primary) 50%,
-      var(--color-font) 50%
-   );
-   background-clip: text;
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
-   background-size: 200% 100%;
-   background-position: 100%;
-   transition: background-position 1000ms ease-in;
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-primary) 50%,
+    var(--color-font) 50%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 1000ms ease-in;
 
-   &:hover,
-   &:focus {
-      /* color: var(--color-primary); */
-      background-position: 0 100%;
-      transform: scale(1.2);
-   }
-   &.active {
-      background-position: 0 100%;
-      color: var(--color-primary);
-   }
+  &:hover,
+  &:focus {
+    /* color: var(--color-primary); */
+    background-position: 0 100%;
+    transform: scale(1.2);
+  }
+  &.active {
+    background-position: 0 100%;
+    color: var(--color-primary);
+  }
 
-   @media (max-width: ${({ theme }) => theme.bpMedium}) {
-      font-size: 1.8rem;
-   }
+  @media (max-width: ${({ theme }) => theme.bpMedium}) {
+    font-size: 1.8rem;
+  }
 `;
 
 export const SidebarAvatar = styled.div`
-   padding: 0 0.5rem;
-   position: relative;
-   filter: drop-shadow(5px 7px 1px var(--color-background-dark));
-   img {
-      width: 100%;
-      height: auto;
-      transform: scale(1.1);
-      /* object-fit: cover;
+  padding: 0 0.5rem;
+  position: relative;
+  filter: drop-shadow(5px 7px 1px rgba(50, 50, 50, 0.5));
+  img {
+    width: 100%;
+    height: auto;
+    transform: scale(1.1);
+    /* object-fit: cover;
       object-position: 0%; */
-      border-radius: 10%;
-      @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
-         -webkit-clip-path: circle(40% at 50% 50%);
-         clip-path: circle(40% at 50% 50%);
-         border-radius: none;
-      }
-   }
-   figcaption {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      //  keep it down initially
-      transform: translate(-50%, 50%);
-      color: #fff;
-      font-size: 1rem;
-      text-align: center;
-      opacity: 0;
-      transition: all 0.2s;
-      backface-visibility: hidden;
-   }
+    border-radius: 10%;
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: circle(40% at 50% 50%);
+      clip-path: circle(40% at 50% 50%);
+      border-radius: none;
+    }
+  }
+  figcaption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    //  keep it down initially
+    transform: translate(-50%, 50%);
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.2s;
+    backface-visibility: hidden;
+  }
 
-   &:hover img {
-      filter: blur(3px) brightness(70%);
-      transform: scale(1);
-   }
-   &:hover figcaption {
-      opacity: 1;
-      transform: translate(-50%, -50%);
-   }
+  &:hover img {
+    filter: blur(3px) brightness(70%);
+    transform: scale(1);
+  }
+  &:hover figcaption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 `;
 
 export const SidebarSocial = styled.div`
-   display: flex;
-   justify-content: center;
+  display: flex;
+  justify-content: center;
 
-   font-size: 2.5rem;
-   padding: 1rem;
+  font-size: 2.5rem;
+  padding: 1rem;
 
-   a {
-      margin-left: -0.5rem;
+  a {
+    margin-left: -0.5rem;
+    svg {
+      padding: 0.4rem;
+      border-radius: 50%;
+      background-color: #fff;
+      color: #000;
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+      transition: all 300ms ease;
+      transition-property: color, transform;
+    }
+
+    &:hover {
       svg {
-         padding: 0.4rem;
-         border-radius: 50%;
-         background-color: #fff;
-         color: #000;
-         box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
-         transition: all 300ms ease;
-         transition-property: color, transform;
+        transform: translateY(-20%);
+        color: var(--color-primary);
       }
-
-      &:hover {
-         svg {
-            transform: translateY(-20%);
-            color: var(--color-primary);
-         }
-      }
-   }
+    }
+  }
 `;

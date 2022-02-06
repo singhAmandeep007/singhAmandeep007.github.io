@@ -29,75 +29,77 @@ const waveAnimation = keyframes`
 `;
 
 export const HomeSectionContainer = styled.section`
-   width: 100%;
-   height: 100vh;
+  width: 100%;
+  height: 100vh;
 
-   position: relative;
+  position: relative;
 
-   .homeSection-wrapper {
-      width: 80%;
-      padding-top: 10rem;
-      height: 100%;
+  .homeSection-wrapper {
+    width: 80%;
+    padding-top: 10rem;
+    height: 100%;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-      margin: auto;
+    margin: auto;
 
-      @media (max-width: ${({ theme }) => theme.bpMedium}) {
-         flex-direction: column;
-      }
-   }
+    @media (max-width: ${({ theme }) => theme.bpMedium}) {
+      flex-direction: column;
+    }
+  }
 `;
 
 export const HomeSectionTypography = styled.div`
-   padding: 1rem;
+  padding: 1rem;
 
-   h1 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-   }
-   h2 {
-      font-size: 3.5rem;
-      font-weight: normal;
-      margin-bottom: 2.5rem;
-      line-height: 1.4;
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  h2 {
+    font-size: 3.2rem;
+    font-weight: normal;
+    margin-bottom: 2.5rem;
+    line-height: 1.4;
+    white-space: nowrap;
 
-      span {
-         color: var(--color-primary);
-         text-decoration: underline;
-      }
-   }
+    span {
+      color: var(--color-primary);
+      text-decoration: underline;
+      word-break: keep-all;
+    }
+  }
 
-   p {
-      font-size: 1.4rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-   }
-   @media (max-width: ${({ theme }) => theme.bpMedium}) {
-      h2 {
-         font-size: 3rem;
-      }
-   }
+  p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  @media (max-width: ${({ theme }) => theme.bpMedium}) {
+    h2 {
+      font-size: 3rem;
+    }
+  }
 `;
 
 export const HomeSectionResume = styled.div`
-   padding: 1rem;
+  padding: 1rem;
 
-   font-size: 0.7rem;
+  font-size: 0.7rem;
 
-   @media (max-width: ${({ theme }) => theme.bpMedium}) {
-      font-size: 1rem;
-   }
+  @media (max-width: ${({ theme }) => theme.bpMedium}) {
+    font-size: 1rem;
+  }
 `;
 
 export const Handwave = styled.img`
-   height: 3rem;
-   width: 3rem;
-   animation-name: ${waveAnimation};
-   animation-duration: 2.1s;
-   animation-iteration-count: infinite;
-   transform-origin: 70% 70%;
-   display: inline-block;
+  height: 3rem;
+  width: 3rem;
+  animation-name: ${waveAnimation};
+  animation-duration: 2.1s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
 `;

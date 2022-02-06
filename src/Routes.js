@@ -7,25 +7,25 @@ const ArticlesPage = React.lazy(() => import('./Pages/ArticlesPage'));
 const ProjectsPage = React.lazy(() => import('./Pages/ProjectsPage'));
 
 const Routes = () => {
-   return (
-      <Switch>
-         <Route exact path="/about">
-            <AboutPage />
-         </Route>
+  return (
+    <Switch>
+      <Route exact path="/about">
+        <AboutPage />
+      </Route>
 
-         <Route exact path="/articles">
-            <ArticlesPage />
-         </Route>
+      <Route exact path="/articles">
+        <ArticlesPage />
+      </Route>
 
-         <Route exact path="/projects">
-            <ProjectsPage />
-         </Route>
+      <Route exact path="/projects">
+        <ProjectsPage />
+      </Route>
 
-         <Route exact path="/">
-            <HomePage />
-         </Route>
-      </Switch>
-   );
+      <Route exact path="/">
+        <HomePage />
+      </Route>
+    </Switch>
+  );
 };
 
 export default Routes;
