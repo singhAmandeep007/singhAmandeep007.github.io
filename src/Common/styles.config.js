@@ -5,7 +5,7 @@ import ThemeIcon from './themeIcon';
  * @param decimal lighten or darken decimal value, example 0.5 to lighten by 50% or 1.5 to darken by 50%.
  * @param opacity apply opacity
  */
-function shadeColor(color, decimal, opacity) {
+function shadeColor(color, decimal, opacity = 1) {
   if (!decimal && opacity) {
     let _opacity = Math.round(Math.min(Math.max(opacity || 1, 0), 1) * 255);
     return `${color}` + _opacity.toString(16).toUpperCase();
@@ -49,8 +49,8 @@ const createTheme = (themeName, colorPrimary, colorBackground, colorFont) => {
   return {
     colors: {
       '--color-primary': colorPrimary,
-      '--color-primary-light-1': shadeColor(colorPrimary, 0.8),
-      '--color-primary-light-2': shadeColor(colorPrimary, 0.5),
+      '--color-primary-light-1': shadeColor(colorPrimary, 0.55),
+      '--color-primary-light-2': shadeColor(colorPrimary, 0.25),
       '--color-primary-background': shadeColor(colorPrimary, 1.3, 0.8),
 
       '--color-background': shadeColor(colorBackground, undefined, 0.9),

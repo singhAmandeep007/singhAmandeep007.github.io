@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 const shake = keyframes`
       0% {
@@ -25,6 +25,23 @@ const shake = keyframes`
       100% {
          transform: translate(0, 0);
       }
+`;
+
+const coverOpened = css`
+  z-index: 2;
+  transform: rotateX(180deg);
+`;
+const coverClosed = css`
+  z-index: 6;
+  transform: rotateX(0deg);
+  transition-delay: 1s;
+`;
+const letterOpened = css`
+  top: -8em;
+  transition-delay: 1s;
+`;
+const letterClosed = css`
+  top: 0px;
 `;
 
 export const ResumeContainer = styled.div`
@@ -77,24 +94,25 @@ export const ResumeContainer = styled.div`
     border-right: 15em solid transparent;
     border-top: 10em solid var(--color-primary-light-2);
     border-bottom: 10em solid transparent;
-    z-index: ${({ $isOpen }) => ($isOpen ? '2' : '6')};
+
     transform-origin: top;
-    transform: ${({ $isOpen }) =>
-      $isOpen ? 'rotateX(180deg)' : 'rotateX(0deg)'};
-    transition: ${({ $isOpen }) =>
-      $isOpen ? 'all 1s ease' : 'all 1s 1s ease'};
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transition-property: transform, z-index;
+    ${({ $isOpen }) => ($isOpen ? coverOpened : coverClosed)}
   }
   .letter {
     position: absolute;
     z-index: 3;
-    top: ${({ $isOpen }) => ($isOpen ? '-8em' : '0px')};
     left: 1em;
     background: #d7d7d7e8;
     width: 28em;
     height: 18em;
     border-radius: 20px;
-    transition: ${({ $isOpen }) =>
-      $isOpen ? 'all 1s 1s ease' : 'all 1s ease'};
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transition-property: top;
+    ${({ $isOpen }) => ($isOpen ? letterOpened : letterClosed)}
   }
 
   .sticker {
