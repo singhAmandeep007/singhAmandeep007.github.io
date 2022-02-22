@@ -16,6 +16,7 @@ const ProjectsPage = React.lazy(() =>
   fakeDelay(FAKE_DELAY_TIME)(import('./Pages/ProjectsPage'))
 );
 
+// NOTE: returns a fn which accepts a promise, which resolves after provided milliseconds
 function fakeDelay(ms) {
   return (promise) =>
     promise.then(
