@@ -45,6 +45,7 @@ export const ProjectSectionContainer = styled.section`
 
 export const Project = styled.li`
   display: grid;
+
   gap: 2rem;
   :nth-child(odd) {
     grid-template-areas: 'image content';
@@ -78,6 +79,9 @@ export const Project = styled.li`
 
   .project-image {
     grid-area: image;
+    @media (max-width: ${({ theme }) => theme.bpMedium}) {
+      align-self: end;
+    }
   }
   .project-content {
     grid-area: content;

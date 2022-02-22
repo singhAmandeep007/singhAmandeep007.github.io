@@ -23,6 +23,15 @@ export const BurgerContainer = styled.button`
     border: 4px solid var(--color-primary);
     border-radius: 50%;
     position: absolute;
+    @media (max-width: ${({ theme }) => theme.bpMedium}) {
+      width: 35px;
+      height: 35px;
+      border: 3px solid var(--color-primary);
+    }
+  }
+  @media (max-width: ${({ theme }) => theme.bpMedium}) {
+    left: 12px;
+    top: 13px;
   }
   /* &:focus {
       outline: none;
@@ -48,6 +57,11 @@ export const BurgerContainer = styled.button`
     }
     :nth-child(3) {
       transform: ${({ $open }) => ($open ? 'rotate(-45deg)' : 'rotate(0)')};
+    }
+    @media (max-width: ${({ theme }) => theme.bpMedium}) {
+      width: 18px;
+      height: 1.5px;
+      transform-origin: 0px;
     }
   }
 `;
