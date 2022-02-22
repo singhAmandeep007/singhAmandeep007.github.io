@@ -47,7 +47,10 @@ const ProjectSection = () => {
                         children={projectDescription}
                         components={{
                           a: ({ node, ...props }) => (
-                            <ExternalLinkWithIcon {...props} fontSize="1rem" />
+                            <ExternalLinkWithIcon
+                              {...props}
+                              fontSize="calc(1.2rem + 0.2vh)"
+                            />
                           ),
                         }}
                       />

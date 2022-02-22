@@ -21,7 +21,7 @@ export const ProjectSectionContainer = styled.section`
       position: relative;
       margin: 0px 0px 4rem;
       width: 100%;
-      font-size: 3rem;
+      font-size: 2.5rem;
       white-space: nowrap;
 
       &::after {
@@ -32,10 +32,6 @@ export const ProjectSectionContainer = styled.section`
         height: 1px;
         margin-left: 2rem;
         background-color: var(--color-font);
-      }
-
-      @media (max-width: ${({ theme }) => theme.bpMedium}) {
-        font-size: 2rem;
       }
     }
 
@@ -93,8 +89,9 @@ export const Project = styled.li`
   }
   .project-description {
     p {
-      line-height: 1.3;
+      line-height: 1.5;
       margin-bottom: 0.8rem;
+      font-size: calc(1.2rem + 0.2vh);
     }
   }
 
