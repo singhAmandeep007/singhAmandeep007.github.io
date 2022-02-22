@@ -1,31 +1,31 @@
 import styled, { keyframes } from 'styled-components';
 
 const waveAnimation = keyframes`
-   0% {
-     transform: rotate(-14deg);
-   }
-   10% {
-     transform: rotate(14deg);
-   }
-   20% {
-     transform: rotate(-8deg);
-   }
-   30% {
-     transform: rotate(14deg);
-   }
-   40% {
-     transform: rotate(-4deg);
-   }
-   50% {
-     transform: rotate(10deg);
-   }
-   60% {
-     transform: rotate(0deg);
-   } 
-   /* Reset for the last half to pause */
-   100% {
-     transform: rotate(0deg);
-   }
+	0% {
+		transform: rotate(-14deg);
+	}
+	10% {
+		transform: rotate(14deg);
+	}
+	20% {
+		transform: rotate(-8deg);
+	}
+	30% {
+		transform: rotate(14deg);
+	}
+	40% {
+		transform: rotate(-4deg);
+	}
+	50% {
+		transform: rotate(10deg);
+	}
+	60% {
+		transform: rotate(0deg);
+	} 
+	/* Reset for the last half to pause */
+	100% {
+		transform: rotate(0deg);
+	}
 `;
 
 export const HomeSectionContainer = styled.section`
@@ -33,11 +33,10 @@ export const HomeSectionContainer = styled.section`
   height: 100vh;
 
   position: relative;
+  display: flex;
 
   .homeSection-wrapper {
     width: 80%;
-    padding-top: 10rem;
-    height: 100%;
 
     display: flex;
     justify-content: center;
@@ -55,14 +54,13 @@ export const HomeSectionTypography = styled.div`
   padding: 1rem;
 
   h1 {
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 2rem;
+    font-weight: normal;
   }
   h2 {
-    font-size: 3.2rem;
-    font-weight: normal;
+    font-size: 3.5rem;
     margin-bottom: 2.5rem;
-    line-height: 1.4;
     white-space: nowrap;
 
     span {
@@ -73,13 +71,17 @@ export const HomeSectionTypography = styled.div`
   }
 
   p {
-    font-size: 1.2rem;
-    line-height: 1.6;
+    font-size: calc(1rem + 0.8vw);
+    line-height: 1.5;
     margin-bottom: 1rem;
+    font-weight: normal;
   }
   @media (max-width: ${({ theme }) => theme.bpMedium}) {
     h2 {
       font-size: 3rem;
+    }
+    p {
+      font-size: calc(1rem + 0.8vh);
     }
   }
 `;

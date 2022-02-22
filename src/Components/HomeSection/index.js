@@ -34,7 +34,10 @@ const HomeSection = () => {
               children={data.short_description}
               components={{
                 a: ({ node, ...props }) => (
-                  <ExternalLinkWithIcon {...props} fontSize="1.5rem" />
+                  <ExternalLinkWithIcon
+                    {...props}
+                    fontSize="calc(1rem + 0.8vw)"
+                  />
                 ),
               }}
             />
