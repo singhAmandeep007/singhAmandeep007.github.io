@@ -8,16 +8,16 @@ export const SidebarContainer = styled.nav`
   justify-content: center;
   align-items: center;
   background: linear-gradient(
-      155deg,
-      var(--color-primary-background) 20%,
-      var(--color-background) 80%
+      0deg,
+      var(--color-primary-background) 10%,
+      var(--color-background) 90%
     )
     100% no-repeat;
 
   transform: ${({ $open }) => ($open ? 'translateX(0)' : 'translateX(-100%)')};
   height: 100vh;
   text-align: center;
-  padding: 0 3rem;
+  padding: 0 10px;
   position: fixed;
   top: 0;
   left: 0;
@@ -25,23 +25,30 @@ export const SidebarContainer = styled.nav`
   overflow-x: hidden;
   border-right: 5px solid var(--color-primary);
 
+  width: 25%;
   @media (max-width: ${({ theme }) => theme.bpMedium}) {
-    width: 50%;
+    width: 60%;
   }
 `;
 
 export const SidebarLinkContainer = styled.div`
   display: flex;
   flex-direction: column;
-  text-align: center;
-  border-top: 2px solid var(--color-primary);
-  border-bottom: 2px solid var(--color-primary);
+  align-items: center;
   width: 100%;
+
+  &::before {
+    content: '';
+    height: 3px;
+    width: 200px;
+    border-radius: 5px;
+    background-color: var(--color-primary);
+  }
 `;
 
 export const SidebarLink = styled(NavLink)`
   font-size: 1.5rem;
-  padding: 0.5rem 0;
+  padding: 5px 0;
   font-weight: bold;
   color: var(--color-font);
   text-decoration: none;
@@ -60,7 +67,7 @@ export const SidebarLink = styled(NavLink)`
   -webkit-text-fill-color: transparent;
   background-size: 200% 100%;
   background-position: 100%;
-  transition: background-position 1000ms ease-in;
+  transition: background-position 300ms ease-in;
 
   &:hover,
   &:focus {
@@ -74,38 +81,41 @@ export const SidebarLink = styled(NavLink)`
   }
 
   @media (max-width: ${({ theme }) => theme.bpMedium}) {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 `;
 
 export const SidebarAvatar = styled.div`
-  padding: 0 0.5rem;
+  padding: 0 0px;
   position: relative;
-  filter: drop-shadow(5px 7px 1px rgba(50, 50, 50, 0.5));
+  filter: drop-shadow(0px 0px 20px var(--color-primary));
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 300px;
   img {
     width: 100%;
     height: auto;
-    transform: scale(1.1);
-    /* object-fit: cover;
-      object-position: 0%; */
+
+    object-fit: cover;
+    object-position: 50%;
     border-radius: 10%;
     @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
       -webkit-clip-path: circle(40% at 50% 50%);
       clip-path: circle(40% at 50% 50%);
-      border-radius: none;
+      transform: scale(1.1);
     }
   }
   figcaption {
     position: absolute;
     top: 50%;
     left: 50%;
-    //  keep it down initially
+    /* keep it down initially */
     transform: translate(-50%, 50%);
     color: #fff;
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-align: center;
     opacity: 0;
-    transition: all 0.2s;
+    transition: transform 0.2s;
     backface-visibility: hidden;
   }
 
@@ -123,24 +133,24 @@ export const SidebarSocial = styled.div`
   display: flex;
   justify-content: center;
 
-  font-size: 2.5rem;
-  padding: 1rem;
+  font-size: 35px;
+  padding: 10px;
 
   a {
-    margin-left: -0.5rem;
+    margin-left: -5px;
     svg {
-      padding: 0.4rem;
+      padding: 3px;
       border-radius: 50%;
       background-color: #fff;
       color: #000;
       box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
-      transition: all 300ms ease;
+      transition: 300ms ease;
       transition-property: color, transform;
     }
 
     &:hover {
       svg {
-        transform: translateY(-20%);
+        transform: translateY(-15%);
         color: var(--color-primary);
       }
     }

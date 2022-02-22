@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const ThemeTogglerContainer = styled.ul`
-  padding: 1.3rem 0;
+  padding: 10px 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 35px;
 `;
 
 export const ThemeIconWrapper = styled.li`

@@ -2,8 +2,8 @@ const ThemeIcon = (props) => {
   return (
     <svg
       viewBox="0 0 72 72"
-      height="1.5em"
-      width="1.5em"
+      height="1em"
+      width="1em"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g>
