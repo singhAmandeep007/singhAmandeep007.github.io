@@ -28,7 +28,7 @@ const SlideControlButton = css`
   padding: 0;
   border-radius: 50%;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
   transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
   border: 1px solid #fff;
@@ -115,7 +115,6 @@ export const SlideCaption = styled.div`
   font-size: 1rem;
   color: #ffffff;
   background-color: #393939;
-  /* border-radius: 0 0 5px 5px; */
 
   .slide-caption-text {
     flex: 1;

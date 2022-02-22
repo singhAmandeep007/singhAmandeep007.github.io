@@ -6,12 +6,10 @@ import SidebarMenu from './Components/SidebarMenu';
 import ParticlesContainer from './Components/Particles';
 import { useOnClickOutside } from './Hooks/onClickOutside';
 import { breakpoints } from './Common/styles.config';
+import Loading from './Components/Loading';
 
 const stlyedTheme = {
   ...breakpoints,
-};
-const Loading = () => {
-  return <div>Loading...</div>;
 };
 
 function App() {
