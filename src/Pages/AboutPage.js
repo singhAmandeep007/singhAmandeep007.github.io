@@ -9,6 +9,7 @@ import {
   ExternalLinkWithIcon,
 } from '../Components/CommonElements';
 import profileImg from './../Assets/profilePic.png';
+import GithubCalendar from '../Components/GithubCalendar';
 
 const AboutPage = () => {
   return (
@@ -19,7 +20,7 @@ const AboutPage = () => {
           <Avatar>
             <div className="avatar-border"></div>
             <div className="avatar-wrapper">
-              <img src={data.profileImg} alt="profile Image" />
+              <img src={data.profileImg} alt="profile" />
             </div>
           </Avatar>
           <Content>
@@ -47,7 +48,7 @@ const AboutPage = () => {
                     <li key={tech.label}>
                       <img
                         src={tech.logo}
-                        alt={tech.label}
+                        alt={'stack ' + tech.label}
                         title={tech.label}
                       />
                     </li>
@@ -57,6 +58,13 @@ const AboutPage = () => {
             </Stack>
           </Content>
         </SectionContent>
+        <SectionTitle
+          as="h3"
+          style={{ fontSize: '1.5rem', margin: '4rem 0 2rem 0' }}
+        >
+          My Github Contributions
+        </SectionTitle>
+        <GithubCalendar />
       </Wrapper>
     </SectionContainer>
   );
@@ -131,7 +139,7 @@ const Stack = styled.div`
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: 2.5rem 0 5rem 0;
+    margin: 0rem 0 5rem 0;
     list-style: none;
 
     li {
@@ -162,10 +170,14 @@ const Stack = styled.div`
       gap: 3rem;
       flex-wrap: nowrap;
       overflow-x: scroll;
-      margin: 2rem 0;
+      margin: -2rem 0;
       height: 10rem;
       justify-content: flex-start;
-
+      li {
+        height: 2rem;
+        width: 2rem;
+        background-color: transparent;
+      }
       img {
         width: 3rem;
       }

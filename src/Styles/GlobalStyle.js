@@ -18,6 +18,8 @@ export const GlobalStyle = createGlobalStyle`
 
 		--color-scrollbar-bg: #383838;
 		--color-scrollbar-thump: #6b6b6b;
+
+		--color-calendar-graph-day-bg: #c1c1c1;
 	}
 
 	${themes.map(({ themeName, colors }) => {

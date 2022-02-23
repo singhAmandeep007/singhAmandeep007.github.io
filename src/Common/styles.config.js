@@ -56,6 +56,11 @@ const createTheme = (themeName, colorPrimary, colorBackground, colorFont) => {
       '--color-background': shadeColor(colorBackground, undefined, 0.9),
 
       '--color-font': colorFont,
+
+      '--color-calendar-graph-day-l4-bg': shadeColor(colorPrimary, 1.5),
+      '--color-calendar-graph-day-l3-bg': shadeColor(colorPrimary, 1.1),
+      '--color-calendar-graph-day-l2-bg': shadeColor(colorPrimary, 0.7),
+      '--color-calendar-graph-day-l1-bg': shadeColor(colorPrimary, 0.3),
     },
     themeName,
     themeIcon: <ThemeIcon primary={colorPrimary} secondary={colorBackground} />,

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ArticlesPage = () => {
-  return 'aw';
+  return <div id="container">aw</div>;
 };
 
 export default ArticlesPage;
