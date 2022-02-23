@@ -24,3 +24,34 @@ export const ExternalLinkWithIcon = ({ href, fontSize = '1rem', children }) => {
     </ExternalLink>
   );
 };
+
+export const SectionContainer = styled.section`
+  width: 100%;
+  min-height: 100vh;
+`;
+export const Wrapper = styled.div`
+  width: 80%;
+  padding-top: 10rem;
+  height: 100%;
+  margin: 0 auto;
+`;
+
+export const SectionTitle = styled.h2`
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 0px 0px 4rem;
+  width: 100%;
+  font-size: 2.5rem;
+  white-space: nowrap;
+
+  &::after {
+    content: '';
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 1px;
+    margin-left: 2rem;
+    background-color: var(--color-font);
+  }
+`;

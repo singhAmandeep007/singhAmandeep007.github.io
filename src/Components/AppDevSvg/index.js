@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as AppDevelopment } from './../../Common/appDevelopment.svg';
+import { ReactComponent as AppDevelopment } from './../../Assets/appDevelopment.svg';
 
 const AppDev = () => {
   return (

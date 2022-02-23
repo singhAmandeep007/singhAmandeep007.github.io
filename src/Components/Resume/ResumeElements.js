@@ -1,30 +1,30 @@
 import styled, { keyframes, css } from 'styled-components';
 
 const shake = keyframes`
-      0% {
-         transform: translate(0, 0);
-      }
-      1.7% {
-         transform: translate(10px, 0);
-      }
-      3.5% {
-         transform: translate(0, 0);
-      }
-      5.3% {
-         transform: translate(10px, 0);
-      }
-      7.1% {
-         transform: translate(0, 0);
-      }
-      8.9% {
-         transform: translate(10px, 0);
-      }
-      10.7% {
-         transform: translate(0, 0);
-      }
-      100% {
-         transform: translate(0, 0);
-      }
+	0% {
+			transform: translate(0, 0);
+	}
+	1.7% {
+			transform: translate(10px, 0);
+	}
+	3.5% {
+			transform: translate(0, 0);
+	}
+	5.3% {
+			transform: translate(10px, 0);
+	}
+	7.1% {
+			transform: translate(0, 0);
+	}
+	8.9% {
+			transform: translate(10px, 0);
+	}
+	10.7% {
+			transform: translate(0, 0);
+	}
+	100% {
+			transform: translate(0, 0);
+	}
 `;
 
 const coverOpened = css`

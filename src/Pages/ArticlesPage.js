@@ -1,8 +1,7 @@
 import React from 'react';
-import ArticlesSection from './../Components/ArticlesSection';
 
 const ArticlesPage = () => {
-  return <ArticlesSection />;
+  return 'aw';
 };
 
 export default ArticlesPage;

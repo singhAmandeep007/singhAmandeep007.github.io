@@ -45,7 +45,7 @@
     "deploy": "npm run build && firebase deploy",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-sw": "http-server ./build"
+    "start-sw": "http-server ./build --S"
   },
   "eslintConfig": {
     "extends": [

@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { RiGithubFill, RiLinkedinFill, RiMailLine } from 'react-icons/ri';
-import profilePic from './../../Common/profilePic.png';
+import profilePic from './../../Assets/profilePic.png';
 
 const data = {
   devName: 'Amandeep Singh',
