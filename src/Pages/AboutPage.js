@@ -75,10 +75,10 @@ export default AboutPage;
 const data = {
   profileImg: profileImg,
   content: `Hello, I’m Amandeep Singh. I’m a fullstack developer and a postgraduate student specializing in developing and designing exceptional and beautiful web applications. 
-	\n I’m currently working as a software developer at **[GTROPY](https://gtropy.com/)**, Delhi.
+	\n I’m currently working as a Frontend Engineer at **[Egnyte](https://egnyte.com/)**.
 	\n My experience as a self taught proficient web developer allows me to come up with smart solutions to technical challenges.
 	\n I’m  a coding enthusiast and passionate about learning and implementing web technologies.
-	\n I enjoy travelling and playing badminton, I also write articles about web on **[Coders League](https://codersleague.herokuapp.com)**.`,
+	\n I enjoy travelling and playing badminton, I also write articles about web on **[Coders League](https://codersleague.onrender.com/)**.`,
   stack: [...Object.values(techIcons)],
 };
 
@@ -87,6 +87,7 @@ const SectionContent = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 1.5rem;
+  gap: 4rem;
 
   @media (max-width: ${({ theme }) => theme.bpLarge}) {
     gap: 2rem;
@@ -100,10 +101,14 @@ const SectionContent = styled.div`
 const Avatar = styled.div`
   position: relative;
   margin: 0 auto;
+  align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  flex: 0.5;
 
   .avatar-border {
-    height: 25rem;
-    width: 25rem;
+    height: 100%;
+    width: 100%;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -111,15 +116,24 @@ const Avatar = styled.div`
     border-radius: 5px;
     z-index: 1;
     transition: 0.2s ease-in;
+
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+
+    max-width: calc(21rem + 10px);
   }
   .avatar-wrapper {
     position: relative;
     z-index: 2;
+    padding-top: 10px;
+    margin: 5px;
 
     img {
-      height: 35rem;
-      width: 35rem;
       object-fit: cover;
+      height: 100%;
+      max-width: 21rem;
+      width: 100%;
     }
   }
 `;

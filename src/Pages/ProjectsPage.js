@@ -175,8 +175,41 @@ const data = [
       techIcons.postman,
     ],
     projectLinks: {
-      live: 'https://codersleague.herokuapp.com',
-      github: 'https://codersleague.herokuapp.com/signup',
+      live: 'https://codersleague.onrender.com/',
+      github: 'https://codersleague.onrender.com/signup',
+    },
+  },
+  {
+    key: uuidv4(),
+    projectName: '8 Queens Problem Visualizer',
+    projectDescription: `An **interactive** 8 queen problem **visualizer**. User can simulate the solution or manually try solving the problem. It has **speed and board size control** as well to control the speed of simulation and change the chessboard size.`,
+    projectSlides: [
+      {
+        image:
+          'https://res.cloudinary.com/dryiuvv1l/image/upload/v1651896099/My%20Portfolio/My%20Portfolio/p-3_wvyl9s.png',
+        text: 'Information Modal',
+      },
+      {
+        image:
+          'https://res.cloudinary.com/dryiuvv1l/image/upload/v1651896099/My%20Portfolio/My%20Portfolio/p-2_eur9j9.png',
+        text: 'Manual Mode',
+      },
+      {
+        image:
+          'https://res.cloudinary.com/dryiuvv1l/image/upload/v1651896099/My%20Portfolio/My%20Portfolio/p-1_xt4bkd.png',
+        text: 'Dashboard',
+      },
+      {
+        image:
+          'https://res.cloudinary.com/dryiuvv1l/image/upload/v1651896280/My%20Portfolio/My%20Portfolio/p-4_wuddpw.png',
+        text: 'Simulation Mode',
+      },
+    ],
+    projectStack: [techIcons.react, techIcons.styledComponents],
+    projectLinks: {
+      live: 'https://8-queen-visualizer.netlify.app/',
+      github:
+        'https://github.com/amandeepmicro/eight-queens-problem-visualizer',
     },
   },
   {

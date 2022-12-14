@@ -26,11 +26,12 @@ rect.ContributionCalendar-day[data-level='4'] {
   min-height: 100%;
   text-align: center;
   margin: 0 auto;
+  font-size: 0.5rem;
 }
 
 .calendar-graph text.wday,
 .calendar-graph text.month {
-  font-size: 1rem;
+  /* font-size: 1rem; */
   fill: var(--color-font);
 }
 
@@ -57,7 +58,7 @@ rect.ContributionCalendar-day[data-level='4'] {
 }
 
 .text-small {
-  font-size: 1rem;
+  /* font-size: 1rem; */
   color: var(--color-font);
 }
 
@@ -71,7 +72,7 @@ rect.ContributionCalendar-day[data-level='4'] {
   text-align: center;
   border-left: 1px solid var(--color-font);
   border-top: 1px solid var(--color-font);
-  font-size: 11px;
+  /* font-size: 11px; */
 }
 
 .contrib-column-first {
@@ -89,7 +90,7 @@ rect.ContributionCalendar-day[data-level='4'] {
 .contrib-number {
   font-weight: 300;
   line-height: 1.3em;
-  font-size: 24px;
+  /* font-size: 24px; */
   display: block;
   color: #333;
 }
@@ -112,7 +113,7 @@ rect.ContributionCalendar-day[data-level='4'] {
 }
 
 .contrib-footer {
-  font-size: 11px;
+  /* font-size: 11px; */
   padding: 0 10px 12px;
   text-align: left;
   width: 100%;
@@ -150,7 +151,7 @@ h2.f4.text-normal.mb-3 {
   position: absolute;
   z-index: 99999;
   padding: 10px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--color-primary);
   text-align: center;
   background: rgba(0, 0, 0, 0.85);
@@ -179,5 +180,5 @@ h2.f4.text-normal.mb-3 {
 
 text.ContributionCalendar-label {
   fill: var(--color-font);
-  font-size: 1rem;
+  /* font-size: 1rem; */
 }

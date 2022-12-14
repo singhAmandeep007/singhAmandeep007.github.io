@@ -71,7 +71,9 @@ const StyleConfig = {
   themes: [
     createTheme('darkYellow', '#f7e018', '#000000', '#ffffff'),
     createTheme('whiteRed', '#ff2121', '#e2e2e2', '#000000'),
-    createTheme('whiteTurquoise', '#00bd97', '#e2e2e2', '#000000'),
+    createTheme('whiteTurquoise', '#81B622', '#000000', '#ffffff'),
+    createTheme('blueGreen', '#3CACAE', '#ffffff', '#000000'),
+    createTheme('roseRed', '#FF0080', '#000000', '#ffffff'),
   ],
   breakpoints: {
     // RESPONSIVE BREAKPOINTS // css var can't be used directly in media query

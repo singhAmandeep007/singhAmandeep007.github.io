@@ -100,9 +100,9 @@ export const SidebarAvatar = styled.div`
     object-position: 50%;
     border-radius: 10%;
     @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
-      -webkit-clip-path: circle(40% at 50% 50%);
-      clip-path: circle(40% at 50% 50%);
-      transform: scale(1.1);
+      -webkit-clip-path: circle(65% at 50% 40%);
+      clip-path: circle(65% at 50% 40%);
+      transform: scale(0.8);
     }
   }
   figcaption {
@@ -121,7 +121,7 @@ export const SidebarAvatar = styled.div`
 
   &:hover img {
     filter: blur(3px) brightness(70%);
-    transform: scale(1);
+    transform: scale(0.5);
   }
   &:hover figcaption {
     opacity: 1;

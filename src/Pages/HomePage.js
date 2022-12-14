@@ -61,10 +61,10 @@ const data = {
   devName: 'Amandeep Singh',
   short_description: `I’m  a fullstack developer specializing in developing and designing exceptional and beautiful web applications. 
 	\n My experience as a self taught developer allows me to come up with smart solutions to technical challenges.
-	\n I also write articles about web on **[Coders League](https://codersleague.herokuapp.com)**.`,
+	\n I also write articles about web on **[Coders League](https://codersleague.onrender.com/)**.`,
   devTitle: 'Full Stack Developer',
   devResumeDownloadLink:
-    'https://drive.google.com/uc?export=download&id=1Jaat1Itw2p0zDzaK8bfQGC3FrnC0pTx2',
+    'https://drive.google.com/uc?export=download&id=18rEEOpy5_eDH5KGAwDRCtSQSkO7fEjF3',
 };
 
 const waveAnimation = keyframes`
@@ -96,14 +96,13 @@ const waveAnimation = keyframes`
 `;
 
 const HomeSectionWrapper = styled(Wrapper)`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-		height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 
-    @media (max-width: ${({ theme }) => theme.bpMedium}) {
-      flex-direction: column;
-    }
+  @media (max-width: ${({ theme }) => theme.bpMedium}) {
+    flex-direction: column;
   }
 `;
 
