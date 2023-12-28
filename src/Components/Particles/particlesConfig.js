@@ -3,9 +3,6 @@ const particlesConfig = {
     position: '50% 50%',
     repeat: 'no-repeat',
     size: 'cover',
-    // color: {
-    //    value: '#000',
-    // },
   },
   fullScreen: {
     enable: true,
@@ -36,7 +33,6 @@ const particlesConfig = {
     shape: {
       type: ['image'],
       image: [],
-      // polygon: { nb_sides: 5 },
     },
     size: {
       value: 15,

@@ -1,19 +1,19 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
+import { RiGithubFill, RiExternalLinkFill } from 'react-icons/ri';
+
+import techIcons from './../Common/techIcons';
+
+import Slider from './../Components/Slider';
+
 import {
   SectionContainer,
   Wrapper,
   ExternalLinkWithIcon,
   SectionTitle,
-} from '../Components/CommonElements';
-
-import techIcons from './../Common/techIcons';
-import { v4 as uuidv4 } from 'uuid';
-
-import styled from 'styled-components';
-import ReactMarkdown from 'react-markdown';
-
-import Slider from './../Components/Slider';
-import { RiGithubFill, RiExternalLinkFill } from 'react-icons/ri';
+} from './../Components/CommonElements';
 
 const ProjectsPage = () => {
   return (
@@ -54,7 +54,7 @@ const ProjectsPage = () => {
                           a: ({ node, ...props }) => (
                             <ExternalLinkWithIcon
                               {...props}
-                              fontSize="calc(1.2rem + 0.2vh)"
+                              fontSize="1.2rem"
                             />
                           ),
                         }}
@@ -333,6 +333,7 @@ const Project = styled.li`
   display: grid;
 
   gap: 2rem;
+
   :nth-child(odd) {
     grid-template-areas: 'image content';
     grid-template-columns: 3fr 2fr;
@@ -343,10 +344,11 @@ const Project = styled.li`
   }
 
   margin: 5rem 0;
-  min-height: calc(100vh - 10rem);
+  min-height: calc(100dvh - 10rem);
 
   @media (max-width: ${({ theme }) => theme.bpMedium}) {
     min-height: calc(100vh - 20rem);
+
     :nth-child(odd) {
       grid-template-areas:
         'image'
@@ -360,28 +362,27 @@ const Project = styled.li`
       grid-template-columns: 1fr;
     }
 
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: min-content 1fr;
   }
 
   .project-image {
     grid-area: image;
-    @media (max-width: ${({ theme }) => theme.bpMedium}) {
-      align-self: end;
-    }
   }
+
   .project-content {
     grid-area: content;
   }
+
   .project-title {
     font-size: 2rem;
     color: var(--color-primary);
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
+
   .project-description {
     p {
-      line-height: 1.5;
       margin-bottom: 0.8rem;
-      font-size: calc(1.2rem + 0.2vh);
+      font-size: 1.3rem;
     }
   }
 
@@ -450,13 +451,11 @@ const Project = styled.li`
 `;
 
 const WindowFrame = styled.div`
-  z-index: 100;
-  /* height: 1rem; */
   width: 100%;
   background-color: #393939;
   color: #ffffff;
   display: flex;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   align-items: center;
 
   .window-buttons {
@@ -468,7 +467,6 @@ const WindowFrame = styled.div`
       width: 1rem;
       border-radius: 50%;
       margin: 0 2px;
-      background-color: red;
       display: inline-block;
       &:nth-child(1) {
         background-color: #ff5f57;

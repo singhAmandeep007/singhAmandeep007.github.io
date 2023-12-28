@@ -1,7 +1,7 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 import techIcons from './../Common/techIcons';
-import ReactMarkdown from 'react-markdown';
 import {
   SectionContainer,
   Wrapper,
@@ -9,7 +9,7 @@ import {
   ExternalLinkWithIcon,
 } from '../Components/CommonElements';
 import profileImg from './../Assets/profilePic.png';
-import GithubCalendar from '../Components/GithubCalendar';
+import GithubData from '../Components/GithubData';
 
 const AboutPage = () => {
   return (
@@ -28,16 +28,13 @@ const AboutPage = () => {
               children={data.content}
               components={{
                 a: ({ node, ...props }) => (
-                  <ExternalLinkWithIcon
-                    {...props}
-                    fontSize="calc(1.2rem + 0.2vh)"
-                  />
+                  <ExternalLinkWithIcon {...props} fontSize="1.45rem" />
                 ),
               }}
             />
             <SectionTitle
               as="h3"
-              style={{ fontSize: '1.5rem', margin: '4rem 0 2rem 0' }}
+              style={{ fontSize: '2rem', margin: '4rem 0 2rem 0' }}
             >
               My Stack
             </SectionTitle>
@@ -60,11 +57,11 @@ const AboutPage = () => {
         </SectionContent>
         <SectionTitle
           as="h3"
-          style={{ fontSize: '1.5rem', margin: '4rem 0 2rem 0' }}
+          style={{ fontSize: '2rem', margin: '2rem 0 2rem 0' }}
         >
           My Github Contributions
         </SectionTitle>
-        <GithubCalendar />
+        <GithubData />
       </Wrapper>
     </SectionContainer>
   );
@@ -74,7 +71,7 @@ export default AboutPage;
 
 const data = {
   profileImg: profileImg,
-  content: `Hello, I’m Amandeep Singh. I’m a fullstack developer and a postgraduate student specializing in developing and designing exceptional and beautiful web applications. 
+  content: `Hello, I’m Amandeep Singh. I’m a fullstack developer specializing in developing and designing exceptional and beautiful web applications. 
 	\n I’m currently working as a Frontend Engineer at **[Egnyte](https://egnyte.com/)**.
 	\n My experience as a self taught proficient web developer allows me to come up with smart solutions to technical challenges.
 	\n I’m  a coding enthusiast and passionate about learning and implementing web technologies.
@@ -98,6 +95,7 @@ const SectionContent = styled.div`
     flex: 1;
   }
 `;
+
 const Avatar = styled.div`
   position: relative;
   margin: 0 auto;
@@ -141,9 +139,8 @@ const Avatar = styled.div`
 const Content = styled.div`
   width: 100%;
   p {
+    font-size: 1.45rem;
     margin-bottom: 1rem;
-    line-height: 1.3;
-    letter-spacing: 1px;
   }
 `;
 
@@ -153,13 +150,10 @@ const Stack = styled.div`
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: 0rem 0 5rem 0;
     list-style: none;
 
     li {
-      margin: 0.5rem 1rem 0 0;
-      height: 3rem;
-      width: 3rem;
+      margin: 1rem 2rem;
       border-radius: 50%;
       background-color: #ffffff;
       display: flex;
@@ -170,30 +164,27 @@ const Stack = styled.div`
       &:focus {
         background-color: transparent;
         img {
-          transform: scale(2);
+          transform: scale(1.3);
         }
       }
       transition: background-color 0.2s ease-in-out;
+
+      width: 50px;
+      height: 50px;
     }
     img {
       transition: transform 0.4s ease;
-      width: 50%;
+      width: 25px;
     }
 
     @media (max-width: ${({ theme }) => theme.bpMedium}) {
-      gap: 3rem;
       flex-wrap: nowrap;
       overflow-x: scroll;
-      margin: -2rem 0;
-      height: 10rem;
+      margin: 0;
       justify-content: flex-start;
+
       li {
-        height: 2rem;
-        width: 2rem;
         background-color: transparent;
-      }
-      img {
-        width: 3rem;
       }
     }
   }

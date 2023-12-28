@@ -1,7 +1,8 @@
 import React from 'react';
+import FocusLock from 'react-focus-lock';
+
 import Burger from './Burger';
 import Sidebar from './Sidebar';
-import FocusLock from 'react-focus-lock';
 
 const SidebarMenu = React.forwardRef((props, ref) => {
   const menuId = 'main-menu';

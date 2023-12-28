@@ -21,7 +21,7 @@ import styledComponentsSvg from '../Assets/icons/styled-components.svg';
 import postmanSvg from '../Assets/icons/postman.svg';
 import amchartsSvg from '../Assets/icons/amcharts.svg';
 
-const techLogos = {
+const techIcons = {
   react: {
     label: 'React',
     logo: reactSvg,
@@ -116,4 +116,4 @@ const techLogos = {
   },
 };
 
-export default techLogos;
+export default techIcons;

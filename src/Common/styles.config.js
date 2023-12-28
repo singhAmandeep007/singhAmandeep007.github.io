@@ -57,10 +57,24 @@ const createTheme = (themeName, colorPrimary, colorBackground, colorFont) => {
 
       '--color-font': colorFont,
 
-      '--color-calendar-graph-day-l4-bg': shadeColor(colorPrimary, 1.5),
-      '--color-calendar-graph-day-l3-bg': shadeColor(colorPrimary, 1.1),
-      '--color-calendar-graph-day-l2-bg': shadeColor(colorPrimary, 0.7),
-      '--color-calendar-graph-day-l1-bg': shadeColor(colorPrimary, 0.3),
+      '--color-calendar-graph-cell-outline': '#69696948',
+      '--color-calendar-graph-day-bg': shadeColor(colorBackground),
+      '--color-calendar-graph-day-l4-bg': shadeColor(colorPrimary, 1),
+      '--color-calendar-graph-day-l3-bg': shadeColor(
+        colorPrimary,
+        undefined,
+        0.8
+      ),
+      '--color-calendar-graph-day-l2-bg': shadeColor(
+        colorPrimary,
+        undefined,
+        0.4
+      ),
+      '--color-calendar-graph-day-l1-bg': shadeColor(
+        colorPrimary,
+        undefined,
+        0.2
+      ),
     },
     themeName,
     themeIcon: <ThemeIcon primary={colorPrimary} secondary={colorBackground} />,
@@ -82,9 +96,8 @@ const StyleConfig = {
     bpLarge: '62em', // 992px
     bpMedium: '48em', // 768px
     bpSmall: '36em', // 576px
-    bpXSmall: '36em', // 576px
-    bpXXSmall: '26.5625em', // 425px
-    bpXXXSmall: '23.4375em', // 375px
+    bpXSmall: '26.5625em', // 425px
+    bpXXSmall: '23.4375em', // 375px
   },
 };
 

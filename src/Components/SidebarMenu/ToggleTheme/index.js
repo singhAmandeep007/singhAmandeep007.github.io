@@ -10,7 +10,6 @@ const ToggleTheme = () => {
 
   useEffect(() => {
     document.documentElement.className = theme;
-    // localestorage
   }, [theme]);
 
   return (

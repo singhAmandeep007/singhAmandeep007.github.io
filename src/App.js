@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import Routes from './Routes';
 import SidebarMenu from './Components/SidebarMenu';
 import ParticlesContainer from './Components/Particles';
-import { useOnClickOutside } from './Hooks/onClickOutside';
+import { useOnClickOutside } from './Hooks/useOnClickOutside';
 import { breakpoints } from './Common/styles.config';
 import Loading from './Components/Loading';
 

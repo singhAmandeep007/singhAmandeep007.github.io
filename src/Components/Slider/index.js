@@ -1,9 +1,9 @@
+import React, { useState, useEffect } from 'react';
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
-import React, { useState, useEffect } from 'react';
 import { MdFullscreen, MdArrowForward, MdArrowBack } from 'react-icons/md';
+import { useLockedBody } from './../../Hooks/useLockedBody';
 import { SlideContainer, SlideCaption } from './SliderElements';
-import useLockedBody from './../../Hooks/lockedBody';
 
 const ButtonContentLeft = <MdArrowBack />;
 
@@ -33,7 +33,9 @@ const Slider = ({ slides = [] }) => {
         organicArrows={false}
         buttonContentLeft={ButtonContentLeft}
         buttonContentRight={ButtonContentRight}
-        onTransitionStart={(slide) => setCurrent(slide.nextIndex)}
+        onTransitionStart={(slide) => {
+          setCurrent(slide.nextIndex);
+        }}
       >
         {slides.map(({ image, text }) => {
           return (

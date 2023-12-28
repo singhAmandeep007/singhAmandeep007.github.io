@@ -168,16 +168,6 @@ export const ResumeContainer = styled.div`
       border-radius: 100%;
     }
   }
-
-  /* &:hover .cover:before {
-      transform: rotateX(180deg);
-      transition: all 1s ease;
-      z-index: 2;
-   } */
-  /*&:hover .letter {
-      top: -8em;
-      transition: all 1s 1s ease;
-   } */
 `;
 
 export const ResumeLetter = styled.div`

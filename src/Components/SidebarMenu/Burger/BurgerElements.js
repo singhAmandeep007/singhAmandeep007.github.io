@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const BurgerContainer = styled.button`
   position: fixed;
-  top: 22.5px;
-  left: 20px;
+  top: 22px;
+  left: 22px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -24,44 +24,39 @@ export const BurgerContainer = styled.button`
     border-radius: 50%;
     position: absolute;
     @media (max-width: ${({ theme }) => theme.bpMedium}) {
-      width: 35px;
-      height: 35px;
-      border: 3px solid var(--color-primary);
+      width: 45px;
+      height: 45px;
     }
   }
-  @media (max-width: ${({ theme }) => theme.bpMedium}) {
-    left: 12px;
-    top: 13px;
+
+  &:focus {
+    outline: none;
   }
-  /* &:focus {
-      outline: none;
-   } */
 
   span {
     position: relative;
 
     width: 25px;
-    height: 2.5px;
+    height: 4px;
     background: var(--color-primary);
     border-radius: 5px;
     transition: all 0.3s linear;
 
-    transform-origin: 3px;
     :first-child {
-      transform: ${({ $open }) => ($open ? 'rotate(45deg)' : 'rotate(0)')};
+      transform: ${({ $open }) =>
+        $open ? 'translate(0px, 7px) rotate(45deg)' : 'rotate(0)'};
     }
     :nth-child(2) {
       opacity: ${({ $open }) => ($open ? '0' : '1')};
       transform: ${({ $open }) =>
-        $open ? 'translateX(25px)' : 'translateX(0)'};
+        $open ? 'translateX(195px)' : 'translateX(0)'};
     }
     :nth-child(3) {
-      transform: ${({ $open }) => ($open ? 'rotate(-45deg)' : 'rotate(0)')};
+      transform: ${({ $open }) =>
+        $open ? 'translate(0px, -7px) rotate(-45deg)' : 'rotate(0)'};
     }
     @media (max-width: ${({ theme }) => theme.bpMedium}) {
-      width: 18px;
-      height: 1.5px;
-      transform-origin: 0px;
+      width: 20px;
     }
   }
 `;

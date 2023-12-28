@@ -31,13 +31,10 @@ const HomePage = () => {
 
           <div>
             <ReactMarkdown
-              children={data.short_description}
+              children={data.shortDescription}
               components={{
                 a: ({ node, ...props }) => (
-                  <ExternalLinkWithIcon
-                    {...props}
-                    fontSize="calc(1rem + 0.8vw)"
-                  />
+                  <ExternalLinkWithIcon {...props} fontSize="1.5rem" />
                 ),
               }}
             />
@@ -59,7 +56,7 @@ export default HomePage;
 
 const data = {
   devName: 'Amandeep Singh',
-  short_description: `I’m  a fullstack developer specializing in developing and designing exceptional and beautiful web applications. 
+  shortDescription: `I’m  a fullstack developer specializing in developing and designing exceptional and beautiful web applications. 
 	\n My experience as a self taught developer allows me to come up with smart solutions to technical challenges.
 	\n I also write articles about web on **[Coders League](https://codersleague.onrender.com/)**.`,
   devTitle: 'Full Stack Developer',
@@ -99,7 +96,7 @@ const HomeSectionWrapper = styled(Wrapper)`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
 
   @media (max-width: ${({ theme }) => theme.bpMedium}) {
     flex-direction: column;
@@ -107,10 +104,10 @@ const HomeSectionWrapper = styled(Wrapper)`
 `;
 
 const HomeSectionTypography = styled.div`
-  padding: 1rem;
+  margin: 1rem;
 
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
     font-weight: normal;
   }
@@ -127,23 +124,20 @@ const HomeSectionTypography = styled.div`
   }
 
   p {
-    font-size: calc(1rem + 0.8vw);
-    line-height: 1.5;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
     font-weight: normal;
   }
+
   @media (max-width: ${({ theme }) => theme.bpMedium}) {
     h2 {
       font-size: 3rem;
-    }
-    p {
-      font-size: calc(1rem + 0.8vh);
     }
   }
 `;
 
 const HomeSectionResume = styled.div`
-  padding: 1rem;
+  margin: 1rem;
 
   font-size: 0.7rem;
 

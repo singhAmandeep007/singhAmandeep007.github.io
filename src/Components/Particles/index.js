@@ -2,20 +2,17 @@ import React, { useEffect, useRef } from 'react';
 import Particles from 'react-tsparticles';
 import particlesConfig from './particlesConfig';
 
-import techLogos from './../../Common/techIcons';
+import techIcons from './../../Common/techIcons';
 
 const particlesInit = (main) => {
-  //console.log(main);
   // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
 };
 const particlesLoaded = (container) => {
-  //console.log(container);
-  //load svg
-
+  // load svg
   // push logos
-  for (let item in techLogos) {
+  for (let icon in techIcons) {
     particlesConfig.particles.shape.image.push({
-      src: techLogos[item]['logo'],
+      src: techIcons[icon]['logo'],
       height: 10,
       width: 10,
     });

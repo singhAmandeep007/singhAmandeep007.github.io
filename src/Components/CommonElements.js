@@ -4,7 +4,7 @@ import { RiExternalLinkFill } from 'react-icons/ri';
 export const ExternalLink = styled.a`
   text-decoration: underline;
   text-decoration-color: var(--color-primary);
-  text-decoration-thickness: 0.1rem;
+  text-decoration-thickness: 1px;
   font-size: ${({ $fontSize }) => $fontSize};
   white-space: nowrap;
   svg {
@@ -27,7 +27,7 @@ export const ExternalLinkWithIcon = ({ href, fontSize = '1rem', children }) => {
 
 export const SectionContainer = styled.section`
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
 `;
 export const Wrapper = styled.div`
   width: 80%;

@@ -1,11 +1,13 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { bounce, flicker } from './animations';
+
 export const SidebarContainer = styled.nav`
   z-index: 99;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background: linear-gradient(
       0deg,
@@ -15,7 +17,7 @@ export const SidebarContainer = styled.nav`
     100% no-repeat;
 
   transform: ${({ $open }) => ($open ? 'translateX(0)' : 'translateX(-100%)')};
-  height: 100vh;
+  height: 100dvh;
   text-align: center;
   padding: 0 10px;
   position: fixed;
@@ -23,11 +25,24 @@ export const SidebarContainer = styled.nav`
   left: 0;
   transition: transform 0.3s ease-in-out;
   overflow-x: hidden;
-  border-right: 5px solid var(--color-primary);
+  border-right: 4px solid var(--color-primary);
 
   width: 25%;
-  @media (max-width: ${({ theme }) => theme.bpMedium}) {
-    width: 60%;
+  min-width: 230px;
+  max-width: 330px;
+
+  gap: 2rem;
+`;
+
+export const SidebarWrapper = styled.div`
+  margin: 55px 0 5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  & > :last-child {
+    margin-top: auto;
   }
 `;
 
@@ -36,19 +51,12 @@ export const SidebarLinkContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-
-  &::before {
-    content: '';
-    height: 3px;
-    width: 200px;
-    border-radius: 5px;
-    background-color: var(--color-primary);
-  }
+  gap: 1rem;
 `;
 
 export const SidebarLink = styled(NavLink)`
-  font-size: 1.5rem;
-  padding: 5px 0;
+  font-size: 2rem;
+
   font-weight: bold;
   color: var(--color-font);
   text-decoration: none;
@@ -71,27 +79,27 @@ export const SidebarLink = styled(NavLink)`
 
   &:hover,
   &:focus {
-    /* color: var(--color-primary); */
     background-position: 0 100%;
-    transform: scale(1.2);
+    transform: scale(1.15);
   }
   &.active {
     background-position: 0 100%;
     color: var(--color-primary);
   }
-
-  @media (max-width: ${({ theme }) => theme.bpMedium}) {
-    font-size: 2rem;
-  }
 `;
 
 export const SidebarAvatar = styled.div`
+  animation: 2s linear both;
+  animation-name: ${({ $open }) => ($open ? flicker : null)};
+  animation-delay: ${({ $delay }) => `${$delay}s`};
+
   padding: 0 0px;
   position: relative;
   filter: drop-shadow(0px 0px 5px var(--color-primary));
-  margin-bottom: 10px;
+  margin-bottom: -3.5rem;
   width: 100%;
   max-width: 300px;
+
   img {
     width: 100%;
     height: auto;
@@ -115,13 +123,14 @@ export const SidebarAvatar = styled.div`
     font-size: 1.1rem;
     text-align: center;
     opacity: 0;
-    transition: transform 0.2s;
+    transition: transform 0.3s;
     backface-visibility: hidden;
   }
 
   &:hover img {
+    transition: transform 0.3s;
     filter: blur(3px) brightness(70%);
-    transform: scale(0.5);
+    transform: scale(0.7);
   }
   &:hover figcaption {
     opacity: 1;
@@ -130,29 +139,34 @@ export const SidebarAvatar = styled.div`
 `;
 
 export const SidebarSocial = styled.div`
+  z-index: 5;
   display: flex;
   justify-content: center;
 
   font-size: 35px;
   padding: 10px;
+`;
 
-  a {
-    margin-left: -5px;
-    svg {
-      padding: 3px;
-      border-radius: 50%;
-      background-color: #fff;
-      color: #000;
-      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
-      transition: 300ms ease;
-      transition-property: color, transform;
-    }
+export const Divider = styled.div`
+  height: 3px;
+  width: 80%;
+  border-radius: 5px;
+  background-color: var(--color-primary);
+`;
 
-    &:hover {
-      svg {
-        transform: translateY(-15%);
-        color: var(--color-primary);
-      }
-    }
+export const SidebarSocialLink = styled.a`
+  display: flex;
+  margin-left: -5px;
+
+  animation: 1.5s linear both;
+  animation-name: ${({ $open }) => ($open ? bounce : null)};
+  animation-delay: ${({ $delay }) => `${$delay * 0.1}s`};
+
+  svg {
+    padding: 3px;
+    border-radius: 50%;
+    background-color: var(--color-font);
+    color: var(--color-primary);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
   }
 `;

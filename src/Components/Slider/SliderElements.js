@@ -85,7 +85,7 @@ export const SlideContainer = styled.div`
   .slide-control {
     ${SlideControlButton};
 
-    opacity: ${({ $fullscreen }) => ($fullscreen ? '1' : '0')}; //condition
+    opacity: ${({ $fullscreen }) => ($fullscreen ? '1' : '0')};
     pointer-events: none;
 
     &:hover,
