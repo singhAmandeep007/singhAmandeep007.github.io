@@ -50,9 +50,8 @@ export const GithubCalendar = ({ data }) => {
   };
 
   const cellStyleProps = {
-    outline: '1px solid var(--color-calendar-graph-cell-outline)',
-    outlineOffset: '-1px',
-    borderRadius: '2px',
+    strokeWidth: '1px',
+    stroke: 'var(--color-calendar-graph-cell-outline)',
   };
 
   return (

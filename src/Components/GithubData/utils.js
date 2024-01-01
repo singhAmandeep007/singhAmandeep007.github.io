@@ -70,8 +70,8 @@ export const createCells = ({
           fill={color}
           data-level={data.contributionLevel}
           data-date={data.date}
-          rx={2}
-          ry={2}
+          rx={3}
+          ry={3}
           style={{ ...styleProps }}
         >
           <title>
