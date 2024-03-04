@@ -42,7 +42,15 @@ export const GithubCalendar = ({ data }) => {
     };
   }
 
+  function getLegendDimensions() {
+    return {
+      width: getDimensions().width,
+      height: DEFAULT.CELL_SIZE + DEFAULT.CELL_MARGIN,
+    };
+  }
+
   const { width, height } = getDimensions();
+  const { width: legendWidth, height: legendHeight } = getLegendDimensions();
 
   const labelStyleProps = {
     fontSize: `${DEFAULT.LABEL_FONT_SIZE}px`,
@@ -60,9 +68,9 @@ export const GithubCalendar = ({ data }) => {
         maxWidth: '100%',
         overflowX: 'auto',
         overflowY: 'hidden',
-        width: 'max-content',
+        width: 'min-content',
         margin: 'auto',
-        height: `${height + DEFAULT.Y_LABEL_HEIGHT}px`,
+        height: `${height + DEFAULT.Y_LABEL_HEIGHT + 10}px`,
       }}
     >
       <svg height={height} width={width} viewBox={`0 0 ${width} ${height}`}>
@@ -83,7 +91,7 @@ export const GithubCalendar = ({ data }) => {
             const { x: cellPosX, y: cellPosY } = getPosition({ x, y });
 
             return {
-              x: cellPosX - DEFAULT.CELL_MARGIN,
+              x: cellPosX - DEFAULT.CELL_MARGIN - 1,
               y: cellPosY + DEFAULT.CELL_SIZE / 2,
             };
           },
@@ -108,6 +116,43 @@ export const GithubCalendar = ({ data }) => {
           })(),
           styleProps: labelStyleProps,
         })}
+      </svg>
+      <svg
+        width={legendWidth}
+        height={legendHeight + 20}
+        viewBox={`0 0 ${legendWidth} ${legendHeight}`}
+      >
+        <text
+          x={legendWidth - DEFAULT.THEME.length * 13 - DEFAULT.CELL_SIZE - 50}
+          y="10"
+          style={labelStyleProps}
+        >
+          Less
+        </text>
+        <g
+          style={{
+            transform: `translateX(${
+              width - DEFAULT.THEME.length * DEFAULT.CELL_SIZE - 30
+            }px)`,
+          }}
+        >
+          {DEFAULT.THEME.map((color, index) => (
+            <rect
+              key={`legend-${index}`}
+              x={index * 13 - DEFAULT.CELL_SIZE}
+              y={0}
+              width={DEFAULT.CELL_SIZE}
+              height={DEFAULT.CELL_SIZE}
+              fill={color}
+              style={cellStyleProps}
+              rx={3}
+              ry={3}
+            />
+          ))}
+        </g>
+        <text x={legendWidth - 30} y="10" style={labelStyleProps}>
+          More
+        </text>
       </svg>
     </div>
   );
