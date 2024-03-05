@@ -176,7 +176,7 @@ const data = [
     ],
     projectLinks: {
       live: 'https://codersleague.onrender.com/',
-      github: 'https://codersleague.onrender.com/signup',
+      github: 'https://github.com/singhAmandeep007/codersLeague',
     },
   },
   {
@@ -209,7 +209,7 @@ const data = [
     projectLinks: {
       live: 'https://8-queen-visualizer.netlify.app/',
       github:
-        'https://github.com/amandeepmicro/eight-queens-problem-visualizer',
+        'https://github.com/singhAmandeep007/eight-queens-problem-visualizer',
     },
   },
   {
@@ -264,7 +264,7 @@ const data = [
     ],
     projectLinks: {
       live: 'https://covidindia2020.web.app/',
-      github: 'https://github.com/amandeepmicro/Covid-19-Tracker_India',
+      github: 'https://github.com/singhAmandeep007/Covid-19-Tracker_India',
     },
   },
   {
@@ -300,7 +300,7 @@ const data = [
     projectStack: [techIcons.react, techIcons.materialui, techIcons.css],
     projectLinks: {
       live: 'https://covidtracker-34f49.web.app/dashboard',
-      github: 'https://github.com/amandeepmicro/Covid-19-Tracker_World',
+      github: 'https://github.com/singhAmandeep007/Covid-19-Tracker_World',
     },
   },
   {
@@ -324,7 +324,7 @@ const data = [
     projectStack: [techIcons.javascript, techIcons.css, techIcons.html],
     projectLinks: {
       live: 'https://movievsmovie.netlify.app/',
-      github: 'https://github.com/amandeepmicro/MovieVsMovie',
+      github: 'https://github.com/singhAmandeep007/MovieVsMovie',
     },
   },
 ];
