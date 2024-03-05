@@ -21,7 +21,7 @@
     "react-icons": "^4.3.1",
     "react-markdown": "^7.1.1",
     "react-router-dom": "5.2",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^5.0.1",
     "react-tsparticles": "^1.37.5",
     "styled-components": "^5.3.3",
     "uuid": "^8.3.2",
