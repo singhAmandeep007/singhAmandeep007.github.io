@@ -1,0 +1,17 @@
+node_modules
+
+# Build
+/dist/*
+/build
+.github
+
+/public
+/*.cjs
+/*.config.ts
+/*.config.js
+
+
+.vscode
+.idea
+
+/reports

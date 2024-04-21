@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import AwesomeSlider from 'react-awesome-slider';
-import 'react-awesome-slider/dist/styles.css';
-import { MdFullscreen, MdArrowForward, MdArrowBack } from 'react-icons/md';
-import { useLockedBody } from './../../Hooks/useLockedBody';
-import { SlideContainer, SlideCaption } from './SliderElements';
+import React, { useEffect, useState } from "react";
+import AwesomeSlider from "react-awesome-slider";
+import "react-awesome-slider/dist/styles.css";
+import { MdArrowBack, MdArrowForward, MdFullscreen } from "react-icons/md";
+import { useLockedBody } from "./../../Hooks/useLockedBody";
+import { SlideCaption, SlideContainer } from "./SliderElements";
 
 const ButtonContentLeft = <MdArrowBack />;
 
 const ButtonContentRight = <MdArrowForward />;
 
-const Slider = ({ slides = [] }) => {
+export const Slider = ({ slides = [] }) => {
   const [current, setCurrent] = useState(0);
   const [fullscreen, setFullscreen] = useState(false);
   const [captions, setCaptions] = useState([]);
@@ -24,7 +24,10 @@ const Slider = ({ slides = [] }) => {
 
   return (
     <SlideContainer $fullscreen={fullscreen}>
-      <span className="slide-control is-fullscreen" onClick={toggleFullscreen}>
+      <span
+        className="slide-control is-fullscreen"
+        onClick={toggleFullscreen}
+      >
         <MdFullscreen />
       </span>
 
@@ -40,17 +43,23 @@ const Slider = ({ slides = [] }) => {
         {slides.map(({ image, text }) => {
           return (
             <div key={text}>
-              <img src={image} alt={text} />
+              <img
+                src={image}
+                alt={text}
+              />
             </div>
           );
         })}
       </AwesomeSlider>
-      {!fullscreen && <Caption selected={current} captions={captions} />}
+      {!fullscreen && (
+        <Caption
+          selected={current}
+          captions={captions}
+        />
+      )}
     </SlideContainer>
   );
 };
-
-export default React.memo(Slider);
 
 const Caption = React.memo(({ selected = 0, captions = [] }) => {
   const formattedIndex = selected + 1;

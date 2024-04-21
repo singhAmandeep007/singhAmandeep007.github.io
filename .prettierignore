@@ -1,0 +1,25 @@
+node_module
+
+/dist/*
+/build
+
+# Environment files
+/env
+
+# Coverage directory used by tools like istanbul
+/coverage
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+.vscode
+.idea
+
+/reports

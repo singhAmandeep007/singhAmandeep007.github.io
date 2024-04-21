@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "ES2020" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+    "useDefineForClassFields": true /* Emit ECMAScript-standard-compliant class fields. */,
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ] /* Specify a set of bundled library declaration files that describe the target runtime environment. */,
+    "module": "ESNext" /* Specify what module code is generated. */,
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler" /* Specify how TypeScript looks up a file from a given module specifier. */,
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true /* Enable importing .json files. */,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
+    // Base directory to resolve non-absolute module names.
+    "baseUrl": ".",
+    "rootDir": ".",
+    /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. See More https://www.typescriptlang.org/tsconfig#paths */
+    "paths": {
+      "~/*": ["./node_modules/*"],
+      "@/*": ["./src/*"]
+    },
+    /* Js */
+    "allowJs": true,
+    // "checkJs": true, /* Enable error reporting in type-checked JavaScript files. */
+    // to get TypeScript working with the global APIs of vitest.
+    "types": ["vitest/globals", "vitest/jsdom"]
+  },
+  "include": ["./src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
