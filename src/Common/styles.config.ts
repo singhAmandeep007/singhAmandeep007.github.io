@@ -3,7 +3,7 @@
  * @param opacity apply opacity
  * @param decimal lighten or darken decimal value, example 0.5 to lighten by 50% or 1.5 to darken by 50%.
  */
-function shadeColor(color: string, opacity = 1, decimal?: number) {
+function shadeColor({ color, opacity = 1, decimal }: { color: string; opacity?: number; decimal?: number }) {
   if (!decimal && opacity) {
     const _opacity = Math.round(Math.min(Math.max(opacity || 1, 0), 1) * 255);
     return `${color}` + _opacity.toString(16).toUpperCase();
@@ -53,20 +53,20 @@ const createTheme = ({ colorBackground, colorFont, colorPrimary, themeName }: TC
   return {
     colors: {
       "--color-primary": colorPrimary,
-      "--color-primary-light-1": shadeColor(colorPrimary, 0.55),
-      "--color-primary-light-2": shadeColor(colorPrimary, 0.5),
-      "--color-primary-background": shadeColor(colorPrimary, 1.3, 0.8),
+      "--color-primary-light-1": shadeColor({ color: colorPrimary, decimal: 0.55 }),
+      "--color-primary-light-2": shadeColor({ color: colorPrimary, decimal: 0.25 }),
+      "--color-primary-background": shadeColor({ color: colorPrimary, decimal: 1.3, opacity: 0.8 }),
 
-      "--color-background": shadeColor(colorBackground, 0.9),
+      "--color-background": shadeColor({ color: colorBackground, opacity: 0.9 }),
 
       "--color-font": colorFont,
 
       "--color-calendar-graph-cell-outline": "#69696948",
-      "--color-calendar-graph-day-bg": shadeColor(colorBackground),
-      "--color-calendar-graph-day-l4-bg": shadeColor(colorPrimary),
-      "--color-calendar-graph-day-l3-bg": shadeColor(colorPrimary, 0.8),
-      "--color-calendar-graph-day-l2-bg": shadeColor(colorPrimary, 0.4),
-      "--color-calendar-graph-day-l1-bg": shadeColor(colorPrimary, 0.2),
+      "--color-calendar-graph-day-bg": shadeColor({ color: colorBackground }),
+      "--color-calendar-graph-day-l4-bg": shadeColor({ color: colorPrimary, decimal: 1 }),
+      "--color-calendar-graph-day-l3-bg": shadeColor({ color: colorPrimary, opacity: 0.8 }),
+      "--color-calendar-graph-day-l2-bg": shadeColor({ color: colorPrimary, opacity: 0.4 }),
+      "--color-calendar-graph-day-l1-bg": shadeColor({ color: colorPrimary, opacity: 0.2 }),
     },
     themeName,
     colorBackground,
