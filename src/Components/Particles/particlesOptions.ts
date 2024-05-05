@@ -1,64 +1,77 @@
+import { techIcons } from "@/Common/techIcons";
+
 import type { ISourceOptions } from "@tsparticles/engine";
 
 const particlesOptions: ISourceOptions = {
-  // background: {
-  //   position: "50% 50%",
-  //   repeat: "no-repeat",
-  //   size: "cover",
-  // },
-  // fullScreen: {
-  //   enable: true,
-  //   zIndex: -1,
-  // },
-  // fps_limit: 30,
-
-  // particles: {
-  //   number: { density: { enable: true, value_area: 750 }, value: 20 },
-  //   line_linked: {
-  //     enable: false,
-  //   },
-  //   move: {
-  //     attract: { enable: false, rotateX: 500, rotateY: 1000 },
-  //     direction: "none",
-  //     enable: true,
-  //     out_mode: "out",
-  //     random: false,
-  //     speed: 3,
-  //     straight: false,
-  //   },
-
-  //   opacity: {
-  //     anim: { enable: true, opacity_min: 0.05, speed: 0.5, sync: false },
-  //     random: false,
-  //     value: 0.4,
-  //   },
-  //   shape: {
-  //     type: ["image"],
-
-  //     image: [],
-  //   },
-  //   size: {
-  //     value: 15,
-  //   },
-  // },
+  background: {
+    position: "50% 50%",
+    repeat: "no-repeat",
+    size: "cover",
+  },
+  fullScreen: {
+    enable: true,
+    // no effect
+    zIndex: -1,
+  },
+  fpsLimit: 120,
   particles: {
+    number: {
+      density: {
+        enable: true,
+      },
+      value: 40,
+    },
+    move: {
+      attract: {
+        enable: false,
+        rotate: {
+          x: 500,
+          y: 1000,
+        },
+      },
+      direction: "none",
+      enable: true,
+      outModes: {
+        default: "out",
+      },
+      random: false,
+      speed: 3,
+      straight: false,
+    },
+    opacity: {
+      animation: {
+        enable: true,
+        speed: 0.2,
+        sync: false,
+        delay: 2,
+      },
+      value: { min: 0, max: 0.3 },
+    },
+    size: {
+      value: 15,
+    },
     shape: {
-      type: "square", // starting from v2, this require the square shape script
+      options: {
+        image: [],
+      },
+      type: "image",
     },
   },
-  preset: "bubbles",
+  preload: [],
 
-  retina_detect: false,
+  detectRetina: true,
 };
 
-/**
- * ...Object.keys(techIcons).map((iconName) => ({
-          // @ts-expect-error jkdl fds daf
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-          src: techIcons[iconName]["logo"],
-          height: 10,
-          width: 10,
-        })),
- */
+const particleOptionsImage = Object.keys(techIcons).map((iconName) => ({
+  name: iconName,
+}));
+const particleOptionsPreload = Object.keys(techIcons).map((iconName) => ({
+  src: techIcons[iconName as keyof typeof techIcons].logo,
+  name: iconName,
+}));
+
+// @ts-expect-error-next-line
+particlesOptions.particles.shape.options.image = particleOptionsImage;
+particlesOptions.preload = particleOptionsPreload;
 
 export { particlesOptions };

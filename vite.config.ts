@@ -1,27 +1,44 @@
-import { resolve } from 'path';
+import { resolve } from "path";
 
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig, loadEnv } from "vite";
 
-import react from '@vitejs/plugin-react';
-import inspect from 'vite-plugin-inspect';
-import svgr from 'vite-plugin-svgr';
-import checker from 'vite-plugin-checker';
-import { visualizer } from 'rollup-plugin-visualizer';
+import react from "@vitejs/plugin-react";
+import { visualizer } from "rollup-plugin-visualizer";
+import checker from "vite-plugin-checker";
+import inspect from "vite-plugin-inspect";
+import svgr from "vite-plugin-svgr";
 
 // READ-MORE: https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd() + '/env');
+  const env = loadEnv(mode, process.cwd() + "/env");
 
-  const isDevMode = mode === 'development';
-  const isProdMode = mode === 'production';
-  const isTestMode = process.env.VITEST === 'true';
+  const isDevMode = mode === "development";
+  const isProdMode = mode === "production";
+  const isTestMode = process.env.VITEST === "true";
 
-  const shouldCheckESLintDev =
-    isDevMode && JSON.parse(env.VITE_ESLINT_DEV_CHECK) ? true : false;
-  const shouldCheckTypeScriptDev =
-    isDevMode && JSON.parse(env.VITE_TSC_DEV_CHECK) ? true : false;
+  const shouldCheckESLintDev = isDevMode && JSON.parse(env.VITE_ESLINT_DEV_CHECK) ? true : false;
+  const shouldCheckTypeScriptDev = isDevMode && JSON.parse(env.VITE_TSC_DEV_CHECK) ? true : false;
 
-  const plugins = [svgr(), react(), inspect()];
+  const plugins = [
+    svgr(),
+    react({
+      babel: {
+        plugins: [
+          [
+            "babel-plugin-styled-components",
+            {
+              displayName: true,
+              fileName: false,
+              ssr: false,
+              // dead code elimination
+              pure: true,
+            },
+          ],
+        ],
+      },
+    }),
+    inspect(),
+  ];
   if (!isTestMode) {
     // READ-MORE: https://github.com/fi3ework/vite-plugin-checker
     plugins.push(
@@ -42,11 +59,11 @@ export default defineConfig(({ mode }) => {
   if (isProdMode) {
     plugins.push(
       visualizer({
-        template: 'treemap',
+        template: "treemap",
         open: true,
         gzipSize: true,
         brotliSize: true,
-        filename: './reports/build/analyze.html', // will be saved in project's root
+        filename: "./reports/build/analyze.html", // will be saved in project's root
       })
     );
   }
@@ -62,25 +79,25 @@ export default defineConfig(({ mode }) => {
       strictPort: true,
       open: true,
     },
-    envDir: './env',
+    envDir: "./env",
     plugins,
     build: {
-      outDir: 'dist',
+      outDir: "dist",
       sourcemap: true,
       // READ-MORE:  https://vitejs.dev/config/build-options#build-target
-      target: 'esnext',
+      target: "esnext",
     },
     resolve: {
       alias: [
         // eg. import slash from "~/slash";
         {
           find: /~(.+)\//,
-          replacement: resolve(__dirname, 'node_modules/$1'),
+          replacement: resolve(__dirname, "node_modules/$1"),
         },
         // eg. import Button from "@/components/Button"
         {
-          find: '@',
-          replacement: resolve(__dirname, './src'),
+          find: "@",
+          replacement: resolve(__dirname, "./src"),
         },
       ],
     },

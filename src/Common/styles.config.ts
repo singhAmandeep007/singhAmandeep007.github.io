@@ -88,20 +88,36 @@ export const breakpoints = {
 
 export type TBreakpoints = typeof breakpoints;
 
-const stylesConfig = {
-  themes: [
-    createTheme({ themeName: "darkYellow", colorPrimary: "#f7e018", colorBackground: "#000000", colorFont: "#ffffff" }),
-    createTheme({ themeName: "whiteRed", colorPrimary: "#ff2121", colorBackground: "#e2e2e2", colorFont: "#000000" }),
-    createTheme({
-      themeName: "whiteTurquoise",
-      colorPrimary: "#81B622",
-      colorBackground: "#000000",
-      colorFont: "#ffffff",
-    }),
-    createTheme({ themeName: "blueGreen", colorPrimary: "#3CACAE", colorBackground: "#ffffff", colorFont: "#000000" }),
-    createTheme({ themeName: "roseRed", colorPrimary: "#FF0080", colorBackground: "#000000", colorFont: "#ffffff" }),
-  ],
-  breakpoints,
-};
+export const themes = [
+  createTheme({ themeName: "darkYellow", colorPrimary: "#f7e018", colorBackground: "#000000", colorFont: "#ffffff" }),
+  createTheme({ themeName: "whiteRed", colorPrimary: "#ff2121", colorBackground: "#e2e2e2", colorFont: "#000000" }),
+  createTheme({
+    themeName: "whiteTurquoise",
+    colorPrimary: "#81B622",
+    colorBackground: "#000000",
+    colorFont: "#ffffff",
+  }),
+  createTheme({ themeName: "blueGreen", colorPrimary: "#3CACAE", colorBackground: "#ffffff", colorFont: "#000000" }),
+  createTheme({ themeName: "roseRed", colorPrimary: "#FF0080", colorBackground: "#000000", colorFont: "#ffffff" }),
+];
 
-export { stylesConfig };
+/**
+ * Theme controlled via css variables
+ * Lazy load theme colors
+ */
+export const getTheme = () => {
+  // get current theme name from the html document class
+  const getCurrentThemeName = () =>
+    document.documentElement.className.split(" ").find((name) => themes.map((theme) => theme.themeName).includes(name));
+  // get attribute of the current theme by key
+  const getThemeAttr = (attr: keyof ReturnType<typeof createTheme>) =>
+    themes.find((theme) => theme.themeName === getCurrentThemeName())![attr];
+
+  return {
+    getPrimaryColor: () => getThemeAttr("colorPrimary"),
+    getBackgroundColor: () => getThemeAttr("colorBackground"),
+    getFontColor: () => getThemeAttr("colorFont"),
+    getThemeName: () => getCurrentThemeName(),
+    getThemeColors: () => getThemeAttr("colors"),
+  };
+};

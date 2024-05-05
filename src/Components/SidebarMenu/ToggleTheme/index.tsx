@@ -1,15 +1,25 @@
-import { stylesConfig } from "@/Common/styles.config";
+import { themes } from "@/Common/styles.config";
 import { ThemeIcon } from "@/Components/ThemeIcon";
 import { useEffect, useState } from "react";
 import { ThemeIconWrapper, ThemeTogglerContainer } from "./ThemeTogglerElements";
 
 export const ToggleTheme = () => {
-  const themes = stylesConfig.themes;
-
   const [theme, setTheme] = useState(themes[0].themeName);
 
   useEffect(() => {
-    document.documentElement.className = theme;
+    document.documentElement.classList.add("theme-transition");
+
+    document.documentElement.addEventListener(
+      "transitionend",
+      () => {
+        if (document.documentElement) {
+          document.documentElement.classList.remove("theme-transition");
+        }
+      },
+      { once: true }
+    );
+
+    document.documentElement.className = `theme-transition ${theme}`;
   }, [theme]);
 
   return (

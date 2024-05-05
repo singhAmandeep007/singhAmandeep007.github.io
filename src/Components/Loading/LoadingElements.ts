@@ -21,13 +21,10 @@ export const LoadingWrapper = styled.div`
 export const Loader = styled.div`
   height: 8rem;
   width: 8rem;
-  @media (max-width: ${({ theme }) => theme.bpMedium}) {
-    width: 2000px;
-  }
 `;
 
 export const LoadingPath = styled.path`
-  stroke: var(--color-primary);
+  stroke: ${({ theme }) => theme.currentTheme.getPrimaryColor()};
   stroke-width: 3;
   stroke-dasharray: 500;
   stroke-dashoffset: 500;

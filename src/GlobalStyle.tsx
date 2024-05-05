@@ -1,11 +1,8 @@
 import { createGlobalStyle, css } from "styled-components";
 
-import { stylesConfig } from "@/Common/styles.config";
-
-const { breakpoints, themes } = stylesConfig;
+import { breakpoints, themes } from "@/Common/styles.config";
 
 export const GlobalStyle = createGlobalStyle`
-
 /* reset */
 	*,
 	*::before,
@@ -29,6 +26,7 @@ export const GlobalStyle = createGlobalStyle`
 		
 	}
 
+	/* generate theme class which encapsulates theme css variables */
 	${themes.map(({ themeName, colors }) => {
     return css`
       .${themeName} {
@@ -45,7 +43,7 @@ export const GlobalStyle = createGlobalStyle`
 		filter: blur(3px);
 	}
 
-	.tsparticles-canvas-el{
+	#tsparticles > canvas {
 		background-color: var(--color-background);
 		opacity: var(--tsParticles-opacity);
 	}
@@ -64,7 +62,6 @@ export const GlobalStyle = createGlobalStyle`
 	/* font size responsiveness */
 	html {
 		box-sizing: border-box;
-
 		// > 1400px
 		@media only screen and (min-width: ${breakpoints.bpXXLarge}) {
 				font-size: 100% !important; // 16px
@@ -95,6 +92,12 @@ export const GlobalStyle = createGlobalStyle`
 		}
 	}
 
+	/* theme change transition effect */
+	html.theme-transition,
+  html.theme-transition * {
+    transition: all 0.2s linear;
+  }
+
 	/* apply default style */
 	a{
 		font-family: inherit;
@@ -106,11 +109,12 @@ export const GlobalStyle = createGlobalStyle`
 		background-color: var(--color-primary);
 	}
 	/* scrollbar */
-	body::-webkit-scrollbar{
-		width: 8px;
+	*::-webkit-scrollbar{
+		width: 5px;
+		border-radius: 10px;
 		background-color: var(--color-scrollbar-bg);
 	}
-	body::-webkit-scrollbar-thumb{
+	*::-webkit-scrollbar-thumb{
 		background-color:  var(--color-scrollbar-thump);
 	}
 `;

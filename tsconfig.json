@@ -36,7 +36,7 @@
     "allowJs": true,
     // "checkJs": true, /* Enable error reporting in type-checked JavaScript files. */
     // to get TypeScript working with the global APIs of vitest.
-    "types": ["vitest/globals", "vitest/jsdom"]
+    "types": []
   },
   "include": ["./src"],
   "references": [{ "path": "./tsconfig.node.json" }]

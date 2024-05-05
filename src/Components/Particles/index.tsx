@@ -1,8 +1,7 @@
+import { useCallback, useEffect, useState } from "react";
+
 import { type Container } from "@tsparticles/engine";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { useCallback, useEffect, useState } from "react";
-// import { loadAll } from "@tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
-// import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from "@tsparticles/slim";
 
 import { particlesOptions } from "./particlesOptions";
@@ -17,10 +16,7 @@ export const ParticlesContainer = ({ shouldPause }: TParticlesContainerProps) =>
   // this should be run only once per application lifetime
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      //await loadAll(engine);
-      //await loadFull(engine);
       await loadSlim(engine);
-      //await loadBasic(engine);
     })
       .then(() => {
         setInit(true);
@@ -30,8 +26,10 @@ export const ParticlesContainer = ({ shouldPause }: TParticlesContainerProps) =>
 
   const particlesLoaded = useCallback(
     async (container?: Container): Promise<void> => {
-      console.log(container);
       if (container) {
+        // REFACTOR: could it be controllable via css?
+        container.canvas.element?.style.setProperty("z-index", "-1");
+        // FIX: not working
         if (shouldPause) container.pause();
         else container.play();
       }

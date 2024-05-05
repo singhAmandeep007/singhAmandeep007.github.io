@@ -1,21 +1,12 @@
 import { useRef, useState } from "react";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 
+import { fakeDelay } from "@/Common/utils";
 import { ParticlesContainer } from "@/Components/Particles";
 import { SidebarMenu } from "@/Components/SidebarMenu";
 import { useOnClickOutside } from "@/Hooks/useOnClickOutside";
-import { Loading } from "./Components/Loading";
 
-// NOTE: returns a fn which accepts a promise, which resolves after provided milliseconds
-function fakeDelay(ms: number = 2000) {
-  // return (comp: React.ReactElement) =>
-  //   new Promise((resolve) => {
-  //     setTimeout(() => resolve(comp), ms);
-  //   });
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-}
+import { Loading } from "@/Components/Loading";
 
 const Layout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -23,9 +14,11 @@ const Layout = () => {
   const sidebarNode = useRef<HTMLElement | null>(null);
 
   useOnClickOutside(sidebarNode, () => setIsSidebarOpen(false));
+
   return (
     <main>
       <div className={`App ${isSidebarOpen ? "blur" : ""}`}>
+        <ParticlesContainer shouldPause={isSidebarOpen} />
         <SidebarMenu
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
@@ -34,7 +27,6 @@ const Layout = () => {
 
         <Outlet />
       </div>
-      <ParticlesContainer shouldPause={isSidebarOpen} />
     </main>
   );
 };
@@ -47,7 +39,7 @@ const router = createBrowserRouter([
         path: "/",
 
         lazy: async () => {
-          await fakeDelay(200);
+          await fakeDelay(2000);
           const { HomePage } = await import("@/Pages/HomePage");
           return {
             Component: HomePage,
