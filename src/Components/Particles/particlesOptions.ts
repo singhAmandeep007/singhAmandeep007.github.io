@@ -22,13 +22,6 @@ const particlesOptions: ISourceOptions = {
       value: 40,
     },
     move: {
-      attract: {
-        enable: false,
-        rotate: {
-          x: 500,
-          y: 1000,
-        },
-      },
       direction: "none",
       enable: true,
       outModes: {
@@ -41,14 +34,14 @@ const particlesOptions: ISourceOptions = {
     opacity: {
       animation: {
         enable: true,
-        speed: 0.2,
+        speed: 0.5,
         sync: false,
-        delay: 2,
+        delay: 1,
       },
-      value: { min: 0, max: 0.3 },
+      value: { min: 0, max: 0.5 },
     },
     size: {
-      value: 15,
+      value: 18,
     },
     shape: {
       options: {

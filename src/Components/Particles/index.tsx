@@ -1,16 +1,11 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-import { type Container } from "@tsparticles/engine";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
 import { particlesOptions } from "./particlesOptions";
 
-type TParticlesContainerProps = {
-  shouldPause: boolean;
-};
-
-export const ParticlesContainer = ({ shouldPause }: TParticlesContainerProps) => {
+export const ParticlesContainer = () => {
   const [init, setInit] = useState(false);
 
   // this should be run only once per application lifetime
@@ -24,30 +19,21 @@ export const ParticlesContainer = ({ shouldPause }: TParticlesContainerProps) =>
       .catch(console.error);
   }, []);
 
-  const particlesLoaded = useCallback(
-    async (container?: Container): Promise<void> => {
-      if (container) {
-        // REFACTOR: could it be controllable via css?
-        container.canvas.element?.style.setProperty("z-index", "-1");
-        // FIX: not working
-        if (shouldPause) container.pause();
-        else container.play();
-      }
+  const particles = useMemo(() => {
+    if (init) {
+      return (
+        <div style={{ width: 0, height: 0 }}>
+          <Particles
+            id="tsparticles"
+            options={particlesOptions}
+          />
+        </div>
+      );
+    }
+    return null;
+  }, [init]);
 
-      await Promise.resolve();
-    },
-    [shouldPause]
-  );
-
-  if (init) {
-    return (
-      <Particles
-        id="tsparticles"
-        particlesLoaded={particlesLoaded}
-        options={particlesOptions}
-      />
-    );
-  }
-
-  return <></>;
+  return particles;
 };
+
+ParticlesContainer.displayName = "ParticlesContainer";

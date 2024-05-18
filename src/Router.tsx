@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import { fakeDelay } from "@/Common/utils";
@@ -7,6 +7,7 @@ import { ToggleTheme } from "@/Components/ToggleTheme";
 import { useOnClickOutside } from "@/Hooks/useOnClickOutside";
 
 import { Loading } from "@/Components/Loading";
+import { ParticlesContainer } from "@/Components/Particles";
 
 const Layout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -15,10 +16,12 @@ const Layout = () => {
 
   useOnClickOutside(sidebarNode, () => setIsSidebarOpen(false));
 
+  const toggleTheme = useMemo(() => <ToggleTheme />, []);
+  const particles = useMemo(() => <ParticlesContainer />, []);
+
   return (
     <main>
       <div className={`App ${isSidebarOpen ? "blur" : ""}`}>
-        {/* <ParticlesContainer shouldPause={isSidebarOpen} /> */}
         <SidebarMenu
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
@@ -26,8 +29,9 @@ const Layout = () => {
         />
 
         <Outlet />
-        <ToggleTheme />
+        {toggleTheme}
       </div>
+      {particles}
     </main>
   );
 };

@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
 
 	:root{
 		--font-primary:'Montserrat', sans-serif;
-		--tsParticles-opacity:1;
+		--tsparticles-opacity:1;
 
 		--color-scrollbar-bg: #383838;
 		--color-scrollbar-thump: #6b6b6b;
@@ -40,17 +40,19 @@ export const GlobalStyle = createGlobalStyle`
     `;
   })}
 
-	/* blur effect an particles and child elements */
-	.blur + #tsparticles{
-		--tsParticles-opacity: 0.2;
+	/* opacity changed on siblings > #tsarticles and child elements when .blur */
+	.blur + div > #tsparticles{
+		--tsparticles-opacity: 0;
 	}
+	/* blur effect on child elements when .blur*/
 	.blur > *:not(aside){
 		filter: blur(3px);
 	}
-
+	/* opacity */
 	#tsparticles > canvas {
 		background-color: var(--color-background);
-		opacity: var(--tsParticles-opacity);
+		opacity: var(--tsparticles-opacity);
+		z-index: -1;
 	}
 
 	body{
