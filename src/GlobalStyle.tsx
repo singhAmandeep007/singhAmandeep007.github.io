@@ -60,9 +60,11 @@ export const GlobalStyle = createGlobalStyle`
 		color: var(--color-font);
 
 		font-family: var(--font-primary);
+		font-weight:300;
 
 		strong{
 			color: var(--color-primary);
+			font-weight:600;
 		}
 	}
 
