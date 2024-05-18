@@ -2,6 +2,9 @@ import { createGlobalStyle, css } from "styled-components";
 
 import { breakpoints, themes } from "@/Common/styles.config";
 
+// NOTE: Apply the default theme
+document.documentElement.classList.add(themes[0].themeName);
+
 export const GlobalStyle = createGlobalStyle`
 /* reset */
 	*,

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-import { bounce, flicker } from "./animations";
+import { flicker } from "./animations";
 
 export const SidebarContainer = styled.nav<{ $open: boolean }>`
   z-index: 99;
@@ -22,60 +22,26 @@ export const SidebarContainer = styled.nav<{ $open: boolean }>`
   overflow-x: hidden;
   border-right: 4px solid var(--color-primary);
 
-  width: 25%;
-  min-width: 230px;
-  max-width: 330px;
-
+  width: 300px;
   gap: 2rem;
 `;
 
 export const SidebarWrapper = styled.div`
-  margin: 55px 0 5rem 0;
+  margin: 55px 0 20px 0;
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 
   & > :last-child {
-    margin-top: auto;
+    margin-bottom: auto;
   }
 `;
 
-export const SidebarLinkContainer = styled.div`
+export const SidebarAvatarWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  gap: 1rem;
-`;
-
-export const SidebarLink = styled(NavLink)`
-  font-size: 2rem;
-
-  font-weight: bold;
-  color: var(--color-font);
-  text-decoration: none;
-  cursor: pointer;
-
-  overflow: hidden;
-
-  background: linear-gradient(to right, var(--color-primary), var(--color-primary) 50%, var(--color-font) 50%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 200% 100%;
-  background-position: 100%;
-  transition: background-position 300ms ease-in;
-
-  &:hover,
-  &:focus {
-    background-position: 0 100%;
-    transform: scale(1.15);
-  }
-  &.active {
-    background-position: 0 100%;
-    color: var(--color-primary);
-  }
 `;
 
 export const SidebarAvatar = styled.div<{ $open: boolean; $delay: number }>`
@@ -86,9 +52,9 @@ export const SidebarAvatar = styled.div<{ $open: boolean; $delay: number }>`
   padding: 0 0px;
   position: relative;
   filter: drop-shadow(0px 0px 5px var(--color-primary));
-  margin-bottom: -3.5rem;
+  margin-bottom: -40px;
   width: 100%;
-  max-width: 300px;
+  max-width: 250px;
 
   img {
     width: 100%;
@@ -132,9 +98,52 @@ export const SidebarSocial = styled.div`
   z-index: 5;
   display: flex;
   justify-content: center;
-
-  font-size: 35px;
+  gap: 10px;
+  font-size: 30px;
   padding: 10px;
+`;
+
+export const SidebarSocialLink = styled.a<{ $open: boolean; $delay: number }>`
+  display: flex;
+
+  svg {
+    color: var(--color-primary);
+  }
+`;
+
+export const SidebarLinkContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+`;
+
+export const SidebarLink = styled(NavLink)`
+  font-size: 2rem;
+  color: var(--color-font);
+  text-decoration: none;
+  cursor: pointer;
+
+  overflow: hidden;
+
+  background: linear-gradient(to right, var(--color-primary), var(--color-primary) 50%, var(--color-font) 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 300ms ease-in;
+
+  &:hover,
+  &:focus {
+    background-position: 0 100%;
+    transform: scale(1.15);
+  }
+  &.active {
+    background-position: 0 100%;
+    color: var(--color-primary);
+  }
 `;
 
 export const Divider = styled.div`
@@ -142,21 +151,4 @@ export const Divider = styled.div`
   width: 80%;
   border-radius: 5px;
   background-color: var(--color-primary);
-`;
-
-export const SidebarSocialLink = styled.a<{ $open: boolean; $delay: number }>`
-  display: flex;
-  margin-left: -5px;
-
-  animation: 1.5s linear both;
-  animation-name: ${({ $open }) => ($open ? bounce : null)};
-  animation-delay: ${({ $delay }) => `${$delay * 0.1}s`};
-
-  svg {
-    padding: 3px;
-    border-radius: 50%;
-    background-color: var(--color-font);
-    color: var(--color-primary);
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
-  }
 `;

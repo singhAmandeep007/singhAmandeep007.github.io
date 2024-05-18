@@ -4,6 +4,7 @@ import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { fakeDelay } from "@/Common/utils";
 import { ParticlesContainer } from "@/Components/Particles";
 import { SidebarMenu } from "@/Components/SidebarMenu";
+import { ToggleTheme } from "@/Components/ToggleTheme";
 import { useOnClickOutside } from "@/Hooks/useOnClickOutside";
 
 import { Loading } from "@/Components/Loading";
@@ -26,6 +27,7 @@ const Layout = () => {
         />
 
         <Outlet />
+        <ToggleTheme />
       </div>
     </main>
   );

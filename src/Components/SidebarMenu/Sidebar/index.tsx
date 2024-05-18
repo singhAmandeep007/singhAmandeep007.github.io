@@ -1,8 +1,8 @@
 import { data } from "../SidebarMenuData";
-import { ToggleTheme } from "../ToggleTheme";
 import {
   Divider,
   SidebarAvatar,
+  SidebarAvatarWrapper,
   SidebarContainer,
   SidebarLink,
   SidebarLinkContainer,
@@ -28,16 +28,10 @@ export const Sidebar = ({ open, setOpen, ...props }: TSidebarProps) => {
       {...props}
     >
       <SidebarWrapper>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
+        <SidebarAvatarWrapper>
           <SidebarAvatar
             $open={open}
-            $delay={0.5}
+            $delay={0.1}
           >
             <img
               src={data.profilePic}
@@ -67,7 +61,7 @@ export const Sidebar = ({ open, setOpen, ...props }: TSidebarProps) => {
           </SidebarSocial>
 
           <Divider />
-        </div>
+        </SidebarAvatarWrapper>
 
         <SidebarLinkContainer>
           {data.menuLinks.map(({ id, title, path }) => {
@@ -78,13 +72,11 @@ export const Sidebar = ({ open, setOpen, ...props }: TSidebarProps) => {
                 tabIndex={tabIndex}
                 onClick={() => setOpen(!open)}
               >
-                {title}
+                <b>{title}</b>
               </SidebarLink>
             );
           })}
         </SidebarLinkContainer>
-
-        <ToggleTheme />
       </SidebarWrapper>
     </SidebarContainer>
   );
