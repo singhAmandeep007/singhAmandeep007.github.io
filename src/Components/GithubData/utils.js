@@ -1,5 +1,5 @@
-import dayjs from 'dayjs';
-import advancedFormat from 'dayjs/plugin/advancedFormat';
+import dayjs from "dayjs";
+import advancedFormat from "dayjs/plugin/advancedFormat";
 
 dayjs.extend(advancedFormat);
 
@@ -15,14 +15,7 @@ dayjs.extend(advancedFormat);
  * @param {number} options.y - The y index.
  * @returns {Object} - The computed position of the cell as an object with 'x' and 'y' properties.
  */
-export const getCellPosition = ({
-  xLabelWidth,
-  yLabelHeight,
-  cellSize,
-  cellMargin,
-  x,
-  y,
-}) => {
+export const getCellPosition = ({ xLabelWidth, yLabelHeight, cellSize, cellMargin, x, y }) => {
   const bounds = cellSize + cellMargin;
 
   return {
@@ -41,13 +34,7 @@ export const getCellPosition = ({
  * @param {Function} options.getRectColor - The function to get the color of rect.
  * @returns {Array} - The array of SVG rect elements.
  */
-export const createCells = ({
-  weeks,
-  getCellPosition,
-  cellSize,
-  getRectColor,
-  styleProps,
-}) => {
+export const createCells = ({ weeks, getCellPosition, cellSize, getRectColor, styleProps }) => {
   const rects = [];
 
   for (let w = 0; w < weeks.length; w++) {
@@ -75,8 +62,7 @@ export const createCells = ({
           style={{ ...styleProps }}
         >
           <title>
-            {data.contributionCount} contributions on{' '}
-            {dayjs(data.date).format('MMMM Do')}.
+            {data.contributionCount} contributions on {dayjs(data.date).format("MMMM Do")}.
           </title>
         </rect>
       );
@@ -94,12 +80,7 @@ export const createMonthLabels = ({ months, getLabelPosition, styleProps }) => {
 
     if (data.totalWeeks <= 3) continue;
 
-    const prevMonthTotalWeeks =
-      i === 0
-        ? 0
-        : months[i - 1].totalWeeks <= 3
-        ? 0
-        : months[i - 1].totalWeeks;
+    const prevMonthTotalWeeks = i === 0 ? 0 : months[i - 1].totalWeeks <= 3 ? 0 : months[i - 1].totalWeeks;
 
     const { x, y } = getLabelPosition({ x: prevMonthTotalWeeks, y: 0 });
 
@@ -119,11 +100,7 @@ export const createMonthLabels = ({ months, getLabelPosition, styleProps }) => {
   return texts;
 };
 
-export const createWeekLabels = ({
-  weekNames,
-  getLabelPosition,
-  styleProps,
-}) => {
+export const createWeekLabels = ({ weekNames, getLabelPosition, styleProps }) => {
   const texts = [];
 
   for (let i = 0; i < weekNames.length; i++) {

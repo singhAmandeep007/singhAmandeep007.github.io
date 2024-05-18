@@ -12,8 +12,14 @@ export const ThemeIcon = (props: TThemeIconProps) => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <g>
-        <path fill={props.primary} d="M36,45 v-36 a28,28 0 0 0 0 56 z" />
-        <path fill={props.secondary} d="M36,45 v-36 a28,28 0 0 1 0 56 z" />
+        <path
+          fill={props.primary}
+          d="M36,45 v-36 a28,28 0 0 0 0 56 z"
+        />
+        <path
+          fill={props.secondary}
+          d="M36,45 v-36 a28,28 0 0 1 0 56 z"
+        />
       </g>
       <g>
         <circle

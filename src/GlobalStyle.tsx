@@ -26,6 +26,8 @@ export const GlobalStyle = createGlobalStyle`
 		--tooltip-background-color: var(--color-font);
 		--tooltip-margin: 30px;
 		--tooltip-arrow-size: 6px;
+
+		--color-slider-window:#393939;
 		
 	}
 

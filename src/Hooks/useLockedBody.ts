@@ -1,11 +1,11 @@
-import { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState } from "react";
 
-export function useLockedBody(initialLocked = false) {
-  const [locked, setLocked] = useState(initialLocked);
+export function useLockedBody(initialIsLocked = false) {
+  const [isLocked, setIsLocked] = useState(initialIsLocked);
 
   // trigger the side effect before render
   useLayoutEffect(() => {
-    if (!locked) {
+    if (!isLocked) {
       return;
     }
 
@@ -14,9 +14,9 @@ export function useLockedBody(initialLocked = false) {
     const originalPaddingRight = document.body.style.paddingRight;
 
     // lock body scroll
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
 
-    const root = document.getElementById('root');
+    const root = document.getElementById("root");
     // get the scrollBar width
     const scrollBarWidth = root ? root.offsetWidth - root.scrollWidth : 0;
 
@@ -32,7 +32,10 @@ export function useLockedBody(initialLocked = false) {
         document.body.style.paddingRight = originalPaddingRight;
       }
     };
-  }, [locked]);
+  }, [isLocked]);
 
-  return [locked, setLocked];
+  return {
+    isLocked,
+    setIsLocked,
+  };
 }

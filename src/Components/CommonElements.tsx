@@ -14,12 +14,12 @@ export const ExternalLink = styled.a<{ $fontSize: string }>`
 `;
 
 type TExternalLinkWithIconProps = {
-  href: string;
+  href?: string;
   fontSize?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
-export const ExternalLinkWithIcon = ({ href, fontSize = "1rem", children }: TExternalLinkWithIconProps) => {
+export const ExternalLinkWithIcon = ({ href = "", fontSize = "1rem", children }: TExternalLinkWithIconProps) => {
   return (
     <ExternalLink
       href={href}
@@ -36,6 +36,7 @@ export const SectionContainer = styled.section`
   width: 100%;
   min-height: 100dvh;
 `;
+
 export const Wrapper = styled.div`
   width: 80%;
   padding-top: 10rem;

@@ -7,7 +7,7 @@ import { techIcons } from "@/Common/techIcons";
 
 import { Slider } from "@/Components/Slider";
 
-import { ExternalLinkWithIcon, SectionContainer, SectionTitle, Wrapper } from "../Components/CommonElements";
+import { ExternalLinkWithIcon, SectionContainer, SectionTitle, Wrapper } from "@/Components/CommonElements";
 
 export const ProjectsPage = () => {
   return (
@@ -35,7 +35,6 @@ export const ProjectsPage = () => {
                   </div>
                   <div className="project-description">
                     <ReactMarkdown
-                      children={projectDescription}
                       components={{
                         a: ({ node, ...props }) => (
                           <ExternalLinkWithIcon
@@ -44,11 +43,13 @@ export const ProjectsPage = () => {
                           />
                         ),
                       }}
-                    />
+                    >
+                      {projectDescription}
+                    </ReactMarkdown>
                   </div>
                   <div className="project-stack">
                     <ul>
-                      {projectStack.map((tech, i) => {
+                      {projectStack.map((tech) => {
                         return (
                           <li key={tech.label}>
                             <img
@@ -311,11 +312,11 @@ const Project = styled.li`
 
   gap: 2rem;
 
-  :nth-child(odd) {
+  &:nth-child(odd) {
     grid-template-areas: "image content";
     grid-template-columns: 3fr 2fr;
   }
-  :nth-child(even) {
+  &:nth-child(even) {
     grid-template-areas: "content image";
     grid-template-columns: 2fr 3fr;
   }
@@ -326,13 +327,13 @@ const Project = styled.li`
   @media (max-width: ${({ theme }) => theme.bpMedium}) {
     min-height: calc(100vh - 20rem);
 
-    :nth-child(odd) {
+    &:nth-child(odd) {
       grid-template-areas:
         "image"
         "content";
       grid-template-columns: 1fr;
     }
-    :nth-child(even) {
+    &:nth-child(even) {
       grid-template-areas:
         "image"
         "content";
@@ -359,7 +360,7 @@ const Project = styled.li`
   .project-description {
     p {
       margin-bottom: 0.8rem;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
     }
   }
 
@@ -429,7 +430,7 @@ const Project = styled.li`
 
 const WindowFrame = styled.div`
   width: 100%;
-  background-color: #393939;
+  background-color: var(--color-slider-window);
   color: #ffffff;
   display: flex;
   padding: 0.5rem;

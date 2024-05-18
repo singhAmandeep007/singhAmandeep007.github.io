@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import { fakeDelay } from "@/Common/utils";
-import { ParticlesContainer } from "@/Components/Particles";
 import { SidebarMenu } from "@/Components/SidebarMenu";
 import { ToggleTheme } from "@/Components/ToggleTheme";
 import { useOnClickOutside } from "@/Hooks/useOnClickOutside";
@@ -19,7 +18,7 @@ const Layout = () => {
   return (
     <main>
       <div className={`App ${isSidebarOpen ? "blur" : ""}`}>
-        <ParticlesContainer shouldPause={isSidebarOpen} />
+        {/* <ParticlesContainer shouldPause={isSidebarOpen} /> */}
         <SidebarMenu
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}

@@ -1,16 +1,6 @@
-import React from 'react';
-import {
-  getCellPosition,
-  createCells,
-  createWeekLabels,
-  createMonthLabels,
-} from './utils';
+import { createCells, createMonthLabels, createWeekLabels, getCellPosition } from "./utils";
 
-import {
-  MAP_CONTRIBUTION_QUARTILE_TO_LEVEL,
-  WEEK_NAMES,
-  DEFAULT,
-} from './constants';
+import { DEFAULT, MAP_CONTRIBUTION_QUARTILE_TO_LEVEL, WEEK_NAMES } from "./constants";
 
 export const GithubCalendar = ({ data }) => {
   const {
@@ -34,11 +24,8 @@ export const GithubCalendar = ({ data }) => {
 
   function getDimensions() {
     return {
-      width:
-        weeks.length * (DEFAULT.CELL_SIZE + DEFAULT.CELL_MARGIN) +
-        DEFAULT.X_LABEL_WIDTH,
-      height:
-        7 * (DEFAULT.CELL_SIZE + DEFAULT.CELL_MARGIN) + DEFAULT.Y_LABEL_HEIGHT,
+      width: weeks.length * (DEFAULT.CELL_SIZE + DEFAULT.CELL_MARGIN) + DEFAULT.X_LABEL_WIDTH,
+      height: 7 * (DEFAULT.CELL_SIZE + DEFAULT.CELL_MARGIN) + DEFAULT.Y_LABEL_HEIGHT,
     };
   }
 
@@ -54,26 +41,30 @@ export const GithubCalendar = ({ data }) => {
 
   const labelStyleProps = {
     fontSize: `${DEFAULT.LABEL_FONT_SIZE}px`,
-    fill: 'var(--color-font)',
+    fill: "var(--color-font)",
   };
 
   const cellStyleProps = {
-    strokeWidth: '1px',
-    stroke: 'var(--color-calendar-graph-cell-outline)',
+    strokeWidth: "1px",
+    stroke: "var(--color-calendar-graph-cell-outline)",
   };
 
   return (
     <div
       style={{
-        maxWidth: '100%',
-        overflowX: 'auto',
-        overflowY: 'hidden',
-        width: 'min-content',
-        margin: 'auto',
+        maxWidth: "100%",
+        overflowX: "auto",
+        overflowY: "hidden",
+        width: "min-content",
+        margin: "auto",
         height: `${height + DEFAULT.Y_LABEL_HEIGHT + 10}px`,
       }}
     >
-      <svg height={height} width={width} viewBox={`0 0 ${width} ${height}`}>
+      <svg
+        height={height}
+        width={width}
+        viewBox={`0 0 ${width} ${height}`}
+      >
         {createCells({
           weeks,
           getCellPosition: getPosition,
@@ -103,8 +94,7 @@ export const GithubCalendar = ({ data }) => {
             let labelSpace = 0;
 
             return function ({ x, y }) {
-              labelSpace =
-                labelSpace + (DEFAULT.CELL_SIZE + DEFAULT.CELL_MARGIN) * x;
+              labelSpace = labelSpace + (DEFAULT.CELL_SIZE + DEFAULT.CELL_MARGIN) * x;
 
               const { y: cellPosY } = getPosition({ x, y });
 
@@ -131,9 +121,7 @@ export const GithubCalendar = ({ data }) => {
         </text>
         <g
           style={{
-            transform: `translateX(${
-              width - DEFAULT.THEME.length * DEFAULT.CELL_SIZE - 30
-            }px)`,
+            transform: `translateX(${width - DEFAULT.THEME.length * DEFAULT.CELL_SIZE - 30}px)`,
           }}
         >
           {DEFAULT.THEME.map((color, index) => (
@@ -150,7 +138,11 @@ export const GithubCalendar = ({ data }) => {
             />
           ))}
         </g>
-        <text x={legendWidth - 30} y="10" style={labelStyleProps}>
+        <text
+          x={legendWidth - 30}
+          y="10"
+          style={labelStyleProps}
+        >
           More
         </text>
       </svg>

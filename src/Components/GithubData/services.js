@@ -52,8 +52,8 @@ export async function getGithubData(username) {
 				}`,
   };
 
-  const response = await fetch('https://api.github.com/graphql', {
-    method: 'POST',
+  const response = await fetch("https://api.github.com/graphql", {
+    method: "POST",
     body: JSON.stringify(body),
     headers: headers,
   });
@@ -65,5 +65,5 @@ export async function getGithubData(username) {
     return data;
   }
 
-  throw new Error('Failed to fetch github data');
+  throw new Error("Failed to fetch github data");
 }

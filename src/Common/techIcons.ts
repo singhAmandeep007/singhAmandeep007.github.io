@@ -1,119 +1,117 @@
-import reactSvg from '@/Assets/icons/react.svg';
-import htmlSvg from '@/Assets/icons/html.svg';
-import pwaSvg from '@/Assets/icons/pwa.svg';
-import cssSvg from '@/Assets/icons/css.svg';
-import bootstrapSvg from '@/Assets/icons/bootstrap.svg';
-import expressSvg from '@/Assets/icons/express.svg';
-import gitSvg from '@/Assets/icons/git.svg';
-import githubSvg from '@/Assets/icons/github.svg';
-import materialuiSvg from '@/Assets/icons/materialui.svg';
-import mongodbSvg from '@/Assets/icons/mongodb.svg';
-import socketioSvg from '@/Assets/icons/socketio.svg';
-import typescriptSvg from '@/Assets/icons/typescript.svg';
-import nodejsSvg from '@/Assets/icons/nodejs.svg';
-import javascriptSvg from '@/Assets/icons/javascript.svg';
-import reduxSvg from '@/Assets/icons/redux.svg';
-import sassSvg from '@/Assets/icons/sass.svg';
-import d3Svg from '@/Assets/icons/d3.svg';
-import semanticuiSvg from '@/Assets/icons/semantic-ui.svg';
-import vuejsSvg from '@/Assets/icons/vue-js.svg';
-import styledComponentsSvg from '@/Assets/icons/styled-components.svg';
-import postmanSvg from '@/Assets/icons/postman.svg';
-import amchartsSvg from '@/Assets/icons/amcharts.svg';
+import amchartsSvg from "@/Assets/icons/amcharts.svg";
+import bootstrapSvg from "@/Assets/icons/bootstrap.svg";
+import cssSvg from "@/Assets/icons/css.svg";
+import d3Svg from "@/Assets/icons/d3.svg";
+import expressSvg from "@/Assets/icons/express.svg";
+import gitSvg from "@/Assets/icons/git.svg";
+import githubSvg from "@/Assets/icons/github.svg";
+import htmlSvg from "@/Assets/icons/html.svg";
+import javascriptSvg from "@/Assets/icons/javascript.svg";
+import materialuiSvg from "@/Assets/icons/materialui.svg";
+import mongodbSvg from "@/Assets/icons/mongodb.svg";
+import nodejsSvg from "@/Assets/icons/nodejs.svg";
+import postmanSvg from "@/Assets/icons/postman.svg";
+import pwaSvg from "@/Assets/icons/pwa.svg";
+import reactSvg from "@/Assets/icons/react.svg";
+import reduxSvg from "@/Assets/icons/redux.svg";
+import sassSvg from "@/Assets/icons/sass.svg";
+import semanticuiSvg from "@/Assets/icons/semantic-ui.svg";
+import socketioSvg from "@/Assets/icons/socketio.svg";
+import styledComponentsSvg from "@/Assets/icons/styled-components.svg";
+import typescriptSvg from "@/Assets/icons/typescript.svg";
+import vuejsSvg from "@/Assets/icons/vue-js.svg";
 
 export const techIcons = {
   react: {
-    label: 'React',
+    label: "React",
     logo: reactSvg,
   },
   html: {
-    label: 'HTML',
+    label: "HTML",
     logo: htmlSvg,
   },
   pwa: {
-    label: 'PWA',
+    label: "PWA",
     logo: pwaSvg,
   },
   css: {
-    label: 'CSS',
+    label: "CSS",
     logo: cssSvg,
   },
   bootstrap: {
-    label: 'Bootstrap',
+    label: "Bootstrap",
     logo: bootstrapSvg,
   },
 
   expressjs: {
-    label: 'Express.js',
+    label: "Express.js",
     logo: expressSvg,
   },
   git: {
-    label: 'Git',
+    label: "Git",
     logo: gitSvg,
   },
   github: {
-    label: 'GitHub',
+    label: "GitHub",
     logo: githubSvg,
   },
   materialui: {
-    label: 'Material-UI',
+    label: "Material-UI",
     logo: materialuiSvg,
   },
   mongodb: {
-    label: 'MongoDB',
+    label: "MongoDB",
     logo: mongodbSvg,
   },
 
   socketio: {
-    label: 'Socket.IO',
+    label: "Socket.IO",
     logo: socketioSvg,
   },
   typescript: {
-    label: 'TypeScript',
+    label: "TypeScript",
     logo: typescriptSvg,
   },
 
   nodejs: {
-    label: 'Node.js',
+    label: "Node.js",
     logo: nodejsSvg,
   },
   javascript: {
-    label: 'JavaScript',
+    label: "JavaScript",
     logo: javascriptSvg,
   },
 
   redux: {
-    label: 'Redux',
+    label: "Redux",
     logo: reduxSvg,
   },
   sass: {
-    label: 'Sass',
+    label: "Sass",
     logo: sassSvg,
   },
   d3: {
-    label: 'D3',
+    label: "D3",
     logo: d3Svg,
   },
   semanticui: {
-    label: 'Semantic-UI',
+    label: "Semantic-UI",
     logo: semanticuiSvg,
   },
   vue: {
-    label: 'Vue',
+    label: "Vue",
     logo: vuejsSvg,
   },
   styledComponents: {
-    label: 'Styled-Components',
+    label: "Styled-Components",
     logo: styledComponentsSvg,
   },
   postman: {
-    label: 'Postman',
+    label: "Postman",
     logo: postmanSvg,
   },
   amcharts: {
-    label: 'AM-Charts',
+    label: "AM-Charts",
     logo: amchartsSvg,
   },
 };
-
-

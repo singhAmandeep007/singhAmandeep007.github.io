@@ -1,4 +1,4 @@
-export const DATE_FORMAT_YYYY__MM__DD = 'YYYY-MM-DD';
+export const DATE_FORMAT_YYYY__MM__DD = "YYYY-MM-DD";
 
 export const MAP_CONTRIBUTION_QUARTILE_TO_LEVEL = {
   NONE: 0,
@@ -8,17 +8,17 @@ export const MAP_CONTRIBUTION_QUARTILE_TO_LEVEL = {
   FOURTH_QUARTILE: 4,
 };
 
-export const WEEK_NAMES = ['', 'Mon', '', 'Wed', '', 'Fri', ''];
+export const WEEK_NAMES = ["", "Mon", "", "Wed", "", "Fri", ""];
 
 export const DEFAULT = {
   THEME: [
-    'var(--color-calendar-graph-day-bg)',
-    'var(--color-calendar-graph-day-l1-bg)',
-    'var(--color-calendar-graph-day-l2-bg)',
-    'var(--color-calendar-graph-day-l3-bg)',
-    'var(--color-calendar-graph-day-l4-bg)',
+    "var(--color-calendar-graph-day-bg)",
+    "var(--color-calendar-graph-day-l1-bg)",
+    "var(--color-calendar-graph-day-l2-bg)",
+    "var(--color-calendar-graph-day-l3-bg)",
+    "var(--color-calendar-graph-day-l4-bg)",
   ],
-  THEME_GITHUB: ['#161B22', '#0E4429', '#006D32', '#26A641', '#39D353'],
+  THEME_GITHUB: ["#161B22", "#0E4429", "#006D32", "#26A641", "#39D353"],
   LABEL_FONT_SIZE: 10,
   CELL_SIZE: 11,
   CELL_MARGIN: 2,

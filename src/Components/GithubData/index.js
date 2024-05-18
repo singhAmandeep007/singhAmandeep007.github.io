@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { GithubCalendar } from './GithubCalendar';
-import { getGithubData } from './services';
+import { useEffect, useState } from "react";
+import { GithubCalendar } from "./GithubCalendar";
+import { getGithubData } from "./services";
 
-const GithubData = ({ username = 'singhAmandeep007' }) => {
+const GithubData = ({ username = "singhAmandeep007" }) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const GithubData = ({ username = 'singhAmandeep007' }) => {
   return (
     <>
       {data ? (
-        <div style={{ marginBottom: '4rem' }}>
+        <div style={{ marginBottom: "4rem" }}>
           <GithubCalendar data={data} />
         </div>
       ) : null}
