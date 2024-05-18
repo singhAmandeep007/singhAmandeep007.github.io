@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-// import { GithubCalendar } from "./GithubCalendar";
-import { getGithubData } from "./services";
+import { GithubCalendar } from "./GithubCalendar";
+import { TGithubDataApiResponse, getGithubData } from "./services";
 
 const GithubData = ({ username = "singhAmandeep007" }) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<TGithubDataApiResponse["data"] | null>(null);
 
   useEffect(() => {
     async function getData() {
@@ -15,7 +15,15 @@ const GithubData = ({ username = "singhAmandeep007" }) => {
     getData().catch(console.error);
   }, [username]);
 
-  return <>{data ? <div style={{ marginBottom: "4rem" }}>{/* <GithubCalendar data={data} /> */}</div> : null}</>;
+  return (
+    <>
+      {data ? (
+        <div style={{ marginBottom: "4rem" }}>
+          <GithubCalendar contributionCalendar={data.user.contributionsCollection.contributionCalendar} />
+        </div>
+      ) : null}
+    </>
+  );
 };
 
 export default GithubData;

@@ -41,7 +41,7 @@ export const AboutPage = () => {
             </SectionTitle>
             <Stack>
               <ul>
-                {data.stack.map((tech, i) => {
+                {data.stack.map((tech) => {
                   return (
                     <li key={tech.label}>
                       <img

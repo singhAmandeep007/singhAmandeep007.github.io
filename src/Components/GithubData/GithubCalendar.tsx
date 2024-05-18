@@ -1,53 +1,161 @@
-import { createCells, createMonthLabels, createWeekLabels, getCellPosition } from "./utils";
+import dayjs from "dayjs";
+import { TGithubUserData } from "./services";
 
-import { DEFAULT, MAP_CONTRIBUTION_QUARTILE_TO_LEVEL, WEEK_NAMES } from "./constants";
+import advancedFormat from "dayjs/plugin/advancedFormat";
 
-export const GithubCalendar = ({ data }) => {
-  const {
-    user: {
-      contributionsCollection: {
-        contributionCalendar: { weeks, months },
-      },
-    },
-  } = data;
+dayjs.extend(advancedFormat);
 
-  const getPosition = ({ x, y }) => {
-    return getCellPosition({
-      x,
-      y,
-      cellSize: DEFAULT.CELL_SIZE,
-      cellMargin: DEFAULT.CELL_MARGIN,
-      xLabelWidth: DEFAULT.X_LABEL_WIDTH,
-      yLabelHeight: DEFAULT.Y_LABEL_HEIGHT,
+const MAP_CONTRIBUTION_QUARTILE_TO_LEVEL = {
+  NONE: 0,
+  FIRST_QUARTILE: 1,
+  SECOND_QUARTILE: 2,
+  THIRD_QUARTILE: 3,
+  FOURTH_QUARTILE: 4,
+} as const;
+
+type TContributionLevel = keyof typeof MAP_CONTRIBUTION_QUARTILE_TO_LEVEL;
+
+const DEFAULT = {
+  THEME: [
+    "var(--color-calendar-graph-day-bg)",
+    "var(--color-calendar-graph-day-l1-bg)",
+    "var(--color-calendar-graph-day-l2-bg)",
+    "var(--color-calendar-graph-day-l3-bg)",
+    "var(--color-calendar-graph-day-l4-bg)",
+  ],
+  THEME_GITHUB: ["#161B22", "#0E4429", "#006D32", "#26A641", "#39D353"],
+
+  LABEL_FONT_SIZE: 10, // Font size for month and weekday labels
+  CELL_SIZE: 10, // Size of each rectangle
+  CELL_MARGIN: 2, // Margin between rectangles
+  WEEK_MARGIN: 4, // Margin between weeks
+  LABEL_OFFSET: 30, // Offset for labels
+} as const;
+
+const { CELL_MARGIN, WEEK_MARGIN, CELL_SIZE, LABEL_FONT_SIZE, LABEL_OFFSET, THEME } = DEFAULT;
+
+const weekLabels = ["Mon", "Wed", "Fri"];
+const weekLabelPositions = [1, 3, 5];
+
+const svgNS = "http://www.w3.org/2000/svg";
+
+function getRectColor(contributionLevel: TContributionLevel) {
+  const level = MAP_CONTRIBUTION_QUARTILE_TO_LEVEL[contributionLevel];
+
+  return THEME[level];
+}
+
+const labelStyles = {
+  fontSize: `${DEFAULT.LABEL_FONT_SIZE}px`,
+  fill: "var(--color-font)",
+};
+
+const cellStyles = {
+  strokeWidth: "1px",
+  stroke: "var(--color-calendar-graph-cell-outline)",
+};
+
+export function GithubCalendar({
+  contributionCalendar,
+}: {
+  contributionCalendar: TGithubUserData["contributionsCollection"]["contributionCalendar"];
+}) {
+  let x = LABEL_OFFSET;
+  let y = LABEL_OFFSET;
+  // to track the x-coordinate of the first occurrence of each month.
+  const monthPositions: { [key: string]: number } = {};
+
+  // Cells
+  const rects = contributionCalendar.weeks.flatMap((week, weekIndex) => {
+    const days = week.contributionDays.map((day, dayIndex) => {
+      const date = new Date(day.date);
+      const monthKey = `${date.getFullYear()}-${date.getMonth()}`;
+
+      if (!monthPositions[monthKey]) {
+        // update the monthPositions with the x-coordinate where each month starts.
+        monthPositions[monthKey] = x;
+      }
+
+      const rect = (
+        <rect
+          key={`cell-key-${weekIndex}-${dayIndex}`}
+          x={x}
+          y={y}
+          width={CELL_SIZE}
+          height={CELL_SIZE}
+          fill={getRectColor(day.contributionLevel as TContributionLevel)}
+          data-level={day.contributionLevel}
+          data-date={day.date}
+          rx={3}
+          ry={3}
+          style={cellStyles}
+        >
+          <title>
+            {day.contributionCount} contributions on {dayjs(day.date).format("MMMM Do")}.
+          </title>
+        </rect>
+      );
+      y += CELL_SIZE + CELL_MARGIN;
+      return rect;
     });
-  };
+    y = LABEL_OFFSET;
+
+    x += CELL_SIZE + WEEK_MARGIN;
+    return days;
+  });
+
+  // Month labels
+  const monthLabels = contributionCalendar.months.map((month, index) => {
+    const date = new Date(month.firstDay);
+    const monthKey = `${date.getFullYear()}-${date.getMonth()}`;
+    // if there is a key in the monthPositions object which matches month-year, then get the x-coordinate of that month. Otherwise, default to 0.
+    const xPos = monthPositions[monthKey] || 0;
+
+    return (
+      <text
+        key={`month-key-${index}`}
+        // x={LABEL_OFFSET + index * (CELL_SIZE + WEEK_MARGIN) * 4} // Approximate x position, assuming 4 weeks in a month
+        x={xPos}
+        y={LABEL_OFFSET - 5} // Above the rectangles
+        textAnchor="start"
+        style={labelStyles}
+      >
+        {month.name}
+      </text>
+    );
+  });
+
+  // Weekday labels
+  const weekdayLabels = weekLabels.map((label, index) => (
+    <text
+      key={`week-day-key-${index}`}
+      x={LABEL_OFFSET - 5} // Left of the rectangles
+      y={LABEL_OFFSET + weekLabelPositions[index] * (CELL_SIZE + CELL_MARGIN) + CELL_SIZE / 2} // Approximate y position
+      alignmentBaseline="middle"
+      textAnchor="end"
+      style={labelStyles}
+    >
+      {label}
+    </text>
+  ));
 
   function getDimensions() {
     return {
-      width: weeks.length * (DEFAULT.CELL_SIZE + DEFAULT.CELL_MARGIN) + DEFAULT.X_LABEL_WIDTH,
-      height: 7 * (DEFAULT.CELL_SIZE + DEFAULT.CELL_MARGIN) + DEFAULT.Y_LABEL_HEIGHT,
+      width: x + CELL_SIZE,
+      height: LABEL_OFFSET + 7 * (CELL_SIZE + CELL_MARGIN), // 7 days in a week,
     };
   }
 
   function getLegendDimensions() {
     return {
       width: getDimensions().width,
-      height: DEFAULT.CELL_SIZE + DEFAULT.CELL_MARGIN,
+      height: CELL_SIZE + CELL_MARGIN,
     };
   }
 
   const { width, height } = getDimensions();
+
   const { width: legendWidth, height: legendHeight } = getLegendDimensions();
-
-  const labelStyleProps = {
-    fontSize: `${DEFAULT.LABEL_FONT_SIZE}px`,
-    fill: "var(--color-font)",
-  };
-
-  const cellStyleProps = {
-    strokeWidth: "1px",
-    stroke: "var(--color-calendar-graph-cell-outline)",
-  };
 
   return (
     <div
@@ -57,71 +165,35 @@ export const GithubCalendar = ({ data }) => {
         overflowY: "hidden",
         width: "min-content",
         margin: "auto",
-        height: `${height + DEFAULT.Y_LABEL_HEIGHT + 10}px`,
+        height: `${height + LABEL_OFFSET * 2}px`,
       }}
     >
       <svg
-        height={height}
         width={width}
+        height={height}
+        xmlns={svgNS}
         viewBox={`0 0 ${width} ${height}`}
       >
-        {createCells({
-          weeks,
-          getCellPosition: getPosition,
-          cellSize: DEFAULT.CELL_SIZE,
-          getRectColor: ({ contributionLevel }) => {
-            const level = MAP_CONTRIBUTION_QUARTILE_TO_LEVEL[contributionLevel];
-
-            return DEFAULT.THEME[level];
-          },
-          styleProps: cellStyleProps,
-        })}
-        {createWeekLabels({
-          weekNames: WEEK_NAMES,
-          getLabelPosition: ({ x, y }) => {
-            const { x: cellPosX, y: cellPosY } = getPosition({ x, y });
-
-            return {
-              x: cellPosX - DEFAULT.CELL_MARGIN - 1,
-              y: cellPosY + DEFAULT.CELL_SIZE / 2,
-            };
-          },
-          styleProps: labelStyleProps,
-        })}
-        {createMonthLabels({
-          months,
-          getLabelPosition: (() => {
-            let labelSpace = 0;
-
-            return function ({ x, y }) {
-              labelSpace = labelSpace + (DEFAULT.CELL_SIZE + DEFAULT.CELL_MARGIN) * x;
-
-              const { y: cellPosY } = getPosition({ x, y });
-
-              return {
-                x: DEFAULT.X_LABEL_WIDTH + labelSpace + DEFAULT.CELL_MARGIN,
-                y: cellPosY - DEFAULT.CELL_MARGIN * 2,
-              };
-            };
-          })(),
-          styleProps: labelStyleProps,
-        })}
+        {monthLabels}
+        {weekdayLabels}
+        {rects}
       </svg>
+
       <svg
         width={legendWidth}
-        height={legendHeight + 20}
+        height={legendHeight + LABEL_OFFSET}
         viewBox={`0 0 ${legendWidth} ${legendHeight}`}
       >
         <text
-          x={legendWidth - DEFAULT.THEME.length * 13 - DEFAULT.CELL_SIZE - 50}
-          y="10"
-          style={labelStyleProps}
+          x={legendWidth - THEME.length * (CELL_SIZE + CELL_MARGIN * 4) - LABEL_OFFSET * 2}
+          y={LABEL_FONT_SIZE - CELL_MARGIN}
+          style={labelStyles}
         >
           Less
         </text>
         <g
           style={{
-            transform: `translateX(${width - DEFAULT.THEME.length * DEFAULT.CELL_SIZE - 30}px)`,
+            transform: `translateX(${legendWidth - THEME.length * CELL_SIZE - LABEL_OFFSET * 2}px)`,
           }}
         >
           {DEFAULT.THEME.map((color, index) => (
@@ -132,20 +204,20 @@ export const GithubCalendar = ({ data }) => {
               width={DEFAULT.CELL_SIZE}
               height={DEFAULT.CELL_SIZE}
               fill={color}
-              style={cellStyleProps}
+              style={cellStyles}
               rx={3}
               ry={3}
             />
           ))}
         </g>
         <text
-          x={legendWidth - 30}
-          y="10"
-          style={labelStyleProps}
+          x={legendWidth - 45}
+          y={LABEL_FONT_SIZE - CELL_MARGIN}
+          style={labelStyles}
         >
           More
         </text>
       </svg>
     </div>
   );
-};
+}

@@ -1,12 +1,50 @@
+export type TGithubUserData = {
+  name: string;
+  avatarUrl: string;
+  followers: {
+    totalCount: number;
+  };
+  following: {
+    totalCount: number;
+  };
+  contributionsCollection: {
+    contributionYears: number[];
+    startedAt: string;
+    endedAt: string;
+    contributionCalendar: {
+      totalContributions: number;
+      months: {
+        name: string;
+        firstDay: string;
+        year: number;
+        totalWeeks: number;
+      }[];
+      colors: string[];
+      weeks: {
+        contributionDays: {
+          color: string;
+          contributionCount: number;
+          contributionLevel: string;
+          date: string;
+        }[];
+      }[];
+    };
+  };
+};
+
+export type TGithubDataApiResponse = {
+  data: {
+    user: TGithubUserData;
+  };
+  errors?: unknown;
+};
+
 /**
  * @param {string} username
  * @returns Promise
  */
 export async function getGithubData(username: string) {
-  const token =
-    "4SDtgP4SuqYXYFktjSSfmjTgRMTn5+wIrg8ZECLX7KH9JcpHA/XMSZdanB3OQyD5xvUq4ITcZvm70FguO+0llLc4Y1wRT9yTId9T7W5tL8XpFuF8OYZ3V0yZyf9aRvp/"; //process.env.REACT_APP_GITHUB_TOKEN;
-
-  console.log(token);
+  const token = import.meta.env.VITE_GITHUB_TOKEN as string;
 
   const headers = {
     Authorization: `bearer ${token}`,
@@ -61,8 +99,12 @@ export async function getGithubData(username: string) {
     headers: headers,
   });
 
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+
   // will return either data or errors
-  const { data, errors } = await response.json();
+  const { data, errors } = (await response.json()) as TGithubDataApiResponse;
 
   if (!errors) {
     return data;
