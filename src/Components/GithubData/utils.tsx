@@ -15,7 +15,21 @@ dayjs.extend(advancedFormat);
  * @param {number} options.y - The y index.
  * @returns {Object} - The computed position of the cell as an object with 'x' and 'y' properties.
  */
-export const getCellPosition = ({ xLabelWidth, yLabelHeight, cellSize, cellMargin, x, y }) => {
+export const getCellPosition = ({
+  xLabelWidth,
+  yLabelHeight,
+  cellSize,
+  cellMargin,
+  x,
+  y,
+}: {
+  xLabelWidth: number;
+  yLabelHeight: number;
+  cellSize: number;
+  cellMargin: number;
+  x: number;
+  y: number;
+}): object => {
   const bounds = cellSize + cellMargin;
 
   return {
@@ -34,7 +48,18 @@ export const getCellPosition = ({ xLabelWidth, yLabelHeight, cellSize, cellMargi
  * @param {Function} options.getRectColor - The function to get the color of rect.
  * @returns {Array} - The array of SVG rect elements.
  */
-export const createCells = ({ weeks, getCellPosition, cellSize, getRectColor, styleProps }) => {
+export const createCells = ({
+  weeks,
+  getCellPosition,
+  cellSize,
+  getRectColor,
+  styleProps,
+}: {
+  weeks: Array<any>;
+  getCellPosition: Function;
+  cellSize: number;
+  getRectColor: Function;
+}): Array<any> => {
   const rects = [];
 
   for (let w = 0; w < weeks.length; w++) {

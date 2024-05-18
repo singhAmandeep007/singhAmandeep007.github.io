@@ -22,16 +22,17 @@ export const AboutPage = () => {
           </Avatar>
           <Content>
             <ReactMarkdown
-              children={data.content}
               components={{
                 a: ({ node, ...props }) => (
                   <ExternalLinkWithIcon
                     {...props}
-                    fontSize="1.45rem"
+                    fontSize="1.2rem"
                   />
                 ),
               }}
-            />
+            >
+              {data.content}
+            </ReactMarkdown>
             <SectionTitle
               as="h3"
               style={{ fontSize: "2rem", margin: "4rem 0 2rem 0" }}
@@ -69,11 +70,11 @@ export const AboutPage = () => {
 
 const data = {
   profileImg: profileImg,
-  content: `Hello, I’m Amandeep Singh. I’m a fullstack developer specializing in developing and designing exceptional and beautiful web applications. 
+  content: `Hello, I’m Amandeep Singh. I’m a **full-stack** engineer with a strong **front-end** focus specializing in developing and designing exceptional and beautiful web applications. 
 	\n I’m currently working as a Frontend Engineer at **[Egnyte](https://egnyte.com/)**.
 	\n My experience as a self taught proficient web developer allows me to come up with smart solutions to technical challenges.
-	\n I’m  a coding enthusiast and passionate about learning and implementing web technologies.
-	\n I enjoy travelling and playing badminton, I also write articles about web on **[Coders League](https://codersleague.onrender.com/)**.`,
+	\n I’m a coding enthusiast and passionate about learning and implementing web technologies.
+	\n I enjoy travelling and playing sports, I also write articles about web on **[Coders League](https://codersleague.onrender.com/)**.`,
   stack: [...Object.values(techIcons)],
 };
 
@@ -137,7 +138,6 @@ const Avatar = styled.div`
 const Content = styled.div`
   width: 100%;
   p {
-    font-size: 1.45rem;
     margin-bottom: 1rem;
   }
 `;

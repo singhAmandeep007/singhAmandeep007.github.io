@@ -6,7 +6,7 @@ export const MAP_CONTRIBUTION_QUARTILE_TO_LEVEL = {
   SECOND_QUARTILE: 2,
   THIRD_QUARTILE: 3,
   FOURTH_QUARTILE: 4,
-};
+} as const;
 
 export const WEEK_NAMES = ["", "Mon", "", "Wed", "", "Fri", ""];
 
@@ -24,4 +24,4 @@ export const DEFAULT = {
   CELL_MARGIN: 2,
   X_LABEL_WIDTH: 28,
   Y_LABEL_HEIGHT: 25,
-};
+} as const;

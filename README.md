@@ -1,6 +1,6 @@
 # How to use Github Api to get user information ?
 
-## You need things
+## You need these things to get started
 
 1. Github Account (obviously)
 2. Github Access Token for your project
