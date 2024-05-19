@@ -44,7 +44,7 @@ export type TGithubDataApiResponse = {
  * @returns Promise
  */
 export async function getGithubData(username: string) {
-  const token = import.meta.env.VITE_GITHUB_TOKEN as string;
+  const token = import.meta.env.VITE_APP_GITHUB_TOKEN as string;
 
   const headers = {
     Authorization: `bearer ${token}`,

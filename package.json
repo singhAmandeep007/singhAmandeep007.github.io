@@ -28,7 +28,6 @@
     "start": "vite",
     "build": "run-s tsc:check && vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && firebase deploy",
     "lint": "run-s format:write lint:check:script format:check tsc:check",
     "lint:check:script": "eslint --config ./.eslintrc.cjs \"src/**/*.{js,jsx,ts,tsx}\" --report-unused-disable-directives --max-warnings 0",
     "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,css,scss,html,md,json}\" --config ./.prettierrc.cjs",
