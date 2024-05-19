@@ -34,3 +34,5 @@ stories
 /reports
 
 *storybook.log
+
+*.todo
