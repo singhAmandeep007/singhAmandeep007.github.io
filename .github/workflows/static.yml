@@ -37,10 +37,13 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
-			- name: Build
+			- name: Create .env with Github Secrets and run build
+				run: |
+					touch .env
+					echo VITE_APP_GITHUB_TOKEN=$VITE_APP_GITHUB_TOKEN >> .env
+					npm run build
 				env:
 					VITE_APP_GITHUB_TOKEN: ${{ secrets.VITE_APP_GITHUB_TOKEN }}
-				run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
