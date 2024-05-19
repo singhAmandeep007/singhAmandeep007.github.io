@@ -115,10 +115,10 @@ export function GithubCalendar({
       <text
         key={`month-key-${index}`}
         // x={LABEL_OFFSET + index * (CELL_SIZE + WEEK_MARGIN) * 4} // Approximate x position, assuming 4 weeks in a month
-        x={xPos}
+        x={xPos + LABEL_FONT_SIZE / 2}
         y={LABEL_OFFSET - 5} // Above the rectangles
-        textAnchor="start"
-        style={labelStyles}
+        textAnchor="end"
+        style={{ ...labelStyles, writingMode: "vertical-lr" }}
       >
         {month.name}
       </text>
