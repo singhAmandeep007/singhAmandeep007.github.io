@@ -45,7 +45,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         lazy: async () => {
-          await fakeDelay(1000);
           const { HomePage } = await import("@/Pages/Home");
           return {
             Component: HomePage,
