@@ -19,7 +19,7 @@
 
 <p align="center">
   <a href="https://github.com/singhAmandeep007/singhAmandeep007.github.io/actions/workflows/static.yml" target="_blank">
-    <img src="https://github.com/singhAmandeep007/singhAmandeep007.github.io/actions/workflows/static.yml/badge.svg" alt="Netlify Status" />
+    <img src="https://github.com/singhAmandeep007/singhAmandeep007.github.io/actions/workflows/static.yml/badge.svg" alt="Github Status" />
   </a>
 </p>
 
@@ -45,6 +45,10 @@ To run the project, you can follow these steps:
 5. Start the development server
    ```sh
    npm run dev
+   ```
+6. Run format and lint checks
+   ```sh
+   npm run lint
    ```
 
 ## How to customize the project according to your profile ?
@@ -83,7 +87,7 @@ To toggle checking of TypeScript and ESLint errors while developing using Vite p
    6. Click on Generate token
    7. Copy the token and save it `.env.local` file.
    8. Don't share your token with anyone or commit it to your repository.
-4. How to add this token in secrets ?
+4. How to add this token in secrets to be used in workflow later ?
    1. Go to your repository
    2. Click on Settings
    3. Click on Secrets and Variables -> Actions
@@ -92,14 +96,26 @@ To toggle checking of TypeScript and ESLint errors while developing using Vite p
    6. Click on Add secret
    7. Use this secret in your workflow file
 
-## How to deploy the project ?
-
 ## How to generate your own theme ?
+
+1. You need to first pick colors for your theme i.e. primary color, background color and font color.
+2. add `createTheme({ themeName:"<theme-name>", primaryColor: "<primary-color>", backgroundColor: "<background-color>", fontColor: "<font-color>"})` in `src/Common/styles.config.ts` file.
+3. VOILA! You have created a new theme.
+
+## How to host the project on github ?
+
+1. Checkout [this](https://pages.github.com/) for more information.
 
 ## DOCS
 
 ### How to use Github Actions to deploy your project ?
 
-### SPA Routing on Github Pages
+1. Checkout [this](https://vitejs.dev/guide/static-deploy.html#github-pages) for more information.
+
+### How to deal with 404 with SPA Routing on Github Pages
+
+1. Checkout [this](https://github.com/rafgraph/spa-github-pages) for more information.
 
 ### Custom Domain with Github Pages
+
+1. Checkout [this](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages) for more information.
