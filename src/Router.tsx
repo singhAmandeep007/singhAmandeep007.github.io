@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         path: "/",
 
         lazy: async () => {
-          const { HomePage } = await import("@/Pages/HomePage");
+          const { HomePage } = await import("@/Pages/Home");
           return {
             Component: HomePage,
           };
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
       {
         path: "/about",
         lazy: async () => {
-          const { AboutPage } = await import("@/Pages/AboutPage");
+          const { AboutPage } = await import("@/Pages/About");
           return {
             Component: AboutPage,
           };
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
       {
         path: "/projects",
         lazy: async () => {
-          const { ProjectsPage } = await import("@/Pages/ProjectsPage");
+          const { ProjectsPage } = await import("@/Pages/Projects");
           return {
             Component: ProjectsPage,
           };

@@ -11,10 +11,10 @@ export const flicker = keyframes`
     opacity: 0;
   }
   10% {
-    opacity: 0;
+    opacity: 1;
   }
   10.1% {
-    opacity: 1;
+    opacity: 0;
   }
   10.2% {
     opacity: 0;

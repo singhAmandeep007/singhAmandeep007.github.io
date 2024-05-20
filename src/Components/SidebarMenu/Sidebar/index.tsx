@@ -31,7 +31,7 @@ export const Sidebar = ({ open, setOpen, ...props }: TSidebarProps) => {
         <SidebarAvatarWrapper>
           <SidebarAvatar
             $open={open}
-            $delay={0.1}
+            $delay={0}
           >
             <img
               src={data.profilePic}
