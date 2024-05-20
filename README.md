@@ -56,7 +56,7 @@ To run the project, you can follow these steps:
       2. https://www.pwabuilder.com/imageGenerator
 3. Add/Remove icons in `src/Assets/icons` directory to suite your tech stack. Update their names and path in `src/Common/techIcons.ts` file.
    1. You can use https://worldvectorlogo.com/ to get SVG icons.
-4. Add/Remove <span style="background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);-webkit-background-clip: text;color: transparent;">Themes</span> in `src/Common/styles.config.ts` file.
+4. Add/Remove **Themes** in `src/Common/styles.config.ts` file.
    1. Default theme gets applied in `src/GlobalStyle.tsx` file.
 5. Update path of `Loading Component` in `src/Components/Loading/index.tsx` file as per your initials.
    1. I used https://danmarshall.github.io/google-font-to-svg-path/
