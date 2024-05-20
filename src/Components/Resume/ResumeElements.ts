@@ -47,7 +47,7 @@ const letterClosed = css`
 export const ResumeContainer = styled.div<{ $isViewed: boolean; $isOpen: boolean }>`
   width: 30em;
   height: 20em;
-  background: var(--color-primary-light-2);
+  background: ${({ theme }) => `var(${theme.color["primary-light-2"]})`};
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   position: relative;
@@ -63,9 +63,9 @@ export const ResumeContainer = styled.div<{ $isViewed: boolean; $isOpen: boolean
     top: 0;
     right: 0;
     border-left: 15em solid transparent;
-    border-right: 15em solid var(--color-primary);
+    border-right: 15em solid ${({ theme }) => `var(${theme.color["primary"]})`};
     border-top: 10em solid transparent;
-    border-bottom: 10em solid var(--color-primary);
+    border-bottom: 10em solid ${({ theme }) => `var(${theme.color["primary"]})`};
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     z-index: 4;
@@ -75,10 +75,10 @@ export const ResumeContainer = styled.div<{ $isViewed: boolean; $isOpen: boolean
     position: absolute;
     top: 0;
     right: 0;
-    border-left: 15em solid var(--color-primary-light-1);
+    border-left: 15em solid ${({ theme }) => `var(${theme.color["primary-light-1"]})`};
     border-right: 15em solid transparent;
     border-top: 10em solid transparent;
-    border-bottom: 10em solid var(--color-primary-light-1);
+    border-bottom: 10em solid ${({ theme }) => `var(${theme.color["primary-light-1"]})`};
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     z-index: 4;
@@ -91,7 +91,7 @@ export const ResumeContainer = styled.div<{ $isViewed: boolean; $isOpen: boolean
     left: 0;
     border-left: 15em solid transparent;
     border-right: 15em solid transparent;
-    border-top: 10em solid var(--color-primary-light-2);
+    border-top: 10em solid ${({ theme }) => `var(${theme.color["primary-light-2"]})`};
     border-bottom: 10em solid transparent;
 
     transform-origin: top;
@@ -125,7 +125,7 @@ export const ResumeSticker = styled.div`
   border-radius: 100%;
   text-align: center;
 
-  box-shadow: 0px 4px 1px 0px var(--color-primary);
+  box-shadow: 0px 4px 1px 0px ${({ theme }) => `var(${theme.color["primary"]})`};
   z-index: 11;
 
   /* position: absolute; */
@@ -156,8 +156,8 @@ export const ResumeSticker = styled.div`
     background: linear-gradient(
       to bottom left,
       transparent 75%,
-      var(--color-primary-light-1) 75%,
-      var(--color-primary-light-1) 100%
+      ${({ theme }) => `var(${theme.color["primary-light-1"]})`} 75%,
+      ${({ theme }) => `var(${theme.color["primary-light-1"]})`} 100%
     );
     border-radius: 100%;
   }

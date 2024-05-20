@@ -37,6 +37,21 @@ function shadeColor({ color, opacity = 1, decimal }: { color: string; opacity?: 
   return `#${rr}${gg}${bb}`;
 }
 
+export const COLOR_VARIANTS = {
+  primary: "--color-primary",
+  "primary-light-1": "--color-primary-light-1",
+  "primary-light-2": "--color-primary-light-2",
+  "primary-background": "--color-primary-background",
+  background: "--color-background",
+  font: "--color-font",
+  "github-calendar-cell-outline": "--color-github-calendar-cell-outline",
+  "github-calendar-day-bg": "--color-github-calendar-day-bg",
+  "github-calendar-day-bg-l4": "--color-github-calendar-day-bg-l4",
+  "github-calendar-day-bg-l3": "--color-github-calendar-day-bg-l3",
+  "github-calendar-day-bg-l2": "--color-github-calendar-day-bg-l2",
+  "github-calendar-day-bg-l1": "--color-github-calendar-day-bg-l1",
+} as const;
+
 /**
  * @param themeName Name of the theme
  * @param colorPrimary Hex value format(6 char)
@@ -52,21 +67,22 @@ type TCreateTheme = {
 const createTheme = ({ colorBackground, colorFont, colorPrimary, themeName }: TCreateTheme) => {
   return {
     colors: {
-      "--color-primary": colorPrimary,
-      "--color-primary-light-1": shadeColor({ color: colorPrimary, decimal: 0.55 }),
-      "--color-primary-light-2": shadeColor({ color: colorPrimary, decimal: 0.25 }),
-      "--color-primary-background": shadeColor({ color: colorPrimary, decimal: 1.3, opacity: 0.8 }),
+      [COLOR_VARIANTS.primary]: colorPrimary,
+      [COLOR_VARIANTS["primary-light-1"]]: shadeColor({ color: colorPrimary, decimal: 0.55 }),
+      [COLOR_VARIANTS["primary-light-2"]]: shadeColor({ color: colorPrimary, decimal: 0.25 }),
+      [COLOR_VARIANTS["primary-background"]]: shadeColor({ color: colorPrimary, decimal: 1.3, opacity: 0.8 }),
 
-      "--color-background": shadeColor({ color: colorBackground, opacity: 0.9 }),
+      [COLOR_VARIANTS.background]: shadeColor({ color: colorBackground, opacity: 0.9 }),
 
-      "--color-font": colorFont,
+      [COLOR_VARIANTS.font]: colorFont,
 
-      "--color-calendar-graph-cell-outline": "#69696948",
-      "--color-calendar-graph-day-bg": shadeColor({ color: colorBackground }),
-      "--color-calendar-graph-day-l4-bg": shadeColor({ color: colorPrimary, decimal: 1 }),
-      "--color-calendar-graph-day-l3-bg": shadeColor({ color: colorPrimary, opacity: 0.8 }),
-      "--color-calendar-graph-day-l2-bg": shadeColor({ color: colorPrimary, opacity: 0.4 }),
-      "--color-calendar-graph-day-l1-bg": shadeColor({ color: colorPrimary, opacity: 0.2 }),
+      // Github calendar graph colors
+      [COLOR_VARIANTS["github-calendar-cell-outline"]]: "#69696948",
+      [COLOR_VARIANTS["github-calendar-day-bg"]]: shadeColor({ color: colorBackground }),
+      [COLOR_VARIANTS["github-calendar-day-bg-l4"]]: shadeColor({ color: colorPrimary, decimal: 1 }),
+      [COLOR_VARIANTS["github-calendar-day-bg-l3"]]: shadeColor({ color: colorPrimary, opacity: 0.8 }),
+      [COLOR_VARIANTS["github-calendar-day-bg-l2"]]: shadeColor({ color: colorPrimary, opacity: 0.4 }),
+      [COLOR_VARIANTS["github-calendar-day-bg-l1"]]: shadeColor({ color: colorPrimary, opacity: 0.2 }),
     },
     themeName,
     colorBackground,
@@ -100,24 +116,3 @@ export const themes = [
   createTheme({ themeName: "blueGreen", colorPrimary: "#3CACAE", colorBackground: "#ffffff", colorFont: "#000000" }),
   createTheme({ themeName: "roseRed", colorPrimary: "#FF0080", colorBackground: "#000000", colorFont: "#ffffff" }),
 ];
-
-/**
- * Theme controlled via css variables
- * Lazy load theme colors
- */
-export const getTheme = () => {
-  // get current theme name from the html document class
-  const getCurrentThemeName = () =>
-    document.documentElement.className.split(" ").find((name) => themes.map((theme) => theme.themeName).includes(name));
-  // get attribute of the current theme by key
-  const getThemeAttr = (attr: keyof ReturnType<typeof createTheme>) =>
-    themes.find((theme) => theme.themeName === getCurrentThemeName())![attr];
-
-  return {
-    getPrimaryColor: () => getThemeAttr("colorPrimary"),
-    getBackgroundColor: () => getThemeAttr("colorBackground"),
-    getFontColor: () => getThemeAttr("colorFont"),
-    getThemeName: () => getCurrentThemeName(),
-    getThemeColors: () => getThemeAttr("colors"),
-  };
-};

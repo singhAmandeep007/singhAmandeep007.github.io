@@ -42,7 +42,7 @@ export const Sidebar = ({ open, setOpen, ...props }: TSidebarProps) => {
             <figcaption>{data.devName}</figcaption>
           </SidebarAvatar>
           <SidebarSocial>
-            {data.socialLinks.map((item, index) => {
+            {data.socialLinks.map((item) => {
               return (
                 <SidebarSocialLink
                   key={item.key}
@@ -51,8 +51,6 @@ export const Sidebar = ({ open, setOpen, ...props }: TSidebarProps) => {
                   rel="noreferrer"
                   aria-label={item.title}
                   title={item.title}
-                  $delay={index}
-                  $open={open}
                 >
                   {item.icon}
                 </SidebarSocialLink>

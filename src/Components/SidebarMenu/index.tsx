@@ -10,6 +10,7 @@ type TSidebarMenuProps = {
 };
 
 const menuId = "main-menu";
+
 export const SidebarMenu = React.forwardRef<HTMLElement, TSidebarMenuProps>((props, ref) => {
   const { isSidebarOpen, setIsSidebarOpen } = props;
 

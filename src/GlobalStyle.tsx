@@ -1,6 +1,6 @@
 import { createGlobalStyle, css } from "styled-components";
 
-import { breakpoints, themes } from "@/Common/styles.config";
+import { COLOR_VARIANTS, breakpoints, themes } from "@/Common/styles.config";
 
 // NOTE: Apply the default theme
 document.documentElement.classList.add(themes[0].themeName);
@@ -21,14 +21,8 @@ export const GlobalStyle = createGlobalStyle`
 
 		--color-scrollbar-bg: #383838;
 		--color-scrollbar-thump: #6b6b6b;
-		
-		--tooltip-text-color: var(--color-background);
-		--tooltip-background-color: var(--color-font);
-		--tooltip-margin: 30px;
-		--tooltip-arrow-size: 6px;
 
 		--color-slider-window:#393939;
-		
 	}
 
 	/* generate theme class which encapsulates theme css variables */
@@ -50,20 +44,20 @@ export const GlobalStyle = createGlobalStyle`
 	}
 	/* opacity */
 	#tsparticles > canvas {
-		background-color: var(--color-background);
+		/* background: var(--color-background); */
 		opacity: var(--tsparticles-opacity);
 		z-index: -1;
 	}
 
 	body{
-		background-color: var(--color-background);
-		color: var(--color-font);
+		background-color: var(${COLOR_VARIANTS.background});
+		color: var(${COLOR_VARIANTS.font});
 
 		font-family: var(--font-primary);
 		font-weight:300;
 
 		strong{
-			color: var(--color-primary);
+			color: var(${COLOR_VARIANTS.primary});
 			font-weight:600;
 		}
 	}
@@ -115,7 +109,7 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	::selection {
-		background-color: var(--color-primary);
+		background-color: var(${COLOR_VARIANTS.primary});
 	}
 	/* scrollbar */
 	*::-webkit-scrollbar{

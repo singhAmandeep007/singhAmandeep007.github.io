@@ -1,43 +1,16 @@
-import dayjs from "dayjs";
 import { TGithubUserData } from "./services";
 
-import advancedFormat from "dayjs/plugin/advancedFormat";
+import { formatDate } from "@/Common/utils";
 
-dayjs.extend(advancedFormat);
+import {
+  DEFAULT,
+  MAP_CONTRIBUTION_QUARTILE_TO_LEVEL,
+  TContributionLevel,
+  WEEK_LABELS,
+  WEEK_LABELS_POSITIONS,
+} from "./consts";
 
-const MAP_CONTRIBUTION_QUARTILE_TO_LEVEL = {
-  NONE: 0,
-  FIRST_QUARTILE: 1,
-  SECOND_QUARTILE: 2,
-  THIRD_QUARTILE: 3,
-  FOURTH_QUARTILE: 4,
-} as const;
-
-type TContributionLevel = keyof typeof MAP_CONTRIBUTION_QUARTILE_TO_LEVEL;
-
-const DEFAULT = {
-  THEME: [
-    "var(--color-calendar-graph-day-bg)",
-    "var(--color-calendar-graph-day-l1-bg)",
-    "var(--color-calendar-graph-day-l2-bg)",
-    "var(--color-calendar-graph-day-l3-bg)",
-    "var(--color-calendar-graph-day-l4-bg)",
-  ],
-  THEME_GITHUB: ["#161B22", "#0E4429", "#006D32", "#26A641", "#39D353"],
-
-  LABEL_FONT_SIZE: 10, // Font size for month and weekday labels
-  CELL_SIZE: 10, // Size of each rectangle
-  CELL_MARGIN: 2, // Margin between rectangles
-  WEEK_MARGIN: 4, // Margin between weeks
-  LABEL_OFFSET: 30, // Offset for labels
-} as const;
-
-const { CELL_MARGIN, WEEK_MARGIN, CELL_SIZE, LABEL_FONT_SIZE, LABEL_OFFSET, THEME } = DEFAULT;
-
-const weekLabels = ["Mon", "Wed", "Fri"];
-const weekLabelPositions = [1, 3, 5];
-
-const svgNS = "http://www.w3.org/2000/svg";
+const { CELL_MARGIN, WEEK_MARGIN, CELL_SIZE, LABEL_FONT_SIZE, LABEL_OFFSET, THEME, COLOR_FONT, COLOR_STROKE } = DEFAULT;
 
 function getRectColor(contributionLevel: TContributionLevel) {
   const level = MAP_CONTRIBUTION_QUARTILE_TO_LEVEL[contributionLevel];
@@ -47,12 +20,12 @@ function getRectColor(contributionLevel: TContributionLevel) {
 
 const labelStyles = {
   fontSize: `${DEFAULT.LABEL_FONT_SIZE}px`,
-  fill: "var(--color-font)",
+  fill: `var(${COLOR_FONT})`,
 };
 
 const cellStyles = {
   strokeWidth: "1px",
-  stroke: "var(--color-calendar-graph-cell-outline)",
+  stroke: `var(${COLOR_STROKE})`,
 };
 
 export function GithubCalendar({
@@ -91,7 +64,7 @@ export function GithubCalendar({
           style={cellStyles}
         >
           <title>
-            {day.contributionCount} contributions on {dayjs(day.date).format("MMMM Do")}.
+            {day.contributionCount} contributions on {formatDate(day.date)}.
           </title>
         </rect>
       );
@@ -126,11 +99,11 @@ export function GithubCalendar({
   });
 
   // Weekday labels
-  const weekdayLabels = weekLabels.map((label, index) => (
+  const weekdayLabels = WEEK_LABELS.map((label, index) => (
     <text
       key={`week-day-key-${index}`}
       x={LABEL_OFFSET - 5} // Left of the rectangles
-      y={LABEL_OFFSET + weekLabelPositions[index] * (CELL_SIZE + CELL_MARGIN) + CELL_SIZE / 2} // Approximate y position
+      y={LABEL_OFFSET + WEEK_LABELS_POSITIONS[index] * (CELL_SIZE + CELL_MARGIN) + CELL_SIZE / 2} // Approximate y position
       alignmentBaseline="middle"
       textAnchor="end"
       style={labelStyles}
@@ -171,7 +144,7 @@ export function GithubCalendar({
       <svg
         width={width}
         height={height}
-        xmlns={svgNS}
+        xmlns={"http://www.w3.org/2000/svg"}
         viewBox={`0 0 ${width} ${height}`}
       >
         {monthLabels}

@@ -353,7 +353,7 @@ const Project = styled.li`
 
   .project-title {
     font-size: 2rem;
-    color: var(--color-primary);
+    color: ${({ theme }) => `var(${theme.color.primary})`};
     margin-bottom: 2rem;
   }
 

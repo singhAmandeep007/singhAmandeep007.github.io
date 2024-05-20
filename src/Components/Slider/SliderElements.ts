@@ -27,13 +27,13 @@ const SlideControlButton = css`
   height: 4rem;
   padding: 0;
   border-radius: 50%;
-  color: var(--color-primary);
+  color: ${({ theme }) => `var(${theme.color.primary})`};
   background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
   transition:
     opacity 0.3s ease-in-out,
     background-color 0.3s ease-in-out;
-  border: 1px solid var(--color-primary);
+  border: 1px solid ${({ theme }) => `var(${theme.color.primary})`};
   font-size: 1.2rem;
 `;
 

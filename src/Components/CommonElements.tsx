@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const ExternalLink = styled.a<{ $fontSize: string }>`
   text-decoration: underline;
-  text-decoration-color: var(--color-primary);
+  text-decoration-color: ${({ theme }) => `var(${theme.color["primary"]})`};
   text-decoration-thickness: 1px;
   font-size: ${({ $fontSize }) => $fontSize};
   white-space: nowrap;
@@ -60,6 +60,6 @@ export const SectionTitle = styled.h2`
     width: 100%;
     height: 1px;
     margin-left: 2rem;
-    background-color: var(--color-font);
+    background-color: ${({ theme }) => `var(${theme.color["font"]})`};
   }
 `;

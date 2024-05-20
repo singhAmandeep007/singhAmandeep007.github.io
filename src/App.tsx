@@ -1,12 +1,12 @@
 import { ThemeProvider } from "styled-components";
 
-import { breakpoints, getTheme } from "@/Common/styles.config";
+import { breakpoints, COLOR_VARIANTS } from "@/Common/styles.config";
 import { GlobalStyle } from "./GlobalStyle";
 import { Router } from "./Router";
 
 const theme = {
   ...breakpoints,
-  currentTheme: getTheme(),
+  color: COLOR_VARIANTS,
 } as const;
 
 export type TTheme = typeof theme;

@@ -13,12 +13,12 @@ export const ThemeContainer = styled.div`
 `;
 
 export const ThemeTogglerContainer = styled.button`
-  color: var(--color-background);
+  color: ${({ theme }) => `var(${theme.color.background})`};
   font-size: 35px;
   cursor: pointer;
   border-radius: 50%;
   border: 0;
-  background-color: var(--color-primary);
+  background-color: ${({ theme }) => `var(${theme.color.primary})`};
 
   display: flex;
   align-items: center;

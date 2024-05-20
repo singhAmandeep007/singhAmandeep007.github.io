@@ -24,7 +24,7 @@ export const Loader = styled.div`
 `;
 
 export const LoadingPath = styled.path`
-  stroke: ${({ theme }) => theme.currentTheme.getPrimaryColor()};
+  stroke: ${({ theme }) => `var(${theme.color.primary})`};
   stroke-width: 3;
   stroke-dasharray: 500;
   stroke-dashoffset: 500;

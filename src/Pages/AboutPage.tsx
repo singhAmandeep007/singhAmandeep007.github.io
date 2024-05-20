@@ -1,9 +1,9 @@
-import profileImg from "@/Assets/profilePic.png";
 import { techIcons } from "@/Common/techIcons";
 import { ExternalLinkWithIcon, SectionContainer, SectionTitle, Wrapper } from "@/Components/CommonElements";
 import GithubData from "@/Components/GithubData";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
+import profileImg from "/profilePic.png";
 
 export const AboutPage = () => {
   return (
@@ -56,13 +56,8 @@ export const AboutPage = () => {
             </Stack>
           </Content>
         </SectionContent>
-        <SectionTitle
-          as="h3"
-          style={{ fontSize: "2rem", margin: "2rem 0 2rem 0" }}
-        >
-          My Github Contributions
-        </SectionTitle>
-        <GithubData />
+
+        <GithubData username="singhAmandeep007" />
       </Wrapper>
     </SectionContainer>
   );

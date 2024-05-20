@@ -34,7 +34,7 @@ export const BurgerContainer = styled.button<{ $open: boolean }>`
 
     width: 22px;
     height: 4px;
-    background: var(--color-primary);
+    background: ${({ theme }) => `var(${theme.color.primary})`};
     border-radius: 5px;
     transition: all 0.3s linear;
 

@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { AiOutlineCloudDownload } from "react-icons/ai";
 import { ResumeContainer, ResumeLetter, ResumeSticker } from "./ResumeElements";
 
@@ -40,7 +40,7 @@ export const Resume = ({ devName, devTitle, devResumeDownloadLink }: TResumeProp
           title="Click to download resume"
         >
           <div className="resume-letter-header">
-            <h1>{devName}</h1>
+            <h3>{devName}</h3>
             <AiOutlineCloudDownload
               onClick={downloadFile}
               size="20"
@@ -48,7 +48,7 @@ export const Resume = ({ devName, devTitle, devResumeDownloadLink }: TResumeProp
           </div>
           <div>
             <hr />
-            <h4>{devTitle}</h4> {<ResumePage />}
+            <h5>{devTitle}</h5> {<ResumePage />}
           </div>
         </ResumeLetter>
       </div>
@@ -56,7 +56,7 @@ export const Resume = ({ devName, devTitle, devResumeDownloadLink }: TResumeProp
   );
 };
 
-const ResumePage = () => {
+const ResumePage = memo(() => {
   const page = Array.from({ length: 10 }, (_, key) => {
     const width = Math.round(Math.random() * (100 - 1) + 1);
     return (
@@ -69,4 +69,6 @@ const ResumePage = () => {
     );
   });
   return <>{page}</>;
-};
+});
+
+ResumePage.displayName = "ResumePage";
