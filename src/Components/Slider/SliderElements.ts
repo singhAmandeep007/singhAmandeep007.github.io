@@ -59,6 +59,14 @@ export const SlideContainer = styled.div<{ $fullscreen: boolean }>`
       object-fit: cover;
       object-position: 50% 50%;
     }
+
+    video {
+      object-fit: contain;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
   }
 
   .awssld__controls button {

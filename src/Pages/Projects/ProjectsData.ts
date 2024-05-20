@@ -107,6 +107,23 @@ export const data = [
   },
   {
     key: uuidv4(),
+    projectName: "Social Media Feed",
+    projectDescription: `A **responsive** Instagram like social media feed. The application shows a list of **lazy loaded posts** which the user could interact with. A post contains information around the post owner, **timestamp** when it was posted, **likes** and comments count.`,
+    projectSlides: [
+      {
+        video:
+          "https://res.cloudinary.com/dryiuvv1l/video/upload/v1716229715/social-media-feed/social-media-feed_jtykic.mp4",
+        text: "Social Media Feed",
+      },
+    ],
+    projectStack: [techIcons.react, techIcons.typescript, techIcons.vitejs, techIcons.css],
+    projectLinks: {
+      live: "https://singhamandeep.me/social-media-feed/",
+      github: "https://github.com/singhAmandeep007/social-media-feed",
+    },
+  },
+  {
+    key: uuidv4(),
     projectName: "Covid Tracker India",
     projectDescription: `An **interactive** and **responsive** website with Covid-19 related information and dashboard which displays real time coronavirus statistics for all states of India using map, line chart, donut chart, and table with **theming**.
 		\n Used **[styled-components](https://styled-components.com/)** for flexibility, performance and reusability,  **[amcharts](https://www.amcharts.com/)** to build modern, fast and interactive charts, **[semantic-ui-react](https://react.semantic-ui.com/)** in dashboard page, **lazy loading** for performance and **smooth scrolling**.
