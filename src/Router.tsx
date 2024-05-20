@@ -1,10 +1,11 @@
 import { useMemo, useRef, useState } from "react";
-import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Outlet, RouterProvider, createBrowserRouter, useNavigation } from "react-router-dom";
 
 import { SidebarMenu } from "@/Components/SidebarMenu";
 import { ToggleTheme } from "@/Components/ToggleTheme";
 import { useOnClickOutside } from "@/Hooks/useOnClickOutside";
 
+import { fakeDelay } from "@/Common/utils";
 import { Loading } from "@/Components/Loading";
 import { ParticlesContainer } from "@/Components/Particles";
 
@@ -14,6 +15,8 @@ const Layout = () => {
   const sidebarNode = useRef<HTMLElement | null>(null);
 
   useOnClickOutside(sidebarNode, () => setIsSidebarOpen(false));
+
+  const { state } = useNavigation();
 
   const toggleTheme = useMemo(() => <ToggleTheme />, []);
   const particles = useMemo(() => <ParticlesContainer />, []);
@@ -26,8 +29,8 @@ const Layout = () => {
           setIsSidebarOpen={setIsSidebarOpen}
           ref={sidebarNode}
         />
+        {state === "loading" ? <Loading /> : <Outlet />}
 
-        <Outlet />
         {toggleTheme}
       </div>
       {particles}
@@ -41,8 +44,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-
         lazy: async () => {
+          await fakeDelay(1000);
           const { HomePage } = await import("@/Pages/Home");
           return {
             Component: HomePage,
@@ -52,6 +55,7 @@ const router = createBrowserRouter([
       {
         path: "/about",
         lazy: async () => {
+          await fakeDelay(1000);
           const { AboutPage } = await import("@/Pages/About");
           return {
             Component: AboutPage,
@@ -61,6 +65,7 @@ const router = createBrowserRouter([
       {
         path: "/projects",
         lazy: async () => {
+          await fakeDelay(1000);
           const { ProjectsPage } = await import("@/Pages/Projects");
           return {
             Component: ProjectsPage,
