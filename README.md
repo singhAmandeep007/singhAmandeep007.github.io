@@ -54,7 +54,7 @@ To run the project, you can follow these steps:
 ## How to customize the project according to your profile ?
 
 1. Change `VITE_APP_NAME` in `.env.development` and `.env.production` file.
-2. Change `profilePic.png`, `favicon.ico`, `logo*.png`, `manifest.json` in `public` directory.
+2. Change `profilePic.webp`, `favicon.ico`, `logo*.png`, `manifest.json` in `public` directory.
    1. You can use
       1. https://realfavicongenerator.net/
       2. https://www.pwabuilder.com/imageGenerator

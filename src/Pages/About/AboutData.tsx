@@ -1,5 +1,5 @@
 import { techIcons } from "@/Common/techIcons";
-import profileImg from "/profilePic.png";
+import profileImg from "/profilePic.webp";
 
 export const data = {
   profileImg: profileImg,

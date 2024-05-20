@@ -51,7 +51,7 @@ export const ToggleTheme = () => {
           })}
         </ThemesIconsContainer>
       )}
-      <ThemeTogglerContainer>
+      <ThemeTogglerContainer aria-label="Toggle theme">
         <MdOutlinePalette onClick={() => setIsOpen((isOpen) => !isOpen)} />
       </ThemeTogglerContainer>
     </ThemeContainer>
