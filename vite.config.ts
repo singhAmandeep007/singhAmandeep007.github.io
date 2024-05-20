@@ -101,6 +101,6 @@ export default defineConfig(({ mode }) => {
         },
       ],
     },
-    base: "/myPortfolio/",
+    base: "/",
   };
 });

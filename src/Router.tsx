@@ -35,55 +35,50 @@ const Layout = () => {
   );
 };
 
-const router = createBrowserRouter(
-  [
-    {
-      element: <Layout />,
-      children: [
-        {
-          path: "/",
-
-          lazy: async () => {
-            const { HomePage } = await import("@/Pages/HomePage");
-            return {
-              Component: HomePage,
-            };
-          },
-        },
-        {
-          path: "/about",
-          lazy: async () => {
-            const { AboutPage } = await import("@/Pages/AboutPage");
-            return {
-              Component: AboutPage,
-            };
-          },
-        },
-        {
-          path: "/articles",
-          lazy: async () => {
-            const { ArticlesPage } = await import("@/Pages/ArticlesPage");
-            return {
-              Component: ArticlesPage,
-            };
-          },
-        },
-        {
-          path: "/projects",
-          lazy: async () => {
-            const { ProjectsPage } = await import("@/Pages/ProjectsPage");
-            return {
-              Component: ProjectsPage,
-            };
-          },
-        },
-      ],
-    },
-  ],
+const router = createBrowserRouter([
   {
-    basename: "/myPortfolio",
-  }
-);
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+
+        lazy: async () => {
+          const { HomePage } = await import("@/Pages/HomePage");
+          return {
+            Component: HomePage,
+          };
+        },
+      },
+      {
+        path: "/about",
+        lazy: async () => {
+          const { AboutPage } = await import("@/Pages/AboutPage");
+          return {
+            Component: AboutPage,
+          };
+        },
+      },
+      {
+        path: "/articles",
+        lazy: async () => {
+          const { ArticlesPage } = await import("@/Pages/ArticlesPage");
+          return {
+            Component: ArticlesPage,
+          };
+        },
+      },
+      {
+        path: "/projects",
+        lazy: async () => {
+          const { ProjectsPage } = await import("@/Pages/ProjectsPage");
+          return {
+            Component: ProjectsPage,
+          };
+        },
+      },
+    ],
+  },
+]);
 
 export const Router = () => (
   <RouterProvider
