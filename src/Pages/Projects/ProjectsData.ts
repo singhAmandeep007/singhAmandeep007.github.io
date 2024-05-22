@@ -84,7 +84,7 @@ export const data: TData = [
     ],
     projectLinks: {
       live: "https://codersleague.onrender.com/",
-      github: "https://github.com/singhAmandeep007/codersLeague",
+      github: "https://github.com/singhAmandeep007/coders-league",
     },
   },
   {
@@ -186,8 +186,8 @@ export const data: TData = [
     ],
     projectStack: [techIcons.react, techIcons.styledComponents, techIcons.amcharts, techIcons.semanticui],
     projectLinks: {
-      live: "https://covidindia2020.web.app/",
-      github: "https://github.com/singhAmandeep007/Covid-19-Tracker_India",
+      live: "https://singhamandeep007.github.io/covid-tracker-india/",
+      github: "https://github.com/singhAmandeep007/covid-tracker-india",
     },
   },
   {
@@ -240,8 +240,8 @@ export const data: TData = [
     ],
     projectStack: [techIcons.react, techIcons.materialui, techIcons.css],
     projectLinks: {
-      live: "https://covidtracker-34f49.web.app/dashboard",
-      github: "https://github.com/singhAmandeep007/Covid-19-Tracker_World",
+      live: "https://singhamandeep007.github.io/covid-tracker-world",
+      github: "https://github.com/singhAmandeep007/covid-tracker-world",
     },
   },
   {
