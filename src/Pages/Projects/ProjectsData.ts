@@ -1,8 +1,22 @@
 import { v4 as uuidv4 } from "uuid";
 
-import { techIcons } from "@/Common/techIcons";
+import { techIcons, TTechIcons } from "@/Common/techIcons";
 
-export const data = [
+import { TSlide } from "@/Components/Slider";
+
+export type TData = {
+  key: string;
+  projectName: string;
+  projectDescription: string;
+  projectSlides?: TSlide[];
+  projectStack: TTechIcons[keyof TTechIcons][];
+  projectLinks: {
+    live?: string;
+    github?: string;
+  };
+}[];
+
+export const data: TData = [
   {
     key: uuidv4(),
     projectName: "Coders League",
@@ -14,49 +28,49 @@ export const data = [
 		`,
     projectSlides: [
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902638/My%20Portfolio/Coders%20League/signup_jcu9bu.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902638/My%20Portfolio/Coders%20League/signup_jcu9bu.png",
         text: "Signup Page",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902637/My%20Portfolio/Coders%20League/login_nyycsc.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902637/My%20Portfolio/Coders%20League/login_nyycsc.png",
         text: "Login Page",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902637/My%20Portfolio/Coders%20League/homepage_lgpmdt.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902637/My%20Portfolio/Coders%20League/homepage_lgpmdt.png",
         text: "Home Page",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902638/My%20Portfolio/Coders%20League/profilepage_lr0j9r.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902638/My%20Portfolio/Coders%20League/profilepage_lr0j9r.png",
         text: "Profile Page",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902637/My%20Portfolio/Coders%20League/createarticle_egmzh8.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902637/My%20Portfolio/Coders%20League/createarticle_egmzh8.png",
         text: "Creating Article",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902639/My%20Portfolio/Coders%20League/previewarticle_q4v5cu.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902639/My%20Portfolio/Coders%20League/previewarticle_q4v5cu.png",
         text: "Preview Article",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902637/My%20Portfolio/Coders%20League/commentsection_ym2lwu.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902637/My%20Portfolio/Coders%20League/commentsection_ym2lwu.png",
         text: "Comment Section",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902637/My%20Portfolio/Coders%20League/articlepage_tzfaye.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902637/My%20Portfolio/Coders%20League/articlepage_tzfaye.png",
         text: "Article Page",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902648/My%20Portfolio/Coders%20League/settingpage_y7uzmx.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1639902648/My%20Portfolio/Coders%20League/settingpage_y7uzmx.png",
         text: "Settings Page",
+        type: "image",
       },
     ],
     projectStack: [
@@ -79,46 +93,50 @@ export const data = [
     projectDescription: `An **interactive** 8 queen problem **visualizer**. User can simulate the solution or manually try solving the problem. It has **speed and board size control** as well to control the speed of simulation and change the chessboard size.`,
     projectSlides: [
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1651896099/My%20Portfolio/My%20Portfolio/p-3_wvyl9s.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1651896099/My%20Portfolio/My%20Portfolio/p-3_wvyl9s.png",
         text: "Information Modal",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1651896099/My%20Portfolio/My%20Portfolio/p-2_eur9j9.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1651896099/My%20Portfolio/My%20Portfolio/p-2_eur9j9.png",
         text: "Manual Mode",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1651896099/My%20Portfolio/My%20Portfolio/p-1_xt4bkd.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1651896099/My%20Portfolio/My%20Portfolio/p-1_xt4bkd.png",
         text: "Dashboard",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1651896280/My%20Portfolio/My%20Portfolio/p-4_wuddpw.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1651896280/My%20Portfolio/My%20Portfolio/p-4_wuddpw.png",
         text: "Simulation Mode",
+        type: "image",
       },
     ],
     projectStack: [techIcons.react, techIcons.styledComponents],
     projectLinks: {
-      live: "https://8-queen-visualizer.netlify.app/",
+      live: "https://singhamandeep007.github.io/eight-queens-problem-visualizer/",
       github: "https://github.com/singhAmandeep007/eight-queens-problem-visualizer",
     },
   },
   {
     key: uuidv4(),
     projectName: "Social Media Feed",
-    projectDescription: `A **responsive** Instagram like social media feed. The application shows a list of **lazy loaded posts** which the user could interact with. A post contains information around the post owner, **timestamp** when it was posted, **likes** and comments count.`,
+    projectDescription: `A **responsive** Instagram like social media feed. 
+		\n The application features a list of **lazy loaded** posts which the user could interact with.
+		\n Broken images and videos are handled gracefully, and users can effortlessly navigate through media using the built-in carousel.
+		\n Notably, no **external** UI libraries were used in the development of this application."
+		`,
     projectSlides: [
       {
-        video:
-          "https://res.cloudinary.com/dryiuvv1l/video/upload/v1716229715/social-media-feed/social-media-feed_jtykic.mp4",
-        text: "Social Media Feed",
+        src: "https://res.cloudinary.com/dryiuvv1l/video/upload/v1716229715/social-media-feed/social-media-feed_jtykic.mp4",
+        text: "Demo",
+        type: "video",
       },
     ],
     projectStack: [techIcons.react, techIcons.typescript, techIcons.vitejs, techIcons.css],
     projectLinks: {
-      live: "https://singhamandeep.me/social-media-feed/",
+      live: "https://singhamandeep007.github.io/social-media-feed/",
       github: "https://github.com/singhAmandeep007/social-media-feed",
     },
   },
@@ -131,45 +149,63 @@ export const data = [
 		`,
     projectSlides: [
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640078132/My%20Portfolio/Covid%20Tracker%20India/Homepage_w7xucq.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640078132/My%20Portfolio/Covid%20Tracker%20India/Homepage_w7xucq.png",
         text: "Homepage Header",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640078132/My%20Portfolio/Covid%20Tracker%20India/Public_Guidelines_cwviuw.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640078132/My%20Portfolio/Covid%20Tracker%20India/Public_Guidelines_cwviuw.png",
         text: "Interactive and Informative Slides",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640078131/My%20Portfolio/Covid%20Tracker%20India/Infopage_s8955i.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640078131/My%20Portfolio/Covid%20Tracker%20India/Infopage_s8955i.png",
         text: "Information Section",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640078131/My%20Portfolio/Covid%20Tracker%20India/faq_ovuafi.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640078131/My%20Portfolio/Covid%20Tracker%20India/faq_ovuafi.png",
         text: `FAQ's Section`,
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640078131/My%20Portfolio/Covid%20Tracker%20India/dashboardpage_fz2hmb.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640078131/My%20Portfolio/Covid%20Tracker%20India/dashboardpage_fz2hmb.png",
         text: "Dashboard Page with theme toggler",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640078131/My%20Portfolio/Covid%20Tracker%20India/dashboardtablehover_dkco2z.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640078131/My%20Portfolio/Covid%20Tracker%20India/dashboardtablehover_dkco2z.png",
         text: "Interactive Table",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640078131/My%20Portfolio/Covid%20Tracker%20India/dashboard-timelineserries_pqfu9d.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640078131/My%20Portfolio/Covid%20Tracker%20India/dashboard-timelineserries_pqfu9d.png",
         text: "Interactive Timeline Series Graph",
+        type: "image",
       },
     ],
     projectStack: [techIcons.react, techIcons.styledComponents, techIcons.amcharts, techIcons.semanticui],
     projectLinks: {
       live: "https://covidindia2020.web.app/",
       github: "https://github.com/singhAmandeep007/Covid-19-Tracker_India",
+    },
+  },
+  {
+    key: uuidv4(),
+    projectName: "Rate Limited Fuzzy Search",
+    projectDescription: `An application demonstrating **rate limiting** for an API that performs **fuzzy search** on a list of names. 
+		\n The configurable rate limiting middleware restricts the number of API requests within a specified time window and allows customization of **whitelisted** and **blacklisted** routes.`,
+
+    projectSlides: [
+      {
+        src: "https://res.cloudinary.com/dryiuvv1l/video/upload/v1716377566/rate-limit-fuzzy-search/rate-limited-fuzzy-search-1716377105542_abcek0.mp4",
+        text: "Demo",
+        type: "video",
+      },
+    ],
+    projectStack: [techIcons.expressjs, techIcons.nodejs, techIcons.jest],
+    projectLinks: {
+      github: "https://github.com/singhAmandeep007/rate-limited-fuzzy-search",
     },
   },
   {
@@ -182,24 +218,24 @@ export const data = [
 		`,
     projectSlides: [
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640184980/My%20Portfolio/Covid%20Tracker%20World/homepage_frb9cj.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640184980/My%20Portfolio/Covid%20Tracker%20World/homepage_frb9cj.png",
         text: "Homepage",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640184980/My%20Portfolio/Covid%20Tracker%20World/newspage_heqzn3.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640184980/My%20Portfolio/Covid%20Tracker%20World/newspage_heqzn3.png",
         text: "News Page",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640184981/My%20Portfolio/Covid%20Tracker%20World/precautionspage_xqwhi4.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640184981/My%20Portfolio/Covid%20Tracker%20World/precautionspage_xqwhi4.png",
         text: "Precautions Page",
+        type: "image",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640184980/My%20Portfolio/Covid%20Tracker%20World/usefulelinkspage_b7a9p0.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640184980/My%20Portfolio/Covid%20Tracker%20World/usefulelinkspage_b7a9p0.png",
         text: `Useful Links Page`,
+        type: "image",
       },
     ],
     projectStack: [techIcons.react, techIcons.materialui, techIcons.css],
@@ -216,20 +252,25 @@ export const data = [
 		`,
     projectSlides: [
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640187008/My%20Portfolio/Movie%20Compare/movie-search_gx0hid.png",
-        text: "Searching Movie",
+        src: "https://res.cloudinary.com/dryiuvv1l/video/upload/v1716382367/movieVsMovie/movie-vs-movie_kvalt3.mp4",
+        text: "Demo",
+        type: "video",
       },
       {
-        image:
-          "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640187008/My%20Portfolio/Movie%20Compare/movie-compare_a4mfbf.png",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640187008/My%20Portfolio/Movie%20Compare/movie-search_gx0hid.png",
+        text: "Searching Movie",
+        type: "image",
+      },
+      {
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1640187008/My%20Portfolio/Movie%20Compare/movie-compare_a4mfbf.png",
         text: "Movie Comparision",
+        type: "image",
       },
     ],
     projectStack: [techIcons.javascript, techIcons.css, techIcons.html],
     projectLinks: {
-      live: "https://movievsmovie.netlify.app/",
-      github: "https://github.com/singhAmandeep007/MovieVsMovie",
+      live: "https://singhamandeep007.github.io/movie-vs-movie",
+      github: "https://github.com/singhAmandeep007/movie-vs-movie",
     },
   },
 ];

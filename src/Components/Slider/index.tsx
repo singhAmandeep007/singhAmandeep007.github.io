@@ -10,18 +10,13 @@ const ButtonContentLeft = <MdArrowBack />;
 
 const ButtonContentRight = <MdArrowForward />;
 
-type TSlideI = {
-  image: string;
+export type TSlide = {
+  type: "video" | "image";
   text: string;
-};
-type TSlideV = {
-  video: string;
-  text: string;
+  src: string;
 };
 
-type TSlide = TSlideI | TSlideV;
-
-type TSlider = {
+export type TSlider = {
   slides?: TSlide[];
 };
 
@@ -55,19 +50,20 @@ export const Slider: FC<TSlider> = ({ slides = [] }) => {
         onTransitionStart={(slide) => {
           setCurrent(slide.nextIndex);
         }}
+        infinite={false}
       >
         {slides.map((data) => {
           return (
             <div key={data.text}>
-              {"image" in data && (
+              {data.type === "image" && (
                 <img
-                  src={data.image}
+                  src={data.src}
                   alt={data.text}
                 />
               )}
-              {"video" in data && (
+              {data.type === "video" && (
                 <video
-                  src={data.video}
+                  src={data.src}
                   muted
                   autoPlay={false}
                   controls={true}

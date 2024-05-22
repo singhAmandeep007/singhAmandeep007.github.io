@@ -64,22 +64,26 @@ export const ProjectsPage = () => {
                     </ul>
                   </div>
                   <div className="project-links">
-                    <a
-                      href={projectLinks.live}
-                      aria-label="external link"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      <RiExternalLinkFill />
-                    </a>
-                    <a
-                      href={projectLinks.github}
-                      aria-label="github link"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      <RiGithubFill />
-                    </a>
+                    {projectLinks.live && (
+                      <a
+                        href={projectLinks.live}
+                        aria-label="external link"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        <RiExternalLinkFill />
+                      </a>
+                    )}
+                    {projectLinks.github && (
+                      <a
+                        href={projectLinks.github}
+                        aria-label="github link"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        <RiGithubFill />
+                      </a>
+                    )}
                   </div>
                 </div>
               </Project>

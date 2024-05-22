@@ -30,6 +30,8 @@ import vuejsSvg from "@/Assets/icons/vue-js.svg";
 import amChartsSvg from "@/Assets/icons/amcharts.svg";
 import semanticUISvg from "@/Assets/icons/semantic-ui.svg";
 
+export type TTechIcon = Record<string, { label: string; logo: string }>;
+
 export const techIcons = {
   react: {
     label: "React",
@@ -155,4 +157,6 @@ export const techIcons = {
     label: "Semantic UI",
     logo: semanticUISvg,
   },
-};
+} as const;
+
+export type TTechIcons = typeof techIcons;

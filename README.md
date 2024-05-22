@@ -10,7 +10,7 @@
 
 </div>
 <h1 align="center">
-  <a href="https://singhamandeep.me/">singhamandeep.me</a>
+  <a href="https://singhamandeep007.github.io/">Amandeep Singh</a>
 </h1>
 <p align="center">
   Built with <a href="https://react.dev/" target="_blank">React + Vite</a> and hosted with <a href="https://pages.github.com/" target="_blank">Github Pages</a>
