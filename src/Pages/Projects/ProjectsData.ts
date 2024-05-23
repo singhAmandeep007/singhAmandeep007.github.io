@@ -198,7 +198,7 @@ export const data: TData = [
 
     projectSlides: [
       {
-        src: "https://res.cloudinary.com/dryiuvv1l/video/upload/v1716377566/rate-limit-fuzzy-search/rate-limited-fuzzy-search-1716377105542_abcek0.mp4",
+        src: "https://res.cloudinary.com/dryiuvv1l/video/upload/v1716447304/rate-limit-fuzzy-search/rate-limited-fuzzy-search-1716377105542_abcek0_lncdi0.webm",
         text: "Demo",
         type: "video",
       },
