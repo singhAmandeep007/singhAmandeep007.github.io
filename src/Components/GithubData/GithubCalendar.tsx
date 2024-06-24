@@ -91,7 +91,7 @@ export function GithubCalendar({
         x={xPos + LABEL_FONT_SIZE / 2}
         y={LABEL_OFFSET - 5} // Above the rectangles
         textAnchor="end"
-        style={{ ...labelStyles, writingMode: "vertical-lr" }}
+        style={{ ...labelStyles, writingMode: "vertical-lr", display: month.totalWeeks < 2 ? "none" : "block" }}
       >
         {month.name}
       </text>
