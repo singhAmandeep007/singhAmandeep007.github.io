@@ -22,18 +22,16 @@ export const ParticlesContainer = () => {
   const particles = useMemo(() => {
     if (init) {
       return (
-        <div style={{ width: 0, height: 0 }}>
-          <Particles
-            id="tsparticles"
-            options={particlesOptions}
-          />
-        </div>
+        <Particles
+          id="tsparticles"
+          options={particlesOptions}
+        />
       );
     }
     return null;
   }, [init]);
 
-  return particles;
+  return <div style={{ width: 0, height: 0 }}>{particles}</div>;
 };
 
 ParticlesContainer.displayName = "ParticlesContainer";

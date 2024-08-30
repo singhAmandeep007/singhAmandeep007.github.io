@@ -1,4 +1,4 @@
-import { techIcons } from "@/Common/techIcons";
+import { techLogos } from "@/Common/techlogos";
 import profileImg from "/profilePic.webp";
 
 export const data = {
@@ -8,6 +8,6 @@ export const data = {
 	\n My experience as a self taught proficient web developer allows me to come up with smart solutions to technical challenges.
 	\n I’m a coding enthusiast and passionate about learning and implementing web technologies.
 	\n I enjoy travelling and playing sports, I also write articles about web on **[Coders League](https://codersleague.onrender.com/)**.`,
-  stack: [...Object.values(techIcons)],
+  stack: [...Object.values(techLogos)],
   githubUsername: "singhAmandeep007",
 };

@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
-import { techIcons, TTechIcons } from "@/Common/techIcons";
+import { techLogos, TTechLogo } from "@/Common/techlogos";
 
 import { TSlide } from "@/Components/Slider";
 
@@ -9,7 +9,7 @@ export type TData = {
   projectName: string;
   projectDescription: string;
   projectSlides?: TSlide[];
-  projectStack: TTechIcons[keyof TTechIcons][];
+  projectStack: TTechLogo[keyof TTechLogo][];
   projectLinks: {
     live?: string;
     github?: string;
@@ -74,13 +74,13 @@ export const data: TData = [
       },
     ],
     projectStack: [
-      techIcons.react,
-      techIcons.redux,
-      techIcons.semanticui,
-      techIcons.mongodb,
-      techIcons.nodejs,
-      techIcons.expressjs,
-      techIcons.postman,
+      techLogos.react,
+      techLogos.redux,
+      techLogos.semanticui,
+      techLogos.mongodb,
+      techLogos.nodejs,
+      techLogos.express,
+      techLogos.postman,
     ],
     projectLinks: {
       live: "https://codersleague.onrender.com/",
@@ -113,7 +113,7 @@ export const data: TData = [
         type: "image",
       },
     ],
-    projectStack: [techIcons.react, techIcons.styledComponents],
+    projectStack: [techLogos.react, techLogos.styledcomponents],
     projectLinks: {
       live: "https://singhamandeep007.github.io/eight-queens-problem-visualizer/",
       github: "https://github.com/singhAmandeep007/eight-queens-problem-visualizer",
@@ -134,7 +134,7 @@ export const data: TData = [
         type: "video",
       },
     ],
-    projectStack: [techIcons.react, techIcons.typescript, techIcons.vitejs, techIcons.css],
+    projectStack: [techLogos.react, techLogos.typescript, techLogos.vitejs, techLogos.css],
     projectLinks: {
       live: "https://singhamandeep007.github.io/social-media-feed/",
       github: "https://github.com/singhAmandeep007/social-media-feed",
@@ -184,7 +184,7 @@ export const data: TData = [
         type: "image",
       },
     ],
-    projectStack: [techIcons.react, techIcons.styledComponents, techIcons.amcharts, techIcons.semanticui],
+    projectStack: [techLogos.react, techLogos.styledcomponents, techLogos.amcharts, techLogos.semanticui],
     projectLinks: {
       live: "https://singhamandeep007.github.io/covid-tracker-india/",
       github: "https://github.com/singhAmandeep007/covid-tracker-india",
@@ -203,7 +203,7 @@ export const data: TData = [
         type: "video",
       },
     ],
-    projectStack: [techIcons.expressjs, techIcons.nodejs, techIcons.jest],
+    projectStack: [techLogos.express, techLogos.nodejs, techLogos.jest],
     projectLinks: {
       github: "https://github.com/singhAmandeep007/rate-limited-fuzzy-search",
     },
@@ -238,7 +238,7 @@ export const data: TData = [
         type: "image",
       },
     ],
-    projectStack: [techIcons.react, techIcons.materialui, techIcons.css],
+    projectStack: [techLogos.react, techLogos.materialui, techLogos.css],
     projectLinks: {
       live: "https://singhamandeep007.github.io/covid-tracker-world",
       github: "https://github.com/singhAmandeep007/covid-tracker-world",
@@ -267,7 +267,7 @@ export const data: TData = [
         type: "image",
       },
     ],
-    projectStack: [techIcons.javascript, techIcons.css, techIcons.html],
+    projectStack: [techLogos.javascript, techLogos.css, techLogos.html],
     projectLinks: {
       live: "https://singhamandeep007.github.io/movie-vs-movie",
       github: "https://github.com/singhAmandeep007/movie-vs-movie",

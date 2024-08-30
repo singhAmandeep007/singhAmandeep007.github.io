@@ -45,7 +45,7 @@ export const AboutPage = () => {
                   return (
                     <li key={tech.label}>
                       <img
-                        src={tech.logo}
+                        src={tech.src}
                         alt={"stack " + tech.label}
                         title={tech.label}
                       />

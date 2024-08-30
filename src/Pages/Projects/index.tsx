@@ -54,7 +54,7 @@ export const ProjectsPage = () => {
                             <img
                               width={20}
                               height={20}
-                              src={tech.logo}
+                              src={tech.src}
                               alt={tech.label}
                               title={tech.label}
                             />

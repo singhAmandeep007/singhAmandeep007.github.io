@@ -5,8 +5,6 @@ import { ExternalLinkWithIcon, SectionContainer } from "@/Components/CommonEleme
 import { data } from "./HomeData";
 import { Handwave, HomeSectionResume, HomeSectionTypography, HomeSectionWrapper } from "./HomeElements";
 
-import handwavesign from "@/Assets/waving-hand-sign.svg";
-
 export const HomePage = () => {
   return (
     <SectionContainer>
@@ -17,7 +15,7 @@ export const HomePage = () => {
             <Handwave
               role="img"
               aria-labelledby="handwave"
-              src={handwavesign}
+              src={"./wavinghandsign.svg"}
               alt="handwave"
             ></Handwave>
           </h1>

@@ -58,7 +58,7 @@ To run the project, you can follow these steps:
    1. You can use
       1. https://realfavicongenerator.net/
       2. https://www.pwabuilder.com/imageGenerator
-3. Add/Remove icons in `src/Assets/icons` directory to suite your tech stack. Update their names and path in `src/Common/techIcons.ts` file.
+3. Add/Remove logos in `public/logos` directory to suite your tech stack. Update their names in `src/Common/techLogos.ts` file.
    1. You can use https://worldvectorlogo.com/ to get SVG icons.
 4. Add/Remove **Themes** in `src/Common/styles.config.ts` file.
    1. Default theme gets applied in `src/GlobalStyle.tsx` file.

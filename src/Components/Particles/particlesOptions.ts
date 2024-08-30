@@ -1,4 +1,4 @@
-import { techIcons } from "@/Common/techIcons";
+import { techLogos } from "@/Common/techlogos";
 
 import type { ISourceOptions } from "@tsparticles/engine";
 
@@ -13,7 +13,7 @@ const particlesOptions: ISourceOptions = {
     // no effect
     zIndex: -1,
   },
-  fpsLimit: 120,
+  fpsLimit: 60,
   particles: {
     number: {
       density: {
@@ -44,6 +44,7 @@ const particlesOptions: ISourceOptions = {
       value: 18,
     },
     shape: {
+      // READ-MORE: https://particles.js.org/docs/interfaces/tsParticles_Engine.Options_Interfaces_Particles_Shape_IShape.IShape.html
       options: {
         image: [],
       },
@@ -55,16 +56,11 @@ const particlesOptions: ISourceOptions = {
   detectRetina: true,
 };
 
-const particleOptionsImage = Object.keys(techIcons).map((iconName) => ({
-  name: iconName,
-}));
-const particleOptionsPreload = Object.keys(techIcons).map((iconName) => ({
-  src: techIcons[iconName as keyof typeof techIcons].logo,
-  name: iconName,
+const particleOptionsImage = Object.values(techLogos).map(({ src }) => ({
+  src,
 }));
 
 // @ts-expect-error-next-line
 particlesOptions.particles.shape.options.image = particleOptionsImage;
-particlesOptions.preload = particleOptionsPreload;
 
 export { particlesOptions };
