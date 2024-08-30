@@ -83,9 +83,19 @@ export default defineConfig(({ mode }) => {
     plugins,
     build: {
       outDir: "dist",
-      sourcemap: true,
+      sourcemap: isProdMode ? false : true,
       // READ-MORE:  https://vitejs.dev/config/build-options#build-target
       target: "esnext",
+      rollupOptions: {
+        output: {
+          // READ-MORE: https://rollupjs.org/configuration-options/#output-manualchunks
+          manualChunks: {
+            tsparticles: ["@tsparticles/react", "@tsparticles/slim"],
+            vendor: ["react", "react-dom"],
+          },
+        },
+      },
+      chunkSizeWarningLimit: 1000,
     },
     resolve: {
       alias: [
@@ -102,5 +112,9 @@ export default defineConfig(({ mode }) => {
       ],
     },
     base: "/",
+    // READ-MORE: https://vitejs.dev/config/dep-optimization-options
+    optimizeDeps: {
+      include: ["@tsparticles/react", "@tsparticles/slim"],
+    },
   };
 });
