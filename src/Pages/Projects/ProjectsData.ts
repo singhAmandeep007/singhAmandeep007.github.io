@@ -90,27 +90,17 @@ export const data: TData = [
   {
     key: uuidv4(),
     projectName: "8 Queens Problem Visualizer",
-    projectDescription: `An **interactive** 8 queen problem **visualizer**. User can simulate the solution or manually try solving the problem. It has **speed and board size control** as well to control the speed of simulation and change the chessboard size.`,
+    projectDescription: `An **interactive** 8 queen problem **visualizer**. User can simulate the solution or manually try solving the problem. It has **speed and board size control** as well to control the speed of simulation and change the chessboard size. Users can experiment with other chess pieces like **rooks**, **bishops**, and **knights** to explore different puzzle variations.`,
     projectSlides: [
       {
-        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1651896099/My%20Portfolio/My%20Portfolio/p-3_wvyl9s.png",
-        text: "Information Modal",
+        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1725087663/eight-queen-problem-visualizer/eight-queen-problem-visualizer-11_w6steb.png",
+        text: "Instructions",
         type: "image",
       },
       {
-        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1651896099/My%20Portfolio/My%20Portfolio/p-2_eur9j9.png",
-        text: "Manual Mode",
-        type: "image",
-      },
-      {
-        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1651896099/My%20Portfolio/My%20Portfolio/p-1_xt4bkd.png",
-        text: "Dashboard",
-        type: "image",
-      },
-      {
-        src: "https://res.cloudinary.com/dryiuvv1l/image/upload/v1651896280/My%20Portfolio/My%20Portfolio/p-4_wuddpw.png",
-        text: "Simulation Mode",
-        type: "image",
+        src: "https://res.cloudinary.com/dryiuvv1l/video/upload/v1725087671/eight-queen-problem-visualizer/eight-queen-problem-visualizer-1_hp8psz.mov",
+        text: "Demo",
+        type: "video",
       },
     ],
     projectStack: [techLogos.react, techLogos.styledcomponents],
