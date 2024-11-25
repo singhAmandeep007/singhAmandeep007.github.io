@@ -29,6 +29,12 @@ export const techLogoNames = [
   "vitejs",
   "amcharts",
   "semanticui",
+  "golang",
+  "pytest",
+  "react-hook-form",
+  "tailwind",
+  "tanstack",
+  "vitest",
 ] as const;
 
 type TTechLogoName = (typeof techLogoNames)[number];

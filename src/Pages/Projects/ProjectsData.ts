@@ -19,6 +19,39 @@ export type TData = {
 export const data: TData = [
   {
     key: uuidv4(),
+    projectName: "Reminder App",
+    projectDescription: `A **production grade** reminder application following best practices and modern technologies aimed to bring delightful developer experience.
+		\n Users can **organize** reminders into lists, set up one-time or recurring **notifications**, track focus time, and **manage** tasks with intuitive CRUD operations.
+		\n The project maintains high quality through comprehensive **CI/CD** with GitHub Actions, running **unit** and **e2e** tests with **mock server** integration and automated **coverage** reporting.
+		\n Built with **[Redux toolkit and RTK query](https://redux-toolkit.js.org/)** for efficient data fetching and state management, **[React Router](https://reactrouter.com/)** for routing, styled with Tailwind + shadcn/ui.
+		\n DX is enhanced with TypeScript for type safety, **[Storybook](https://storybook.js.org/)** for component development, **[ESLint](https://eslint.org/)** and **[Prettier](https://prettier.io/)** for code quality, and **[Husky](https://typicode.github.io/husky/)** for pre-commit hooks.
+		`,
+    projectSlides: [
+      {
+        src: "https://res.cloudinary.com/dryiuvv1l/video/upload/v1732476046/reminder-app/reminder-app-small_afenqb.mov",
+        text: "Reminder App Demo",
+        type: "video",
+      },
+    ],
+    projectStack: [
+      techLogos.react,
+      techLogos.redux,
+      techLogos.tailwind,
+      techLogos.msw,
+      techLogos.cypress,
+      techLogos.playwright,
+      techLogos.typescript,
+      techLogos.jest,
+      techLogos.storybook,
+      techLogos.github,
+    ],
+    projectLinks: {
+      live: "https://singhamandeep007.github.io/reminder-app/",
+      github: "https://github.com/singhAmandeep007/reminder-app",
+    },
+  },
+  {
+    key: uuidv4(),
     projectName: "Coders League",
     projectDescription: `A full-fledged interactive social network of **coders** to **share knowledge**.
 		\n Users can **create**, **search**, **like**, **bookmark**, **share articles**, **comment**, **follow** and **unfollow**, **update settings** and **subscribe** to top 10 articles weekly.
