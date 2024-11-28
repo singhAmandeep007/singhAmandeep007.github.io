@@ -23,7 +23,7 @@ export const data: TData = [
     projectDescription: `A **production grade** reminder application following best practices and modern technologies aimed to bring delightful developer experience.
 		\n Users can **organize** reminders into lists, set up one-time or recurring **notifications**, track focus time, and **manage** tasks with intuitive CRUD operations.
 		\n The project maintains high quality through comprehensive **CI/CD** with GitHub Actions, running **unit** and **e2e** tests with **mock server** integration and automated **coverage** reporting.
-		\n Built with **[Redux toolkit and RTK query](https://redux-toolkit.js.org/)** for efficient data fetching and state management, **[React Router](https://reactrouter.com/)** for routing, styled with Tailwind + shadcn/ui.
+		\n Built with **[Redux toolkit](https://redux-toolkit.js.org/)** + **[RTK Query](https://redux-toolkit.js.org/rtk-query/overview)** for efficient data fetching and state management, **[React Router](https://reactrouter.com/)** for routing, styled with Tailwind + shadcn/ui.
 		\n DX is enhanced with TypeScript for type safety, **[Storybook](https://storybook.js.org/)** for component development, **[ESLint](https://eslint.org/)** and **[Prettier](https://prettier.io/)** for code quality, and **[Husky](https://typicode.github.io/husky/)** for pre-commit hooks.
 		`,
     projectSlides: [
