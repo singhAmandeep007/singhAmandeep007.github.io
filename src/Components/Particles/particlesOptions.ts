@@ -1,8 +1,6 @@
-import { techLogos } from "@/Common/techlogos";
-
 import type { ISourceOptions } from "@tsparticles/engine";
 
-const particlesOptions: ISourceOptions = {
+const defaultParticlesOptions: ISourceOptions = {
   background: {
     position: "50% 50%",
     repeat: "no-repeat",
@@ -19,16 +17,15 @@ const particlesOptions: ISourceOptions = {
       density: {
         enable: true,
       },
-      value: 40,
     },
     move: {
-      direction: "none",
+      direction: "inside",
       enable: true,
       outModes: {
         default: "out",
       },
       random: false,
-      speed: 3,
+      speed: 5,
       straight: false,
     },
     opacity: {
@@ -36,12 +33,11 @@ const particlesOptions: ISourceOptions = {
         enable: true,
         speed: 0.5,
         sync: false,
-        delay: 1,
       },
       value: { min: 0, max: 0.5 },
     },
     size: {
-      value: 18,
+      value: 16,
     },
     shape: {
       // READ-MORE: https://particles.js.org/docs/interfaces/tsParticles_Engine.Options_Interfaces_Particles_Shape_IShape.IShape.html
@@ -56,11 +52,12 @@ const particlesOptions: ISourceOptions = {
   detectRetina: true,
 };
 
-const particleOptionsImage = Object.values(techLogos).map(({ src }) => ({
-  src,
-}));
+// NOTE: to load all images at once
+// const particleOptionsImage = Object.values(techLogos).map(({ src }) => ({
+//   src,
+// }));
 
-// @ts-expect-error-next-line
-particlesOptions.particles.shape.options.image = particleOptionsImage;
+// // @ts-expect-error-next-line
+// defaultParticlesOptions.particles.shape.options.image = particleOptionsImage;
 
-export { particlesOptions };
+export { defaultParticlesOptions };
