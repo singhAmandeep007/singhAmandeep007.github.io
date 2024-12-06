@@ -55,21 +55,21 @@ export const ParticlesContainer = () => {
       particleContainerRef.current?.particles.addParticle(undefined, {
         number: { density: { enable: true }, value: techLogoNames.length },
         opacity: {
-          value: { min: 0, max: 0.5 },
+          value: { min: 0.1, max: 0.5 },
         },
         move: {
           enable: true,
-          direction: "none",
+          direction: "right",
           outModes: {
             default: "out",
           },
           random: false,
           speed: 8,
-          straight: false,
+          straight: true,
           vibrate: true,
         },
         size: {
-          value: 16,
+          value: 10,
         },
         // READ-MORE: https://particles.js.org/docs/interfaces/tsParticles_Engine.Options_Interfaces_Particles_Shape_IShape.IShape.html
         shape: {
