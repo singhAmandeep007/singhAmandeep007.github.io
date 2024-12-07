@@ -21,6 +21,9 @@
   <a href="https://github.com/singhAmandeep007/singhAmandeep007.github.io/actions/workflows/static.yml" target="_blank">
     <img src="https://github.com/singhAmandeep007/singhAmandeep007.github.io/actions/workflows/static.yml/badge.svg" alt="Github Status" />
   </a>
+<a href="https://singhAmandeep007.github.io/upptime">
+<img alt="All-time uptime 100.00%" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FsinghAmandeep007%2Fupptime%2FHEAD%2Fapi%2Fsingh-amandeep007%2Fuptime.json">
+</a>
 </p>
 
 ![demo](/public/demo.png)
