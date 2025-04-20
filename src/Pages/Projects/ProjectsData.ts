@@ -46,8 +46,8 @@ export const data: TData = [
       techLogos.github,
     ],
     projectLinks: {
-      live: "https://singhamandeep007.github.io/reminder-app/",
-      github: "https://github.com/singhAmandeep007/reminder-app",
+      live: "https://singhamandeep007.github.io/ReMinder/",
+      github: "https://github.com/singhAmandeep007/ReMinder",
     },
   },
   {

@@ -110,6 +110,7 @@ export const GlobalStyle = createGlobalStyle`
 
 	::selection {
 		background-color: var(${COLOR_VARIANTS.primary});
+		color: var(${COLOR_VARIANTS.background});
 	}
 	/* scrollbar */
 	*::-webkit-scrollbar{
