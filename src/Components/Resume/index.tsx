@@ -48,7 +48,9 @@ export const Resume = ({ devName, devTitle, devResumeDownloadLink }: TResumeProp
           </div>
           <div>
             <hr />
-            <h4>{devTitle}</h4> {<ResumePage />}
+            <h5>{devTitle}</h5>
+            <br />
+            {<ResumePage />}
           </div>
         </ResumeLetter>
       </div>

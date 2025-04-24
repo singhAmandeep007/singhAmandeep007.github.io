@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Outlet, RouterProvider, createBrowserRouter, useNavigation } from "react-router-dom";
 
 import { SidebarMenu } from "@/Components/SidebarMenu";
@@ -18,9 +18,6 @@ const Layout = () => {
 
   const { state } = useNavigation();
 
-  const toggleTheme = useMemo(() => <ToggleTheme />, []);
-  const particles = useMemo(() => <ParticlesContainer />, []);
-
   return (
     <main>
       <div className={`App ${isSidebarOpen ? "blur" : ""}`}>
@@ -31,9 +28,9 @@ const Layout = () => {
         />
         {state === "loading" ? <Loading /> : <Outlet />}
 
-        {toggleTheme}
+        <ToggleTheme />
       </div>
-      {particles}
+      <ParticlesContainer />
     </main>
   );
 };
