@@ -90,7 +90,7 @@ export default defineConfig(({ mode }) => {
         output: {
           // READ-MORE: https://rollupjs.org/configuration-options/#output-manualchunks
           manualChunks: {
-            tsparticles: ["@tsparticles/react", "@tsparticles/slim", "@tsparticles/engine"],
+            tsparticles: ["@tsparticles/react", "@tsparticles/engine", "tsparticles"],
             vendor: ["react", "react-dom"],
           },
         },
@@ -113,11 +113,11 @@ export default defineConfig(({ mode }) => {
     },
     base: "/",
     // READ-MORE: https://vitejs.dev/config/dep-optimization-options
-    // optimizeDeps: {
-    //   include: ["@tsparticles/react", "@tsparticles/slim", "@tsparticles/engine"],
-    //   esbuildOptions: {
-    //     target: "esnext",
-    //   },
-    // },
+    optimizeDeps: {
+      include: ["@tsparticles/react", "@tsparticles/engine", "tsparticles"],
+      esbuildOptions: {
+        target: "esnext",
+      },
+    },
   };
 });

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
+import { loadFull } from "tsparticles";
 
 import type { Container } from "@tsparticles/engine";
 
@@ -24,7 +24,7 @@ export const ParticlesContainer = () => {
   // this should be run only once per application lifetime
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
+      await loadFull(engine);
     })
       .then(() => {
         setInit(true);
