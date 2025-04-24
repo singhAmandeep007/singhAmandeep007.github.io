@@ -113,11 +113,11 @@ export default defineConfig(({ mode }) => {
     },
     base: "/",
     // READ-MORE: https://vitejs.dev/config/dep-optimization-options
-    optimizeDeps: {
-      include: ["@tsparticles/react", "@tsparticles/slim", "@tsparticles/engine"],
-      esbuildOptions: {
-        target: "esnext",
-      },
-    },
+    // optimizeDeps: {
+    //   include: ["@tsparticles/react", "@tsparticles/slim", "@tsparticles/engine"],
+    //   esbuildOptions: {
+    //     target: "esnext",
+    //   },
+    // },
   };
 });
