@@ -6,5 +6,5 @@ export const data = {
 	\n Self taught expertise fuels innovative solutions. Sharing knowledge on **[Dev.to](https://dev.to/singhamandeep007)**. 
 	\n Let's bring your vision to life with high-performance solutions that users love. **[Let's Connect](mailto:amandeep.singh.fsd@gmail.com)**`,
   devTitle: "Full Stack Engineer",
-  devResumeDownloadLink: "https://drive.google.com/uc?export=download&id=18rEEOpy5_eDH5KGAwDRCtSQSkO7fEjF3",
+  devResumeDownloadLink: "https://drive.google.com/uc?export=download&id=1FO7MvUeCMfLDURHXmmPc2zbzvd3ouFON",
 };
