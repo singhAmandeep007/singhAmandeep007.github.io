@@ -68,6 +68,16 @@ const router = createBrowserRouter([
           };
         },
       },
+      {
+        path: "/posts",
+        lazy: async () => {
+          await fakeDelay(1000);
+          const { PostsPage } = await import("@/Pages/Posts");
+          return {
+            Component: PostsPage,
+          };
+        },
+      },
     ],
   },
 ]);

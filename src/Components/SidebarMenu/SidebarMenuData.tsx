@@ -42,6 +42,11 @@ export const data = {
     },
     {
       id: uuidv4(),
+      title: "Posts",
+      path: "/posts",
+    },
+    {
+      id: uuidv4(),
       title: "About",
       path: "/about",
     },
