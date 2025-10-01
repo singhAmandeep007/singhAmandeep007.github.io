@@ -55,7 +55,7 @@ export const ThemeIconWrapper = styled.li`
 
   &:hover {
     transform: scale(1.18) rotate(-8deg);
-    filter: brightness(1.2) drop-shadow(0 0 8px #fff7);
+    filter: brightness(1.2) drop-shadow(0 0 8px #fff);
   }
   &.is-selected {
     transform: scale(1.25);
